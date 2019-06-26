@@ -1,0 +1,6 @@
+framework module Pods_GMChat {
+  umbrella header "Pods-GMChat-umbrella.h"
+
+  export *
+  module * { export * }
+}

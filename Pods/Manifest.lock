@@ -1,0 +1,69 @@
+PODS:
+  - Alamofire (4.8.2)
+  - Kingfisher (4.10.1)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - ObjectMapper (3.5.0)
+  - Realm (3.10.0):
+    - Realm/Headers (= 3.10.0)
+  - Realm/Headers (3.10.0)
+  - RealmSwift (3.10.0):
+    - Realm (= 3.10.0)
+  - Result (4.1.0)
+  - RongCloudIM/IMKit (2.9.18):
+    - RongCloudIM/IMLib
+  - RongCloudIM/IMLib (2.9.18)
+  - SnapKit (4.0.1)
+  - SwiftProgressHUD (0.0.7)
+  - SwiftyJSON (4.3.0)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
+
+DEPENDENCIES:
+  - Kingfisher
+  - Moya (~> 13.0)
+  - ObjectMapper
+  - RealmSwift (~> 3.10.0)
+  - RongCloudIM/IMKit (~> 2.9.18)
+  - RongCloudIM/IMLib (~> 2.9.18)
+  - SnapKit (~> 4.0.0)
+  - SwiftProgressHUD
+  - SwiftyJSON (~> 4.0)
+  - YYCategories
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Kingfisher
+    - Moya
+    - ObjectMapper
+    - Realm
+    - RealmSwift
+    - Result
+    - RongCloudIM
+    - SnapKit
+    - SwiftProgressHUD
+    - SwiftyJSON
+    - YYCategories
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  ObjectMapper: 078b564ed25c6578b62588e306bf1da3924636d4
+  Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
+  RealmSwift: 69121c8b86d0ae005fb779efdb10e606732e1c74
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RongCloudIM: 827c498ea45c93b389b4b57ececc528f2601ee1e
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SwiftProgressHUD: 27d2a9fb4e9f356dbbbfd98477916652cc9b7ac1
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
+
+PODFILE CHECKSUM: 604d19d15f1a62ef78eba556cbb43285c3c7072c
+
+COCOAPODS: 1.5.3
