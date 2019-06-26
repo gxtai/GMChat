@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class TabBarViewController: UITabBarController {
 
@@ -36,6 +37,10 @@ class TabBarViewController: UITabBarController {
             return BaseNavigationViewController(rootViewController: viewController)
         })
         
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        AudioServicesPlaySystemSound(1519)
     }
 
 }

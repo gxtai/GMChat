@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 protocol BookListIndexViewDelegate: NSObjectProtocol {
     func touchTheChactor(index: Int, lastIndex: Int, charactor: String)
@@ -132,6 +133,8 @@ extension BookListIndexView {
         let ch = charactorsArray[index]
         
         if lastIndex == index { return }
+        
+        AudioServicesPlaySystemSound(1519)
         
         delegate?.touchTheChactor(index: index, lastIndex: lastIndex,charactor: ch)
         
