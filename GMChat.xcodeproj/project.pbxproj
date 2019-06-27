@@ -53,6 +53,10 @@
 		A68D381222BB213800D317EE /* BookListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68D381122BB213800D317EE /* BookListService.swift */; };
 		A68D381822BB25CF00D317EE /* SearchPageSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68D381722BB25CF00D317EE /* SearchPageSearchBarView.swift */; };
 		A68E9B6922B8EC470029F547 /* BookListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E9B6822B8EC470029F547 /* BookListHeaderView.swift */; };
+		A6983D0122C49E8F0042B591 /* RCIMDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6983D0022C49E8F0042B591 /* RCIMDataSource.swift */; };
+		A6983D0422C4A85A0042B591 /* MineMainPageNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6983D0322C4A85A0042B591 /* MineMainPageNormalCell.swift */; };
+		A6983D0822C4B4590042B591 /* MineMainPageUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6983D0722C4B4590042B591 /* MineMainPageUserInfoView.swift */; };
+		A6983D0A22C4B9B20042B591 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +109,10 @@
 		A68D381122BB213800D317EE /* BookListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListService.swift; sourceTree = "<group>"; };
 		A68D381722BB25CF00D317EE /* SearchPageSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageSearchBarView.swift; sourceTree = "<group>"; };
 		A68E9B6822B8EC470029F547 /* BookListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListHeaderView.swift; sourceTree = "<group>"; };
+		A6983D0022C49E8F0042B591 /* RCIMDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCIMDataSource.swift; sourceTree = "<group>"; };
+		A6983D0322C4A85A0042B591 /* MineMainPageNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineMainPageNormalCell.swift; sourceTree = "<group>"; };
+		A6983D0722C4B4590042B591 /* MineMainPageUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineMainPageUserInfoView.swift; sourceTree = "<group>"; };
+		A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		CC9C0806FEC8FCF867EC6B38 /* Pods-GMChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GMChat/Pods-GMChat.debug.xcconfig"; sourceTree = "<group>"; };
 		F98D7EA5716AE7B126DB5379 /* Pods-GMChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-GMChat/Pods-GMChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,8 +310,7 @@
 		A67F192722B34D28007D20D4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A631784022C1F09A00EA8A73 /* UserInfoData */,
-				A631783B22C1BC0700EA8A73 /* Realm */,
+				A6983CFE22C49E360042B591 /* DataSource */,
 				A62403F322C06DC800496D3A /* Login */,
 				A67F193122B34FBA007D20D4 /* Session */,
 				A67F193222B34FC1007D20D4 /* AddressBook */,
@@ -417,6 +424,7 @@
 		A67F193922B35576007D20D4 /* MineMain */ = {
 			isa = PBXGroup;
 			children = (
+				A6983D0222C4A4AB0042B591 /* View */,
 				A67F193D22B35596007D20D4 /* Controller */,
 			);
 			path = MineMain;
@@ -475,6 +483,7 @@
 				A67F195822B38D99007D20D4 /* UIBarButtonItem+Extensions.swift */,
 				A67F195A22B39786007D20D4 /* UIView+Extensions.swift */,
 				A624040D22C0D55700496D3A /* Date+Extensions.swift */,
+				A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -534,6 +543,33 @@
 			isa = PBXGroup;
 			children = (
 				A68D381722BB25CF00D317EE /* SearchPageSearchBarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A6983CFE22C49E360042B591 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				A6983CFF22C49E500042B591 /* RCIMData */,
+				A631784022C1F09A00EA8A73 /* UserInfoData */,
+				A631783B22C1BC0700EA8A73 /* Realm */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		A6983CFF22C49E500042B591 /* RCIMData */ = {
+			isa = PBXGroup;
+			children = (
+				A6983D0022C49E8F0042B591 /* RCIMDataSource.swift */,
+			);
+			path = RCIMData;
+			sourceTree = "<group>";
+		};
+		A6983D0222C4A4AB0042B591 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A6983D0722C4B4590042B591 /* MineMainPageUserInfoView.swift */,
+				A6983D0322C4A85A0042B591 /* MineMainPageNormalCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -724,16 +760,20 @@
 				A6230FE422B7900A00A5DD95 /* BookListCell.swift in Sources */,
 				A6230FD422B73C2C00A5DD95 /* SectionModel.swift in Sources */,
 				A624040622C0CE2A00496D3A /* LoginProvider.swift in Sources */,
+				A6983D0122C49E8F0042B591 /* RCIMDataSource.swift in Sources */,
 				A67F192D22B34DB5007D20D4 /* BaseNavigationViewController.swift in Sources */,
 				A68D381822BB25CF00D317EE /* SearchPageSearchBarView.swift in Sources */,
 				A66D6F7A22BCA9EF006F5B2C /* BookListIndexView.swift in Sources */,
 				A683790622BA3627008DCD40 /* SearchBar.swift in Sources */,
 				A62403FA22C06F5D00496D3A /* Interface.swift in Sources */,
 				A631783D22C1BCC500EA8A73 /* UserInfoRealm.swift in Sources */,
+				A6983D0A22C4B9B20042B591 /* UIImageView+Extensions.swift in Sources */,
+				A6983D0822C4B4590042B591 /* MineMainPageUserInfoView.swift in Sources */,
 				A67F195322B37DE1007D20D4 /* UIColor+Extensions.swift in Sources */,
 				A624040E22C0D55700496D3A /* Date+Extensions.swift in Sources */,
 				A624040A22C0D1F100496D3A /* Provider+Config.swift in Sources */,
 				A624040C22C0D31F00496D3A /* ThirdPartConfig.swift in Sources */,
+				A6983D0422C4A85A0042B591 /* MineMainPageNormalCell.swift in Sources */,
 				A67F195722B38C87007D20D4 /* UIViewController+Extensions.swift in Sources */,
 				A67F194122B355E9007D20D4 /* SessionListViewController.swift in Sources */,
 				A67F195522B37DE1007D20D4 /* NSString+Extensions.swift in Sources */,

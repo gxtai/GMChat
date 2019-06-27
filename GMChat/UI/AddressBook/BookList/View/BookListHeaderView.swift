@@ -32,14 +32,14 @@ class BookListHeaderView: UITableViewHeaderFooterView {
     }
     
     func setupViews() {
-        contentView.backgroundColor = UIColor.withRGB(246, 246, 246)
+        contentView.backgroundColor = color_246
         titleLab.snp_makeConstraints { (make) in
             make.left.equalTo(12)
             make.centerY.equalTo(self.contentView.snp_centerY).offset(0)
         }
         
         let lineView = UIView()
-        lineView.backgroundColor = UIColor.withRGB(246, 246, 246)
+        lineView.backgroundColor = color_246
         contentView.addSubview(lineView)
         lineView.snp_makeConstraints { (make) in
             make.left.bottom.right.equalTo(0)

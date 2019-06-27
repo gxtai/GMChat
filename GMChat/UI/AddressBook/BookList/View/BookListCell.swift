@@ -26,7 +26,7 @@ class BookListCell: UITableViewCell {
     
     @objc func showDataWithRowModel(_ rowModel: RowModel) {
         let listModel = rowModel.dataModel as! BookListModel
-        headerImageView.kf.setImage(with: URL(string: listModel.photo), placeholder: UIImage(named: "common_user_header_image_place"), options: nil, progressBlock: nil, completionHandler: nil)
+        headerImageView.netImage(url: listModel.photo, placeholderImage: UIImage(named: "common_user_header_image_place"))
         nameLab.text = listModel.name
     }
     

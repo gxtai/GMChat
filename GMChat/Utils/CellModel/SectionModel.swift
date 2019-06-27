@@ -22,7 +22,7 @@ class SectionModel: NSObject {
         super.init()
     }
     
-    init(title: String) {
+    init(title: String?) {
         self.title = title
         super.init()
     }

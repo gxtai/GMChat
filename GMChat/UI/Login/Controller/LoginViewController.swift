@@ -82,12 +82,20 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     /// 链接融云服务器
     func connectRCIM(token: String) {
         RCIM.shared()?.connect(withToken: token, success: { (userId) in
-            self.userInfo(token: token, userID: userId!)
+            if let userId = userId {
+                self.userInfo(token: token, userID: userId)
+            } else {
+                showFailMessage("登录状态失效，请重新登录")
+            }
         }, error: { (status) in
-            print(status.rawValue)
-            showFailMessage("登录异常")
+            DispatchQueue.main.async {
+                showFailMessage("登录状态失效，请重新登录\(status.rawValue)")
+            }
         }, tokenIncorrect: {
-            showFailMessage("登录状态失效，请重新登录")
+            DispatchQueue.main.async {
+                showFailMessage("登录状态失效，请重新登录")
+                logOut()
+            }
         })
     }
     
@@ -124,6 +132,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                 } catch {
                     print(error)
                 }
+                
+                RCIM.shared()?.currentUserInfo = RCUserInfo(userId: userID, name: userModel.userName, portrait: userModel.userPortrait)
                 
                 UserDefaults.standard.set(userID, forKey: currentUserID)
                 UserDefaults.standard.set(true, forKey: loginStatus)

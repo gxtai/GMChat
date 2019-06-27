@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         initRoot()
         initRCIM()
+        configRCIM()
         return true
     }
 
@@ -49,23 +50,40 @@ extension AppDelegate {
         }
         
     }
-    /// 融云
+    /// 融云初始化和登录
     func initRCIM() {
         RCIM.shared()?.initWithAppKey("p5tvi9dspe844")
         
         if UserDefaults.standard.bool(forKey: loginStatus) {
             
+            RCIM.shared()?.currentUserInfo = RCUserInfo(userId: UserInfo.shared.userId, name: UserInfo.shared.name, portrait: UserInfo.shared.photo)
+            
             RCIM.shared()?.connect(withToken: UserInfo.shared.imToken, success: { (userId) in
                 print("当前登录的用户id：\(String(describing: userId))")
             }, error: { (status) in
-                showFailMessage("登录异常\(status)")
+                DispatchQueue.main.async {
+                    showFailMessage("登录状态失效，请重新登录\(status.rawValue)")
+                    logOut()
+                }
             }, tokenIncorrect: {
-                showFailMessage("登录状态失效，请重新登录")
-                UIApplication.shared.keyWindow?.rootViewController = LoginViewController()
+                DispatchQueue.main.async {
+                    showFailMessage("登录状态失效，请重新登录")
+                    logOut()
+                }
             })
-            
         }
-        
     }
+    
+}
+
+extension AppDelegate {
+    /// 设置融云
+    func configRCIM() {
+        //设置用户信息源和群组信息源
+        RCIM.shared()?.userInfoDataSource = RCIMDataSource.shared
+        RCIM.shared()?.groupInfoDataSource = RCIMDataSource.shared
+    }
+    
+    
 }
 

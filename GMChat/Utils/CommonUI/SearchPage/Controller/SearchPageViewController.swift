@@ -51,7 +51,7 @@ class SearchPageViewController: BaseViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.withRGB(246, 246, 246)
+        tableView.backgroundColor = color_246
         return tableView
     }()
 }

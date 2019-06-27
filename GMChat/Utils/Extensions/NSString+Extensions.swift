@@ -82,7 +82,14 @@ extension String {
         return false
     }
     
-    
+    /// 手机号加密
+    func phoneNumReplaceWithStar() -> String {
+        var replaceString = self
+        if replaceString.count == 11 {
+            replaceString = replaceString.replacingCharacters(in: replaceString.toRange(NSMakeRange(3, self.count - 7))!, with: "****")
+        }
+        return replaceString
+    }
     
 }
 

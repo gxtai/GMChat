@@ -38,8 +38,10 @@ let color_333333 = UIColor.withHex(hexString: "#333333")
 let color_666666 = UIColor.withHex(hexString: "#666666")
 let color_ffdc2f = UIColor.withHex(hexString: "#ffdc2f")
 let color_999999 = UIColor.withHex(hexString: "#999999")
+let color_246 = UIColor.withRGB(246, 246, 246)
 /// 通用按钮背景图片
 let btnNormalImage = UIImage.from(color: UIColor.withHex(hexString: "#ffdc2f"))
+let headerPlaceholderImage = UIImage(named: "common_user_header_image_place")
 
 /// default
 let loginStatus = "loginStatus" // 登录状态

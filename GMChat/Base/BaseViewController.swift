@@ -12,7 +12,7 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.withRGB(246, 246, 246)
+        view.backgroundColor = color_246
 //        self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
     }
     

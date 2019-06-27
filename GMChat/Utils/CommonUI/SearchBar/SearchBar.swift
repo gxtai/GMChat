@@ -28,7 +28,7 @@ class SearchBar: UIView {
     
     func setupViews() {
         
-        backgroundColor = UIColor.withRGB(246, 246, 246)
+        backgroundColor = color_246
         
         let btn = UIButton(type: .custom)
         addSubview(btn)

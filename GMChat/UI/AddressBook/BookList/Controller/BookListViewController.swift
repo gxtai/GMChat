@@ -84,7 +84,7 @@ class BookListViewController: BaseViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.withRGB(246, 246, 246)
+        tableView.backgroundColor = color_246
         tableView.tableHeaderView = self.searchBar
         tableView.showsVerticalScrollIndicator = false
         return tableView
@@ -278,7 +278,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
         if (self.tableView.isDragging || self.tableView.isDecelerating) && isUpScroll {
 
             (view as? BookListHeaderView)?.titleColor = UIColor.withHex(hexString: "#999999")
-            (view as? BookListHeaderView)?.contentView.backgroundColor = UIColor.withRGB(246, 246, 246)
+            (view as? BookListHeaderView)?.contentView.backgroundColor = color_246
             
             let nextHeader = tableView.headerView(forSection: section + 1)
             (nextHeader as? BookListHeaderView)?.titleColor = mainColor
@@ -298,7 +298,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
             
             let nextHeader = tableView.headerView(forSection: section + 1)
             (nextHeader as? BookListHeaderView)?.titleColor = UIColor.withHex(hexString: "#999999")
-            (nextHeader as? BookListHeaderView)?.contentView.backgroundColor = UIColor.withRGB(246, 246, 246)
+            (nextHeader as? BookListHeaderView)?.contentView.backgroundColor = color_246
             
             indexView.changeTheIndex(currentSelectedIndex: section, lastSelectedIndex: section + 1)
             

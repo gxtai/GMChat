@@ -88,4 +88,5 @@ func logOut() {
     UserDefaults.standard.set(nil, forKey: currentUserID)
     UserDefaults.standard.set(false, forKey: loginStatus)
     RCIM.shared()?.logout()
+    UIApplication.shared.keyWindow?.rootViewController = LoginViewController()
 }
