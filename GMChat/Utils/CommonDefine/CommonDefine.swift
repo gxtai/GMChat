@@ -35,9 +35,12 @@ let kTopHeight : CGFloat = kStatusBarHeight + kNavBarHeight
 let mainColor = UIColor.withRGB(255, 220, 47)
 /// 常用color
 let color_333333 = UIColor.withHex(hexString: "#333333")
+let color_000000 = UIColor.withHex(hexString: "#000000")
+let color_b2b2b2 = UIColor.withHex(hexString: "#b2b2b2")
 let color_666666 = UIColor.withHex(hexString: "#666666")
 let color_ffdc2f = UIColor.withHex(hexString: "#ffdc2f")
 let color_999999 = UIColor.withHex(hexString: "#999999")
+let color_e5e5e5 = UIColor.withHex(hexString: "#e5e5e5")
 let color_246 = UIColor.withRGB(246, 246, 246)
 /// 通用按钮背景图片
 let btnNormalImage = UIImage.from(color: UIColor.withHex(hexString: "#ffdc2f"))

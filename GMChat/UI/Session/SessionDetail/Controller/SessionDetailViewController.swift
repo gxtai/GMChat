@@ -9,7 +9,9 @@
 import UIKit
 
 class SessionDetailViewController: RCConversationViewController {
-
+    
+    var conversation: RCConversationModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

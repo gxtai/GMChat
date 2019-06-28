@@ -1,33 +1,25 @@
 //
-//  BookListCell.swift
+//  SearchResultCell.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/6/17.
+//  Created by 花动传媒 on 2019/6/28.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 
 import UIKit
-import SnapKit
-import Kingfisher
-
-let BookListCellID = "BookListCellID"
-
-class BookListCell: UITableViewCell {
+let SearchResultCellID = "SearchResultCellID"
+class SearchResultCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
     }
     
-    @objc func showDefaultDataWithRowModel(_ rowModel: RowModel) {
-        headerImageView.image = UIImage(named: rowModel.imageName!)
-        nameLab.text = rowModel.title
-    }
-    
     @objc func showDataWithRowModel(_ rowModel: RowModel) {
-        let listModel = rowModel.dataModel as! BookListModel
-        headerImageView.netImage(url: listModel.photo, placeholderImage: UIImage(named: "common_user_header_image_place"))
-        nameLab.text = listModel.name
+        let resultModel: SearchResultModel = rowModel.dataModel as! SearchResultModel
+        headerImageView.netImage(url: resultModel.portraitUri, placeholderImage: headerPlaceholderImage)
+        nameLab.text = resultModel.name
+        contentLab.text = resultModel.otherInformation
     }
     
     func setupViews() {
@@ -39,7 +31,14 @@ class BookListCell: UITableViewCell {
         
         nameLab.snp_makeConstraints { (make) in
             make.left.equalTo(headerImageView.snp_right).offset(10)
-            make.centerY.equalTo(self.contentView.snp_centerY).offset(0)
+            make.right.equalTo(-5)
+            make.top.equalTo(10)
+        }
+        
+        contentLab.snp_makeConstraints { (make) in
+            make.left.equalTo(headerImageView.snp_right).offset(10)
+            make.right.equalTo(-5)
+            make.top.equalTo(nameLab.snp_bottom).offset(3)
         }
     }
     
@@ -53,16 +52,23 @@ class BookListCell: UITableViewCell {
     
     lazy var nameLab: UILabel = {
         let nameLab = UILabel()
-        nameLab.textColor = UIColor.withHex(hexString: "#000000")
+        nameLab.textColor = color_000000
         nameLab.font = FONT(16)
         self.contentView.addSubview(nameLab)
         return nameLab
     }()
     
+    lazy var contentLab: UILabel = {
+        let contentLab = UILabel()
+        contentLab.textColor = color_999999
+        contentLab.font = FONT(12)
+        self.contentView.addSubview(contentLab)
+        return contentLab
+    }()
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

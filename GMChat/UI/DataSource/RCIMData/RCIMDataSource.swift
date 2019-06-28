@@ -20,8 +20,25 @@ class RCIMDataSource: NSObject, RCIMUserInfoDataSource {
      在您设置了用户信息提供者之后，SDK在需要显示用户信息的时候，会调用此方法，向您请求用户信息用于显示。
      */
     func getUserInfo(withUserId userId: String!, completion: ((RCUserInfo?) -> Void)!) {
-        
-        
+        print("getUserInfoWithUserId ----- \(String(describing: userId))")
+        let user = RCUserInfo()
+        if userId == nil || userId.count == 0  {
+            user.userId = userId
+            user.portraitUri = ""
+            user.name = ""
+            completion(user)
+            return
+        }
+        // 请求用户信息
+        fetchUserInfo(userId: userId, type: RCUserInfo.self) { (result) in
+            if result.result == false { return }
+            guard let user = result.model else { return }
+            if userId == RCIM.shared()?.currentUserInfo.userId {
+                RCIM.shared()?.refreshUserInfoCache(user, withUserId: user.userId)
+            }
+            completion(user)
+        }
+        return
     }
 }
 
@@ -51,7 +68,7 @@ extension RCIMDataSource: RCIMGroupUserInfoDataSource {
      @discussion 如果您使用了群名片功能，SDK需要通过您实现的群名片信息提供者，获取用户在群组中的名片信息并显示。
      */
     func getUserInfo(withUserId userId: String!, inGroup groupId: String!, completion: ((RCUserInfo?) -> Void)!) {
-        
+        completion(nil)
     }
 }
 

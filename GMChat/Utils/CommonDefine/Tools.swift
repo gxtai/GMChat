@@ -42,24 +42,6 @@ func swiftClassFromString(className: String) -> AnyClass! {
     return nil;
 }
 
-/// 判断用户是否存在
-func judgeUserIsExist(phoneNum: String) -> (result: Bool, model: BookListModel?) {
-    
-    var allFriendsListArray: [BookListModel] = []
-    
-    fetchAllAddressBookList { (listArray) in
-        allFriendsListArray = listArray
-    }
-        
-    for listModel in allFriendsListArray {
-        if listModel.phone == phoneNum {
-            return (true, listModel)
-        }
-    }
-    
-    return (false, nil)
-}
-
 /// msg toast
 func showSuccessMessage(_ message: String?) {
     hudHide()
@@ -82,6 +64,10 @@ func hudHide(){
     SwiftProgressHUD.hideAllHUD()
 }
 
+/// RCConversationType 枚举 转为 NSNumber
+func num(_ value: RCConversationType) -> NSNumber {
+    return NSNumber(value: value.rawValue)
+}
 
 /// 退出登录
 func logOut() {

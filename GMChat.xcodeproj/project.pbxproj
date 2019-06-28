@@ -57,6 +57,8 @@
 		A6983D0422C4A85A0042B591 /* MineMainPageNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6983D0322C4A85A0042B591 /* MineMainPageNormalCell.swift */; };
 		A6983D0822C4B4590042B591 /* MineMainPageUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6983D0722C4B4590042B591 /* MineMainPageUserInfoView.swift */; };
 		A6983D0A22C4B9B20042B591 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */; };
+		A69ABA7322C606CE00EA844C /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ABA7222C606CE00EA844C /* SearchResultCell.swift */; };
+		A69ABA7722C60D2D00EA844C /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +115,8 @@
 		A6983D0322C4A85A0042B591 /* MineMainPageNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineMainPageNormalCell.swift; sourceTree = "<group>"; };
 		A6983D0722C4B4590042B591 /* MineMainPageUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineMainPageUserInfoView.swift; sourceTree = "<group>"; };
 		A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		A69ABA7222C606CE00EA844C /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
 		CC9C0806FEC8FCF867EC6B38 /* Pods-GMChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GMChat/Pods-GMChat.debug.xcconfig"; sourceTree = "<group>"; };
 		F98D7EA5716AE7B126DB5379 /* Pods-GMChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-GMChat/Pods-GMChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -397,6 +401,7 @@
 		A67F193622B35510007D20D4 /* SessionList */ = {
 			isa = PBXGroup;
 			children = (
+				A69ABA6F22C5C08A00EA844C /* View */,
 				A67F193A22B35582007D20D4 /* Controller */,
 			);
 			path = SessionList;
@@ -525,6 +530,7 @@
 		A68D381422BB24C100D317EE /* SearchPage */ = {
 			isa = PBXGroup;
 			children = (
+				A69ABA7522C60D1100EA844C /* Model */,
 				A68D381622BB256600D317EE /* View */,
 				A68D381522BB255C00D317EE /* Controller */,
 			);
@@ -543,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				A68D381722BB25CF00D317EE /* SearchPageSearchBarView.swift */,
+				A69ABA7222C606CE00EA844C /* SearchResultCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -572,6 +579,21 @@
 				A6983D0322C4A85A0042B591 /* MineMainPageNormalCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A69ABA6F22C5C08A00EA844C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A69ABA7522C60D1100EA844C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -749,6 +771,7 @@
 				A6230FD322B73C2C00A5DD95 /* RowModel.swift in Sources */,
 				A631784522C1FBA600EA8A73 /* UserInfoModel.swift in Sources */,
 				A631783722C1B51F00EA8A73 /* LoginViewController.swift in Sources */,
+				A69ABA7322C606CE00EA844C /* SearchResultCell.swift in Sources */,
 				A67F195B22B39786007D20D4 /* UIView+Extensions.swift in Sources */,
 				A631783822C1B52000EA8A73 /* LoginViewController+Extension.swift in Sources */,
 				A67F194922B356C6007D20D4 /* DynamicListViewController.swift in Sources */,
@@ -778,6 +801,7 @@
 				A67F194122B355E9007D20D4 /* SessionListViewController.swift in Sources */,
 				A67F195522B37DE1007D20D4 /* NSString+Extensions.swift in Sources */,
 				A6230FE022B7797400A5DD95 /* BookListModel.swift in Sources */,
+				A69ABA7722C60D2D00EA844C /* SearchResultModel.swift in Sources */,
 				A683790822BA3B36008DCD40 /* SearchPageViewController.swift in Sources */,
 				A62403F822C06F4C00496D3A /* Network.swift in Sources */,
 				A67F194722B356AA007D20D4 /* BookListViewController.swift in Sources */,

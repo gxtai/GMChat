@@ -61,7 +61,6 @@ class BookListViewController: BaseViewController {
         sessionDetail.targetId = listModel.id
         sessionDetail.title = listModel.name
         sessionDetail.displayUserNameInCell = false
-        sessionDetail.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(sessionDetail, animated: true)
     }
     
@@ -136,7 +135,7 @@ extension BookListViewController {
         for i in 0..<imageArray.count {
             let rowModel = RowModel(title: titleArray[i], className: NSStringFromClass(BookListCell.self), reuseIdentifier: BookListCellID)
             rowModel.imageName = imageArray[i]
-            rowModel.height = 50
+            rowModel.height = 64
             rowModel.accessoryType = .none
             rowModel.showDataString = "showDefaultDataWithRowModel:"
             rowModel.selectorString = selStrArray[i]
@@ -152,7 +151,7 @@ extension BookListViewController {
         for friendModel in modelList {
             
             let rowModel = RowModel(title: nil, className: NSStringFromClass(BookListCell.self), reuseIdentifier: BookListCellID)
-            rowModel.height = 50
+            rowModel.height = 64
             rowModel.accessoryType = .none
             rowModel.selectorString = "clickedTheCell:"
             rowModel.dataModel = friendModel
@@ -185,7 +184,7 @@ extension BookListViewController {
 /// search
 extension BookListViewController: SearchBarDelegate, BookListIndexViewDelegate {
     func clickedTheSearchBar() {
-        present(SearchPageViewController(), animated: false, completion: nil)
+        navigationController?.pushViewController(SearchPageViewController(), animated: false)
     }
     
     func touchTheChactor(index: Int, lastIndex: Int, charactor: String) {

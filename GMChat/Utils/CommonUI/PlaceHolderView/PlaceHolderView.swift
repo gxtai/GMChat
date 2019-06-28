@@ -10,17 +10,14 @@ import UIKit
 
 class PlaceHolderView: UIView {
 
+    var placeHolderText: String?
+    var imageName: String?
+    
+    
     public class func show(in superView: UIView, frame: CGRect, text: String?, imageName: String?) {
-        let view = PlaceHolderView(frame: frame)
-        if text != nil {
-            view.titleLab.text = text
-        }
-        if imageName != nil {
-            view.imageView.image = UIImage(named: imageName!)
-        }
+        let view = PlaceHolderView(frame: frame, text: text, imageName: imageName)
         hide(from: superView)
         superView.addSubview(view)
-        view.setupViews()
     }
     
     public class func hide(from superView: UIView) {
@@ -32,8 +29,11 @@ class PlaceHolderView: UIView {
         }
     }
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, text: String?, imageName: String?) {
+        self.placeHolderText = text
+        self.imageName = imageName
         super.init(frame: frame)
+        setupViews()
     }
     
     func setupViews() {
@@ -50,14 +50,14 @@ class PlaceHolderView: UIView {
     }
     
     lazy var imageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "common_no_data_image"))
+        let imageView = UIImageView(image: UIImage(named: self.imageName ?? "common_no_data_image"))
         addSubview(imageView)
         return imageView
     }()
     
     lazy var titleLab: UILabel = {
         let titleLab = UILabel()
-        titleLab.text = "暂无数据"
+        titleLab.text = self.placeHolderText ?? "暂无数据"
         titleLab.font = FONT(14)
         titleLab.textAlignment = .center
         titleLab.numberOfLines = 0

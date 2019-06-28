@@ -42,14 +42,14 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             return
         }
         
-        let result = judgeUserIsExist(phoneNum: self.accountTF.text!)
-        
-        if !result.result {
-            print("该用户不存在")
-            return
+        fetchUserInfo(phoneNum: self.accountTF.text!) { (result) in
+            if !result.result {
+                print("该用户不存在")
+                return
+            }
+            self.login(bookListModel: result.model!)
         }
-        
-        self.login(bookListModel: result.model!)
+
     }
     
     /// MARK: - 登录 -
@@ -121,7 +121,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                 userRealm.userId = userID
                 userRealm.imToken = token
                 userRealm.createTime = userModel.createTime
-                print(Realm.Configuration.defaultConfiguration.fileURL)
+                print(Realm.Configuration.defaultConfiguration.fileURL ?? "")
                 /// 强制解包
                 let realm = try! Realm()
 
