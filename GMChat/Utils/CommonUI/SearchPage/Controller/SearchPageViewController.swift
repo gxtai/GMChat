@@ -42,12 +42,6 @@ class SearchPageViewController: BaseViewController {
         sessionDetailVC.targetId = model.targetId
         sessionDetailVC.locatedMessageSentTime = model.locatedMessageSentTime
         sessionDetailVC.unReadMessage = Int(RCIMClient.shared().getUnreadCount(model.conversationType, targetId: model.targetId))
-        sessionDetailVC.enableNewComingMessageIcon = true
-        sessionDetailVC.enableUnreadMessageIcon = true
-        // 单聊 不显示发送方昵称
-        if model.conversationType == .ConversationType_PRIVATE {
-            sessionDetailVC.displayUserNameInCell = false
-        }
         navigationController?.pushViewController(sessionDetailVC, animated: true)
     }
     

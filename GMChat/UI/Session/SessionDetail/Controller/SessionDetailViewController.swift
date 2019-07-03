@@ -14,9 +14,29 @@ class SessionDetailViewController: RCConversationViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(targetId)
+        print(targetId ?? "-")
+        config()
     }
     
+    
+    func config() {
+        enableUnreadMessageIcon = true
+        enableNewComingMessageIcon = true
+        // 单聊 不显示发送方昵称
+        if conversationType == .ConversationType_PRIVATE {
+            displayUserNameInCell = false
+        }
+    }
+}
 
+extension SessionDetailViewController {
+    override func willDisplayMessageCell(_ cell: RCMessageBaseCell!, at indexPath: IndexPath!) {
+        
+        if cell.isKind(of: RCTextMessageCell.self) {
+            let messageCell = cell as! RCTextMessageCell
+            let image = messageCell.bubbleBackgroundView.image
+//            if cell
+        }
+        
+    }
 }

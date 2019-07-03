@@ -60,12 +60,6 @@ extension SessionListViewController {
             sessionDetailVC.title = model.conversationTitle
             sessionDetailVC.conversation = model
             sessionDetailVC.unReadMessage = model.unreadMessageCount
-            sessionDetailVC.enableNewComingMessageIcon = true
-            sessionDetailVC.enableUnreadMessageIcon = true
-            // 单聊 不显示发送方昵称
-            if model.conversationType == .ConversationType_PRIVATE {
-                sessionDetailVC.displayUserNameInCell = false
-            }
             navigationController?.pushViewController(sessionDetailVC, animated: true)
         }
     }
@@ -79,12 +73,6 @@ extension SessionListViewController {
             sessionDetailVC.title = model.conversationTitle
             sessionDetailVC.conversation = model
             sessionDetailVC.unReadMessage = model.unreadMessageCount
-            sessionDetailVC.enableNewComingMessageIcon = true
-            sessionDetailVC.enableUnreadMessageIcon = true
-            // 单聊 不显示发送方昵称
-            if model.conversationType == .ConversationType_PRIVATE {
-                sessionDetailVC.displayUserNameInCell = false
-            }
             navigationController?.pushViewController(sessionDetailVC, animated: true)
         }
     }
