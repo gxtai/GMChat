@@ -10,6 +10,7 @@ target 'GMChat' do
     pod 'RongCloudIM/IMLib', '~> 2.9.18' # 融云
     pod 'RongCloudIM/IMKit', '~> 2.9.18' # 融云
     pod 'YYCategories'
+    pod 'YYText'
     pod 'RealmSwift', '~> 3.10.0' # realm数据库
     use_frameworks!
 end

@@ -31,12 +31,5 @@ class SessionDetailViewController: RCConversationViewController {
 
 extension SessionDetailViewController {
     override func willDisplayMessageCell(_ cell: RCMessageBaseCell!, at indexPath: IndexPath!) {
-        
-        if cell.isKind(of: RCTextMessageCell.self) {
-            let messageCell = cell as! RCTextMessageCell
-            let image = messageCell.bubbleBackgroundView.image
-//            if cell
-        }
-        
     }
 }

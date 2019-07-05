@@ -59,6 +59,7 @@
 		A6983D0A22C4B9B20042B591 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */; };
 		A69ABA7322C606CE00EA844C /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ABA7222C606CE00EA844C /* SearchResultCell.swift */; };
 		A69ABA7722C60D2D00EA844C /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */; };
+		A6B0BCED22CF571200B9E52D /* PublishDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B0BCEC22CF571200B9E52D /* PublishDynamicViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		A69ABA7222C606CE00EA844C /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
+		A6B0BCEC22CF571200B9E52D /* PublishDynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDynamicViewController.swift; sourceTree = "<group>"; };
 		CC9C0806FEC8FCF867EC6B38 /* Pods-GMChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GMChat/Pods-GMChat.debug.xcconfig"; sourceTree = "<group>"; };
 		F98D7EA5716AE7B126DB5379 /* Pods-GMChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-GMChat/Pods-GMChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -376,6 +378,7 @@
 		A67F193322B34FE6007D20D4 /* Dynamic */ = {
 			isa = PBXGroup;
 			children = (
+				A6B0BCEA22CF56F700B9E52D /* PublishDynamic */,
 				A67F193822B35568007D20D4 /* DynamicList */,
 			);
 			path = Dynamic;
@@ -596,6 +599,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A6B0BCEA22CF56F700B9E52D /* PublishDynamic */ = {
+			isa = PBXGroup;
+			children = (
+				A6B0BCEB22CF570200B9E52D /* Controller */,
+			);
+			path = PublishDynamic;
+			sourceTree = "<group>";
+		};
+		A6B0BCEB22CF570200B9E52D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A6B0BCEC22CF571200B9E52D /* PublishDynamicViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -714,6 +733,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftProgressHUD/SwiftProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework",
+				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -728,6 +748,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCategories.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -773,6 +794,7 @@
 				A631783722C1B51F00EA8A73 /* LoginViewController.swift in Sources */,
 				A69ABA7322C606CE00EA844C /* SearchResultCell.swift in Sources */,
 				A67F195B22B39786007D20D4 /* UIView+Extensions.swift in Sources */,
+				A6B0BCED22CF571200B9E52D /* PublishDynamicViewController.swift in Sources */,
 				A631783822C1B52000EA8A73 /* LoginViewController+Extension.swift in Sources */,
 				A67F194922B356C6007D20D4 /* DynamicListViewController.swift in Sources */,
 				A67F192B22B34D91007D20D4 /* BaseViewController.swift in Sources */,
