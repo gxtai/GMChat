@@ -20,7 +20,7 @@ class BookListIndexView: UIView {
     let topDis: CGFloat = 10.0
     let bottomDis: CGFloat = 10.0
     var lastIndex = 0
-    var delegate: BookListIndexViewDelegate?
+    weak var delegate: BookListIndexViewDelegate?
     
     
     var charactorsArray: [String] = []

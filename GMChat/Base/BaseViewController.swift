@@ -17,11 +17,11 @@ class BaseViewController: UIViewController {
     }
     
     override func didReceiveMemoryWarning() {
-        print("\(NSStringFromClass(self.classForCoder)) didReceiveMemoryWarning")
+        print("\(self.className()) didReceiveMemoryWarning")
         super.didReceiveMemoryWarning()
     }
     
     deinit {
-        print("\(NSStringFromClass(self.classForCoder)) deinit")
+        print("\(self.className()) deinit")
     }
 }

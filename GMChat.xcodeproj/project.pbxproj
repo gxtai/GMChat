@@ -60,6 +60,9 @@
 		A69ABA7322C606CE00EA844C /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ABA7222C606CE00EA844C /* SearchResultCell.swift */; };
 		A69ABA7722C60D2D00EA844C /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */; };
 		A6B0BCED22CF571200B9E52D /* PublishDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B0BCEC22CF571200B9E52D /* PublishDynamicViewController.swift */; };
+		A6B782B022D4A258007AD9BF /* EmojiKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B782AF22D4A258007AD9BF /* EmojiKeyboardView.swift */; };
+		A6EAE90B22D3196100B3BD8E /* EmoticonQQ.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6EAE90A22D3196100B3BD8E /* EmoticonQQ.bundle */; };
+		A6EAE91222D31A7900B3BD8E /* PublishDynamicToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EAE91122D31A7900B3BD8E /* PublishDynamicToolBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +122,9 @@
 		A69ABA7222C606CE00EA844C /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
 		A6B0BCEC22CF571200B9E52D /* PublishDynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDynamicViewController.swift; sourceTree = "<group>"; };
+		A6B782AF22D4A258007AD9BF /* EmojiKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiKeyboardView.swift; sourceTree = "<group>"; };
+		A6EAE90A22D3196100B3BD8E /* EmoticonQQ.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonQQ.bundle; sourceTree = "<group>"; };
+		A6EAE91122D31A7900B3BD8E /* PublishDynamicToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDynamicToolBar.swift; sourceTree = "<group>"; };
 		CC9C0806FEC8FCF867EC6B38 /* Pods-GMChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GMChat/Pods-GMChat.debug.xcconfig"; sourceTree = "<group>"; };
 		F98D7EA5716AE7B126DB5379 /* Pods-GMChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-GMChat/Pods-GMChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -395,6 +401,7 @@
 		A67F193522B35006007D20D4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A6EAE90A22D3196100B3BD8E /* EmoticonQQ.bundle */,
 				A6230FD822B7606200A5DD95 /* AddressBookList.geojson */,
 				A67F191B22B34C40007D20D4 /* Assets.xcassets */,
 			);
@@ -507,6 +514,7 @@
 		A683790422BA3608008DCD40 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				A6B782AE22D4A23D007AD9BF /* EmojiKeyboard */,
 				A631784622C20C6500EA8A73 /* PlaceHolderView */,
 				A68D381422BB24C100D317EE /* SearchPage */,
 				A68D381322BB247300D317EE /* SearchBar */,
@@ -602,7 +610,8 @@
 		A6B0BCEA22CF56F700B9E52D /* PublishDynamic */ = {
 			isa = PBXGroup;
 			children = (
-				A6B0BCEB22CF570200B9E52D /* Controller */,
+				A6EAE90E22D31A1C00B3BD8E /* Video */,
+				A6EAE90D22D31A1300B3BD8E /* Dynamic */,
 			);
 			path = PublishDynamic;
 			sourceTree = "<group>";
@@ -613,6 +622,54 @@
 				A6B0BCEC22CF571200B9E52D /* PublishDynamicViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		A6B782AE22D4A23D007AD9BF /* EmojiKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A6B782AF22D4A258007AD9BF /* EmojiKeyboardView.swift */,
+			);
+			path = EmojiKeyboard;
+			sourceTree = "<group>";
+		};
+		A6EAE90C22D3199A00B3BD8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A6EAE91122D31A7900B3BD8E /* PublishDynamicToolBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A6EAE90D22D31A1300B3BD8E /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				A6B0BCEB22CF570200B9E52D /* Controller */,
+				A6EAE90C22D3199A00B3BD8E /* View */,
+			);
+			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		A6EAE90E22D31A1C00B3BD8E /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				A6EAE91022D31A3600B3BD8E /* View */,
+				A6EAE90F22D31A2D00B3BD8E /* Controller */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		A6EAE90F22D31A2D00B3BD8E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A6EAE91022D31A3600B3BD8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -680,6 +737,7 @@
 				A67F191F22B34C40007D20D4 /* LaunchScreen.storyboard in Resources */,
 				A67F191C22B34C40007D20D4 /* Assets.xcassets in Resources */,
 				A67F191A22B34C3E007D20D4 /* Main.storyboard in Resources */,
+				A6EAE90B22D3196100B3BD8E /* EmoticonQQ.bundle in Resources */,
 				A6230FD922B7606200A5DD95 /* AddressBookList.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -782,7 +840,9 @@
 			files = (
 				A631784222C1F0D000EA8A73 /* UserInfo.swift in Sources */,
 				A67F191722B34C3D007D20D4 /* ViewController.swift in Sources */,
+				A6B782B022D4A258007AD9BF /* EmojiKeyboardView.swift in Sources */,
 				A67F191522B34C3D007D20D4 /* AppDelegate.swift in Sources */,
+				A6EAE91222D31A7900B3BD8E /* PublishDynamicToolBar.swift in Sources */,
 				A67F194B22B356EA007D20D4 /* MineMainPageViewController.swift in Sources */,
 				A67F195922B38D99007D20D4 /* UIBarButtonItem+Extensions.swift in Sources */,
 				A68E9B6922B8EC470029F547 /* BookListHeaderView.swift in Sources */,

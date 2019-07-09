@@ -71,6 +71,6 @@ class PlaceHolderView: UIView {
     }
     
     deinit {
-        print("PlaceHolderView dealloc")
+        print("\(self.className()) deinit")
     }
 }
