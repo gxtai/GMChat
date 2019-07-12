@@ -2,7 +2,7 @@
 //  BaseViewController.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/6/14.
+//  Created by GXT on 2019/6/14.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 
@@ -17,11 +17,11 @@ class BaseViewController: UIViewController {
     }
     
     override func didReceiveMemoryWarning() {
-        print("\(self.className()) didReceiveMemoryWarning")
+        print("\(className()) didReceiveMemoryWarning")
         super.didReceiveMemoryWarning()
     }
     
     deinit {
-        print("\(self.className()) deinit")
+        print("\(className()) deinit")
     }
 }

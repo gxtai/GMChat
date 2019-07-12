@@ -2,7 +2,7 @@
 //  BookListIndexView.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/6/21.
+//  Created by GXT on 2019/6/21.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 

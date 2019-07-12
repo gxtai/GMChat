@@ -2,7 +2,7 @@
 //  UserInfoModel.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/6/25.
+//  Created by GXT on 2019/6/25.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 

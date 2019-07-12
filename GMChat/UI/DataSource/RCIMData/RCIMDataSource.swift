@@ -2,7 +2,7 @@
 //  RCIMDataSource.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/6/27.
+//  Created by GXT on 2019/6/27.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 

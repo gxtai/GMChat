@@ -50,6 +50,7 @@
 		A67F195B22B39786007D20D4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F195A22B39786007D20D4 /* UIView+Extensions.swift */; };
 		A683790622BA3627008DCD40 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683790522BA3627008DCD40 /* SearchBar.swift */; };
 		A683790822BA3B36008DCD40 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683790722BA3B36008DCD40 /* SearchPageViewController.swift */; };
+		A6860FD822D856C7007F57D5 /* EmojiKeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6860FD722D856C7007F57D5 /* EmojiKeyboardCell.swift */; };
 		A68D381222BB213800D317EE /* BookListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68D381122BB213800D317EE /* BookListService.swift */; };
 		A68D381822BB25CF00D317EE /* SearchPageSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68D381722BB25CF00D317EE /* SearchPageSearchBarView.swift */; };
 		A68E9B6922B8EC470029F547 /* BookListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E9B6822B8EC470029F547 /* BookListHeaderView.swift */; };
@@ -112,6 +113,7 @@
 		A67F195A22B39786007D20D4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		A683790522BA3627008DCD40 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		A683790722BA3B36008DCD40 /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
+		A6860FD722D856C7007F57D5 /* EmojiKeyboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiKeyboardCell.swift; sourceTree = "<group>"; };
 		A68D381122BB213800D317EE /* BookListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListService.swift; sourceTree = "<group>"; };
 		A68D381722BB25CF00D317EE /* SearchPageSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageSearchBarView.swift; sourceTree = "<group>"; };
 		A68E9B6822B8EC470029F547 /* BookListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListHeaderView.swift; sourceTree = "<group>"; };
@@ -190,7 +192,6 @@
 			children = (
 				A631784322C1FB7900EA8A73 /* Model */,
 				A62403F522C06F0E00496D3A /* Service */,
-				A631783422C1B4D200EA8A73 /* View */,
 				A631783322C1B4C700EA8A73 /* Controller */,
 			);
 			path = Login;
@@ -221,13 +222,6 @@
 				A631783622C1B51F00EA8A73 /* LoginViewController+Extension.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		A631783422C1B4D200EA8A73 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		A631783B22C1BC0700EA8A73 /* Realm */ = {
@@ -411,7 +405,6 @@
 		A67F193622B35510007D20D4 /* SessionList */ = {
 			isa = PBXGroup;
 			children = (
-				A69ABA6F22C5C08A00EA844C /* View */,
 				A67F193A22B35582007D20D4 /* Controller */,
 			);
 			path = SessionList;
@@ -592,13 +585,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A69ABA6F22C5C08A00EA844C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		A69ABA7522C60D1100EA844C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,6 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				A6B782AF22D4A258007AD9BF /* EmojiKeyboardView.swift */,
+				A6860FD722D856C7007F57D5 /* EmojiKeyboardCell.swift */,
 			);
 			path = EmojiKeyboard;
 			sourceTree = "<group>";
@@ -853,6 +840,7 @@
 				A631784522C1FBA600EA8A73 /* UserInfoModel.swift in Sources */,
 				A631783722C1B51F00EA8A73 /* LoginViewController.swift in Sources */,
 				A69ABA7322C606CE00EA844C /* SearchResultCell.swift in Sources */,
+				A6860FD822D856C7007F57D5 /* EmojiKeyboardCell.swift in Sources */,
 				A67F195B22B39786007D20D4 /* UIView+Extensions.swift in Sources */,
 				A6B0BCED22CF571200B9E52D /* PublishDynamicViewController.swift in Sources */,
 				A631783822C1B52000EA8A73 /* LoginViewController+Extension.swift in Sources */,

@@ -2,7 +2,7 @@
 //  PublishDynamicViewController.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/7/5.
+//  Created by GXT on 2019/7/5.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 
@@ -28,6 +28,10 @@ class PublishDynamicViewController: BaseViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         textView.resignFirstResponder()
+        emojiKeyboardView.snp.updateConstraints { (make) in
+            make.bottom.equalTo(emojiKeyboardView.height)
+        }
+        toolBar.recover()
     }
     
     func setupViews() {
@@ -40,6 +44,12 @@ class PublishDynamicViewController: BaseViewController {
             make.height.equalTo(kTabBarHeight)
         }
         textView.becomeFirstResponder()
+        
+        emojiKeyboardView.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(emojiKeyboardView.height)
+            make.size.equalTo(emojiKeyboardView.size)
+        }
     }
     
     lazy var textView: YYTextView = {
@@ -66,10 +76,20 @@ class PublishDynamicViewController: BaseViewController {
         return toolBar
     }()
     
+    lazy var emojiKeyboardView: EmojiKeyboardView = {
+        let keyboardView = EmojiKeyboardView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_WIDTH / 9.0 * 3.0 + 10 + 30 + kTabBarHeight - 49))
+        view.addSubview(keyboardView)
+        return keyboardView
+    }()
 }
 
 extension PublishDynamicViewController: YYTextViewDelegate {
-    
+    func textViewShouldBeginEditing(_ textView: YYTextView) -> Bool {
+        emojiKeyboardView.snp.updateConstraints { (make) in
+            make.bottom.equalTo(emojiKeyboardView.height)
+        }
+        return true
+    }
 }
 
 extension PublishDynamicViewController: PublishDynamicToolBarDelegate {
@@ -81,5 +101,17 @@ extension PublishDynamicViewController: PublishDynamicToolBarDelegate {
     }
     func chooseTheEmoji() {
         textView.resignFirstResponder()
+        toolBar.snp.updateConstraints { (make) in
+            make.bottom.equalTo(-emojiKeyboardView.height)
+        }
+        emojiKeyboardView.snp.updateConstraints { (make) in
+            make.bottom.equalTo(0)
+        }
+    }
+    func abandonChooseTheEmoji() {
+        textView.becomeFirstResponder()
+        emojiKeyboardView.snp.updateConstraints { (make) in
+            make.bottom.equalTo(emojiKeyboardView.height)
+        }
     }
 }

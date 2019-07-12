@@ -2,8 +2,8 @@
 //  SectionModel.swift
 //  DynamicSwift
 //
-//  Created by 花动传媒 on 2019/6/6.
-//  Copyright © 2019 花动传媒. All rights reserved.
+//  Created by GXT on 2019/6/6.
+//  Copyright © 2019 GXT. All rights reserved.
 //
 
 import UIKit
