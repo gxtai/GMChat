@@ -41,14 +41,6 @@ class EmojiKeyboardView: UIView {
         return collectionView
     }()
     
-    lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl()
-        pageControl.numberOfPages = self.dataArray.count / 27
-        pageControl.pageIndicatorTintColor = .lightGray
-        pageControl.currentPageIndicatorTintColor = mainColor
-        return pageControl
-    }()
-    
     lazy var dataArray: [[String: String]] = {
         let bundlePath = Bundle.main.path(forResource: "EmoticonQQ", ofType: "bundle")!
         let bundle = Bundle.init(path: bundlePath)

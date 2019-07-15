@@ -42,6 +42,7 @@ class PublishDynamicViewController: BaseViewController {
         setupNavigationItem(title: "取消", isLeft: true)
         setupNavigationItem(title: "保存", isLeft: false)
         view.addSubview(textView)
+        view.addSubview(selectPictureView)
         view.addSubview(toolBar)
         toolBar.snp.makeConstraints { (make) in
             make.left.bottom.right.equalToSuperview()
@@ -101,12 +102,27 @@ class PublishDynamicViewController: BaseViewController {
         view.addSubview(keyboardView)
         return keyboardView
     }()
+    
+    lazy var selectPictureView: PublishSelectPictureView = {
+        let selectPictureView = PublishSelectPictureView(frame: CGRect(x: 0, y: self.textView.frame.maxY, width: SCREEN_WIDTH, height: 110))
+        return selectPictureView
+    }()
 }
 /// 输入框
 extension PublishDynamicViewController: YYTextViewDelegate {
     func textViewShouldBeginEditing(_ textView: YYTextView) -> Bool {
         emojiKeyboardView.snp.updateConstraints { (make) in
             make.bottom.equalTo(emojiKeyboardView.height)
+        }
+        return true
+    }
+    func textView(_ textView: YYTextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "@" {
+            let vc = AtFriendsListViewController()
+            vc.selectedPeopleCallback = { [weak self] (name) in
+                self?.textView.replace((self?.textView.selectedTextRange)!, withText: "\(name) ")
+            }
+            present(BaseNavigationViewController(rootViewController: vc), animated: true, completion: nil)
         }
         return true
     }

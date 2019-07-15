@@ -35,6 +35,8 @@
 		A66C646622DC5931006AE547 /* YYFrameImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A66C646022DC5931006AE547 /* YYFrameImage.m */; };
 		A66C646722DC5931006AE547 /* YYAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A66C646122DC5931006AE547 /* YYAnimatedImageView.m */; };
 		A66C646B22DC5D83006AE547 /* AtFriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C646A22DC5D83006AE547 /* AtFriendsListViewController.swift */; };
+		A66C647122DC8C95006AE547 /* PublishSelectPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C647022DC8C95006AE547 /* PublishSelectPictureView.swift */; };
+		A66C647322DC8F74006AE547 /* PublishSelectPictureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C647222DC8F74006AE547 /* PublishSelectPictureViewCell.swift */; };
 		A66D6F7A22BCA9EF006F5B2C /* BookListIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D6F7922BCA9EF006F5B2C /* BookListIndexView.swift */; };
 		A67F191522B34C3D007D20D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F191422B34C3D007D20D4 /* AppDelegate.swift */; };
 		A67F191722B34C3D007D20D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F191622B34C3D007D20D4 /* ViewController.swift */; };
@@ -108,6 +110,8 @@
 		A66C646122DC5931006AE547 /* YYAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYAnimatedImageView.m; sourceTree = "<group>"; };
 		A66C646222DC5931006AE547 /* YYSpriteSheetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSpriteSheetImage.h; sourceTree = "<group>"; };
 		A66C646A22DC5D83006AE547 /* AtFriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtFriendsListViewController.swift; sourceTree = "<group>"; };
+		A66C647022DC8C95006AE547 /* PublishSelectPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishSelectPictureView.swift; sourceTree = "<group>"; };
+		A66C647222DC8F74006AE547 /* PublishSelectPictureViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishSelectPictureViewCell.swift; sourceTree = "<group>"; };
 		A66D6F7922BCA9EF006F5B2C /* BookListIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListIndexView.swift; sourceTree = "<group>"; };
 		A67F191122B34C3D007D20D4 /* GMChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67F191422B34C3D007D20D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -686,6 +690,8 @@
 			isa = PBXGroup;
 			children = (
 				A6EAE91122D31A7900B3BD8E /* PublishDynamicToolBar.swift */,
+				A66C647022DC8C95006AE547 /* PublishSelectPictureView.swift */,
+				A66C647222DC8F74006AE547 /* PublishSelectPictureViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -899,8 +905,10 @@
 				A68E9B6922B8EC470029F547 /* BookListHeaderView.swift in Sources */,
 				A631784822C20CAC00EA8A73 /* PlaceHolderView.swift in Sources */,
 				A67F195422B37DE1007D20D4 /* UIImage+Extensions.swift in Sources */,
+				A66C647322DC8F74006AE547 /* PublishSelectPictureViewCell.swift in Sources */,
 				A67F194E22B37842007D20D4 /* CommonDefine.swift in Sources */,
 				A6230FD322B73C2C00A5DD95 /* RowModel.swift in Sources */,
+				A66C647122DC8C95006AE547 /* PublishSelectPictureView.swift in Sources */,
 				A631784522C1FBA600EA8A73 /* UserInfoModel.swift in Sources */,
 				A631783722C1B51F00EA8A73 /* LoginViewController.swift in Sources */,
 				A69ABA7322C606CE00EA844C /* SearchResultCell.swift in Sources */,

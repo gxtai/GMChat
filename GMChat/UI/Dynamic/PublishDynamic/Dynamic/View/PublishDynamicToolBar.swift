@@ -45,7 +45,7 @@ class PublishDynamicToolBar: UIView {
     }
     /// 选择图片
     @objc func pictureBtnClicked() {
-        
+        delegate?.chooseThePicture()
     }
     /// 选择@
     @objc func atBtnClicked() {
