@@ -24,7 +24,7 @@ class EmojiKeyboardParser: YYTextSimpleEmoticonParser {
         super.parseText(text, selectedRange: selectedRange)
         var changed = false
         guard let text = text else { return changed }
-        text.yy_color = mainColor
+        text.yy_color = color_51
         regex?.enumerateMatches(in: text.string, options: NSRegularExpression.MatchingOptions.withoutAnchoringBounds, range: text.yy_rangeOfAll(), using: { (result, flags, stop) in
             if result == nil { return }
             let range = result?.range

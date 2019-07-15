@@ -77,10 +77,12 @@ func logOut() {
     UIApplication.shared.keyWindow?.rootViewController = LoginViewController()
 }
 
-//func emojiImage(name: String) -> {
-//    let bundlePath = Bundle.main.path(forResource: "EmoticonQQ", ofType: "bundle")!
-//    let bundle = Bundle.init(path: bundlePath)
-//    let pngPath = bundle?.path(forResource: "\(name)@2x", ofType: "png")
-//    let data = NSData(contentsOfFile: pngPath)
-//    let
-//}
+func emojiImage(name: String) -> YYImage {
+    let bundlePath = Bundle.main.path(forResource: "EmoticonQQ", ofType: "bundle")!
+    let bundle = Bundle.init(path: bundlePath)
+    let pngPath = bundle?.path(forResource: "\(name)@2x", ofType: "png")
+    let data = NSData(contentsOfFile: pngPath!)
+    let image = YYImage(data: data! as Data, scale: 2.0)
+    image?.preloadAllAnimatedImageFrames = true
+    return image!
+}

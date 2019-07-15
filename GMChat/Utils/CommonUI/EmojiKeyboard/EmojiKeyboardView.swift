@@ -83,8 +83,8 @@ extension EmojiKeyboardView: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dic: [String: String] = dataArray[indexPath.row]
-        let value = dic.values.first!
-        delegate?.selectedEmojiWithImageTag(tag: value)
+        let key = dic.keys.first!
+        delegate?.selectedEmojiWithImageTag(tag: key)
     }
     
 }

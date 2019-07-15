@@ -4,3 +4,5 @@
 
 #import <RongIMKit/RongIMKit.h>
 #import <YYCategories/YYCategories.h>
+#import <YYText/YYText.h>
+#import "YYImage.h"

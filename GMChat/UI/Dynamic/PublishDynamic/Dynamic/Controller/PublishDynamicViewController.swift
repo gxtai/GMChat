@@ -7,9 +7,13 @@
 //
 
 import UIKit
-import YYText
 
 class PublishDynamicViewController: BaseViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textView.becomeFirstResponder()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +47,6 @@ class PublishDynamicViewController: BaseViewController {
             make.left.bottom.right.equalToSuperview()
             make.height.equalTo(kTabBarHeight)
         }
-        textView.becomeFirstResponder()
         
         emojiKeyboardView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
@@ -72,14 +75,12 @@ class PublishDynamicViewController: BaseViewController {
         let bundle = Bundle.init(path: bundlePath)
         let plistPath = bundle?.path(forResource: "infoEmotion", ofType: "plist")
         let dataArray = NSMutableArray(contentsOfFile: plistPath!)! as! [[String: String]]
-        var mapper = [String: UIImage]()
+        var mapper = [String: YYImage]()
         for dic in dataArray {
             let key = dic.keys.first!
-            let value = dic.keys.first!
-            mapper[key] = value
+            let value = dic.values.first!
+            mapper[key] = emojiImage(name: value)
         }
-        
-        
         
         let parser = EmojiKeyboardParser()
         parser.emoticonMapper = mapper
@@ -118,7 +119,11 @@ extension PublishDynamicViewController: PublishDynamicToolBarDelegate {
     }
     /// at某人
     func chooseThePeople() {
-        
+        let vc = AtFriendsListViewController()
+        vc.selectedPeopleCallback = { [weak self] (name) in
+            self?.textView.replace((self?.textView.selectedTextRange)!, withText: "@\(name) ")
+        }
+        present(BaseNavigationViewController(rootViewController: vc), animated: true, completion: nil)
     }
     /// 选择表情
     func chooseTheEmoji() {

@@ -49,7 +49,7 @@ class PublishDynamicToolBar: UIView {
     }
     /// 选择@
     @objc func atBtnClicked() {
-        
+        delegate?.chooseThePeople()
     }
     /// 选择表情
     @objc func emojiBtnClicked(sender: UIButton) {

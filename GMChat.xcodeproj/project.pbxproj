@@ -29,6 +29,12 @@
 		A631784522C1FBA600EA8A73 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631784422C1FBA600EA8A73 /* UserInfoModel.swift */; };
 		A631784822C20CAC00EA8A73 /* PlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631784722C20CAC00EA8A73 /* PlaceHolderView.swift */; };
 		A631784C22C2179400EA8A73 /* SessionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631784B22C2179400EA8A73 /* SessionDetailViewController.swift */; };
+		A66C646322DC5931006AE547 /* YYSpriteSheetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A66C645C22DC5931006AE547 /* YYSpriteSheetImage.m */; };
+		A66C646422DC5931006AE547 /* YYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A66C645E22DC5931006AE547 /* YYImage.m */; };
+		A66C646522DC5931006AE547 /* YYImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A66C645F22DC5931006AE547 /* YYImageCoder.m */; };
+		A66C646622DC5931006AE547 /* YYFrameImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A66C646022DC5931006AE547 /* YYFrameImage.m */; };
+		A66C646722DC5931006AE547 /* YYAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A66C646122DC5931006AE547 /* YYAnimatedImageView.m */; };
+		A66C646B22DC5D83006AE547 /* AtFriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C646A22DC5D83006AE547 /* AtFriendsListViewController.swift */; };
 		A66D6F7A22BCA9EF006F5B2C /* BookListIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D6F7922BCA9EF006F5B2C /* BookListIndexView.swift */; };
 		A67F191522B34C3D007D20D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F191422B34C3D007D20D4 /* AppDelegate.swift */; };
 		A67F191722B34C3D007D20D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F191622B34C3D007D20D4 /* ViewController.swift */; };
@@ -91,6 +97,17 @@
 		A631784422C1FBA600EA8A73 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		A631784722C20CAC00EA8A73 /* PlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderView.swift; sourceTree = "<group>"; };
 		A631784B22C2179400EA8A73 /* SessionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailViewController.swift; sourceTree = "<group>"; };
+		A66C645922DC5931006AE547 /* YYImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYImage.h; sourceTree = "<group>"; };
+		A66C645A22DC5931006AE547 /* YYImageCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYImageCoder.h; sourceTree = "<group>"; };
+		A66C645B22DC5931006AE547 /* YYFrameImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFrameImage.h; sourceTree = "<group>"; };
+		A66C645C22DC5931006AE547 /* YYSpriteSheetImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSpriteSheetImage.m; sourceTree = "<group>"; };
+		A66C645D22DC5931006AE547 /* YYAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYAnimatedImageView.h; sourceTree = "<group>"; };
+		A66C645E22DC5931006AE547 /* YYImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYImage.m; sourceTree = "<group>"; };
+		A66C645F22DC5931006AE547 /* YYImageCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYImageCoder.m; sourceTree = "<group>"; };
+		A66C646022DC5931006AE547 /* YYFrameImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFrameImage.m; sourceTree = "<group>"; };
+		A66C646122DC5931006AE547 /* YYAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYAnimatedImageView.m; sourceTree = "<group>"; };
+		A66C646222DC5931006AE547 /* YYSpriteSheetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSpriteSheetImage.h; sourceTree = "<group>"; };
+		A66C646A22DC5D83006AE547 /* AtFriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtFriendsListViewController.swift; sourceTree = "<group>"; };
 		A66D6F7922BCA9EF006F5B2C /* BookListIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListIndexView.swift; sourceTree = "<group>"; };
 		A67F191122B34C3D007D20D4 /* GMChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67F191422B34C3D007D20D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -274,6 +291,47 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		A66C645722DC56FE006AE547 /* ThirdLib */ = {
+			isa = PBXGroup;
+			children = (
+				A66C645822DC5931006AE547 /* YYImage */,
+			);
+			path = ThirdLib;
+			sourceTree = "<group>";
+		};
+		A66C645822DC5931006AE547 /* YYImage */ = {
+			isa = PBXGroup;
+			children = (
+				A66C645922DC5931006AE547 /* YYImage.h */,
+				A66C645A22DC5931006AE547 /* YYImageCoder.h */,
+				A66C645B22DC5931006AE547 /* YYFrameImage.h */,
+				A66C645C22DC5931006AE547 /* YYSpriteSheetImage.m */,
+				A66C645D22DC5931006AE547 /* YYAnimatedImageView.h */,
+				A66C645E22DC5931006AE547 /* YYImage.m */,
+				A66C645F22DC5931006AE547 /* YYImageCoder.m */,
+				A66C646022DC5931006AE547 /* YYFrameImage.m */,
+				A66C646122DC5931006AE547 /* YYAnimatedImageView.m */,
+				A66C646222DC5931006AE547 /* YYSpriteSheetImage.h */,
+			);
+			path = YYImage;
+			sourceTree = "<group>";
+		};
+		A66C646822DC5D1C006AE547 /* AtFriends */ = {
+			isa = PBXGroup;
+			children = (
+				A66C646922DC5D55006AE547 /* Controller */,
+			);
+			path = AtFriends;
+			sourceTree = "<group>";
+		};
+		A66C646922DC5D55006AE547 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A66C646A22DC5D83006AE547 /* AtFriendsListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A67F190822B34C3D007D20D4 = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +400,7 @@
 		A67F192922B34D4B007D20D4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A66C645722DC56FE006AE547 /* ThirdLib */,
 				A62403F622C06F2B00496D3A /* Network */,
 				A683790422BA3608008DCD40 /* CommonUI */,
 				A683790322BA35EC008DCD40 /* Protocol */,
@@ -380,6 +439,7 @@
 		A67F193322B34FE6007D20D4 /* Dynamic */ = {
 			isa = PBXGroup;
 			children = (
+				A66C646822DC5D1C006AE547 /* AtFriends */,
 				A6B0BCEA22CF56F700B9E52D /* PublishDynamic */,
 				A67F193822B35568007D20D4 /* DynamicList */,
 			);
@@ -831,6 +891,7 @@
 				A631784222C1F0D000EA8A73 /* UserInfo.swift in Sources */,
 				A67F191722B34C3D007D20D4 /* ViewController.swift in Sources */,
 				A6B782B022D4A258007AD9BF /* EmojiKeyboardView.swift in Sources */,
+				A66C646722DC5931006AE547 /* YYAnimatedImageView.m in Sources */,
 				A67F191522B34C3D007D20D4 /* AppDelegate.swift in Sources */,
 				A6EAE91222D31A7900B3BD8E /* PublishDynamicToolBar.swift in Sources */,
 				A67F194B22B356EA007D20D4 /* MineMainPageViewController.swift in Sources */,
@@ -851,7 +912,9 @@
 				A67F192B22B34D91007D20D4 /* BaseViewController.swift in Sources */,
 				A68D381222BB213800D317EE /* BookListService.swift in Sources */,
 				A6230FDD22B7791600A5DD95 /* ModelProtocol.swift in Sources */,
+				A66C646422DC5931006AE547 /* YYImage.m in Sources */,
 				A631783A22C1B7A700EA8A73 /* Tools.swift in Sources */,
+				A66C646622DC5931006AE547 /* YYFrameImage.m in Sources */,
 				A67F193022B34E0F007D20D4 /* TabBarViewController.swift in Sources */,
 				A6230FE422B7900A00A5DD95 /* BookListCell.swift in Sources */,
 				A62FA82722DC30E200BDA3A2 /* EmojiKeyboardParser.swift in Sources */,
@@ -871,6 +934,7 @@
 				A624040A22C0D1F100496D3A /* Provider+Config.swift in Sources */,
 				A624040C22C0D31F00496D3A /* ThirdPartConfig.swift in Sources */,
 				A6983D0422C4A85A0042B591 /* MineMainPageNormalCell.swift in Sources */,
+				A66C646322DC5931006AE547 /* YYSpriteSheetImage.m in Sources */,
 				A67F195722B38C87007D20D4 /* UIViewController+Extensions.swift in Sources */,
 				A67F194122B355E9007D20D4 /* SessionListViewController.swift in Sources */,
 				A67F195522B37DE1007D20D4 /* NSString+Extensions.swift in Sources */,
@@ -880,6 +944,8 @@
 				A62403F822C06F4C00496D3A /* Network.swift in Sources */,
 				A67F194722B356AA007D20D4 /* BookListViewController.swift in Sources */,
 				A631784C22C2179400EA8A73 /* SessionDetailViewController.swift in Sources */,
+				A66C646522DC5931006AE547 /* YYImageCoder.m in Sources */,
+				A66C646B22DC5D83006AE547 /* AtFriendsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
