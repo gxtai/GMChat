@@ -16,16 +16,16 @@ class PublishDynamicViewController: BaseViewController {
         title = "分享"
         setupViews()
     }
-    
+    /// 取消
     override func leftBtnClicked(sender: UIButton) {
         textView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
-    
+    /// 发布
     override func rightBtnClicked(sender: UIButton) {
         
     }
-    
+    /// 点击屏幕
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         textView.resignFirstResponder()
         emojiKeyboardView.snp.updateConstraints { (make) in
@@ -67,6 +67,24 @@ class PublishDynamicViewController: BaseViewController {
         textView.tintColor = color_51
         textView.attributedText = text
         textView.delegate = self
+        /// 表情
+        let bundlePath = Bundle.main.path(forResource: "EmoticonQQ", ofType: "bundle")!
+        let bundle = Bundle.init(path: bundlePath)
+        let plistPath = bundle?.path(forResource: "infoEmotion", ofType: "plist")
+        let dataArray = NSMutableArray(contentsOfFile: plistPath!)! as! [[String: String]]
+        var mapper = [String: UIImage]()
+        for dic in dataArray {
+            let key = dic.keys.first!
+            let value = dic.keys.first!
+            mapper[key] = value
+        }
+        
+        
+        
+        let parser = EmojiKeyboardParser()
+        parser.emoticonMapper = mapper
+        textView.textParser = parser
+        
         return textView
     }()
     
@@ -78,11 +96,12 @@ class PublishDynamicViewController: BaseViewController {
     
     lazy var emojiKeyboardView: EmojiKeyboardView = {
         let keyboardView = EmojiKeyboardView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_WIDTH / 9.0 * 3.0 + 10 + 30 + kTabBarHeight - 49))
+        keyboardView.delegate = self
         view.addSubview(keyboardView)
         return keyboardView
     }()
 }
-
+/// 输入框
 extension PublishDynamicViewController: YYTextViewDelegate {
     func textViewShouldBeginEditing(_ textView: YYTextView) -> Bool {
         emojiKeyboardView.snp.updateConstraints { (make) in
@@ -91,14 +110,17 @@ extension PublishDynamicViewController: YYTextViewDelegate {
         return true
     }
 }
-
+/// toolbar
 extension PublishDynamicViewController: PublishDynamicToolBarDelegate {
+    /// 选择图片
     func chooseThePicture() {
         
     }
+    /// at某人
     func chooseThePeople() {
         
     }
+    /// 选择表情
     func chooseTheEmoji() {
         textView.resignFirstResponder()
         toolBar.snp.updateConstraints { (make) in
@@ -108,6 +130,7 @@ extension PublishDynamicViewController: PublishDynamicToolBarDelegate {
             make.bottom.equalTo(0)
         }
     }
+    /// 放弃选择表情
     func abandonChooseTheEmoji() {
         textView.becomeFirstResponder()
         emojiKeyboardView.snp.updateConstraints { (make) in
@@ -115,3 +138,11 @@ extension PublishDynamicViewController: PublishDynamicToolBarDelegate {
         }
     }
 }
+/// 选择表情
+extension PublishDynamicViewController: EmojiKeyboardViewDelegate {
+    func selectedEmojiWithImageTag(tag: String) {
+        print(tag)
+        textView.replace(textView.selectedTextRange!, withText: tag)
+    }
+}
+

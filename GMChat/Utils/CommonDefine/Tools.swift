@@ -76,3 +76,11 @@ func logOut() {
     RCIM.shared()?.logout()
     UIApplication.shared.keyWindow?.rootViewController = LoginViewController()
 }
+
+//func emojiImage(name: String) -> {
+//    let bundlePath = Bundle.main.path(forResource: "EmoticonQQ", ofType: "bundle")!
+//    let bundle = Bundle.init(path: bundlePath)
+//    let pngPath = bundle?.path(forResource: "\(name)@2x", ofType: "png")
+//    let data = NSData(contentsOfFile: pngPath)
+//    let
+//}

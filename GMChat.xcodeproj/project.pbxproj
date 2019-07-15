@@ -20,6 +20,7 @@
 		A624040A22C0D1F100496D3A /* Provider+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A624040922C0D1F100496D3A /* Provider+Config.swift */; };
 		A624040C22C0D31F00496D3A /* ThirdPartConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A624040B22C0D31F00496D3A /* ThirdPartConfig.swift */; };
 		A624040E22C0D55700496D3A /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A624040D22C0D55700496D3A /* Date+Extensions.swift */; };
+		A62FA82722DC30E200BDA3A2 /* EmojiKeyboardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62FA82622DC30E200BDA3A2 /* EmojiKeyboardParser.swift */; };
 		A631783722C1B51F00EA8A73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631783522C1B51F00EA8A73 /* LoginViewController.swift */; };
 		A631783822C1B52000EA8A73 /* LoginViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631783622C1B51F00EA8A73 /* LoginViewController+Extension.swift */; };
 		A631783A22C1B7A700EA8A73 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631783922C1B7A700EA8A73 /* Tools.swift */; };
@@ -81,6 +82,7 @@
 		A624040922C0D1F100496D3A /* Provider+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+Config.swift"; sourceTree = "<group>"; };
 		A624040B22C0D31F00496D3A /* ThirdPartConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartConfig.swift; sourceTree = "<group>"; };
 		A624040D22C0D55700496D3A /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		A62FA82622DC30E200BDA3A2 /* EmojiKeyboardParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiKeyboardParser.swift; sourceTree = "<group>"; };
 		A631783522C1B51F00EA8A73 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A631783622C1B51F00EA8A73 /* LoginViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Extension.swift"; sourceTree = "<group>"; };
 		A631783922C1B7A700EA8A73 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 			children = (
 				A6B782AF22D4A258007AD9BF /* EmojiKeyboardView.swift */,
 				A6860FD722D856C7007F57D5 /* EmojiKeyboardCell.swift */,
+				A62FA82622DC30E200BDA3A2 /* EmojiKeyboardParser.swift */,
 			);
 			path = EmojiKeyboard;
 			sourceTree = "<group>";
@@ -851,6 +854,7 @@
 				A631783A22C1B7A700EA8A73 /* Tools.swift in Sources */,
 				A67F193022B34E0F007D20D4 /* TabBarViewController.swift in Sources */,
 				A6230FE422B7900A00A5DD95 /* BookListCell.swift in Sources */,
+				A62FA82722DC30E200BDA3A2 /* EmojiKeyboardParser.swift in Sources */,
 				A6230FD422B73C2C00A5DD95 /* SectionModel.swift in Sources */,
 				A624040622C0CE2A00496D3A /* LoginProvider.swift in Sources */,
 				A6983D0122C49E8F0042B591 /* RCIMDataSource.swift in Sources */,

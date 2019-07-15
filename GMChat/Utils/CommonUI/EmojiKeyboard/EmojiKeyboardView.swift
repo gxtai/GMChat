@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol EmojiKeyboardViewDelegate: NSObjectProtocol {
+    func selectedEmojiWithImageTag(tag: String)
+}
+
 class EmojiKeyboardView: UIView {
 
+    weak var delegate: EmojiKeyboardViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -23,9 +29,9 @@ class EmojiKeyboardView: UIView {
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
-        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
-        layout.itemSize = CGSize(width: SCREEN_WIDTH / 7.0, height: SCREEN_WIDTH / 7.0)
+        layout.itemSize = CGSize(width: SCREEN_WIDTH / 8.0, height: SCREEN_WIDTH / 8.0)
         let collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.delegate = self
@@ -43,11 +49,11 @@ class EmojiKeyboardView: UIView {
         return pageControl
     }()
     
-    lazy var dataArray: NSMutableArray = {
+    lazy var dataArray: [[String: String]] = {
         let bundlePath = Bundle.main.path(forResource: "EmoticonQQ", ofType: "bundle")!
         let bundle = Bundle.init(path: bundlePath)
         let plistPath = bundle?.path(forResource: "infoEmotion", ofType: "plist")
-        let dataArray = NSMutableArray(contentsOfFile: plistPath!)!
+        let dataArray = NSMutableArray(contentsOfFile: plistPath!)! as! [[String: String]]
         return dataArray
     }()
     
@@ -63,11 +69,22 @@ extension EmojiKeyboardView: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: EmojiKeyboardCell = collectionView.dequeueReusableCell(withReuseIdentifier: EmojiKeyboardCellID, for: indexPath) as! EmojiKeyboardCell
-//        let dic = dataArray[indexPath.row]
-//        let value = dic.v
+        let dic: [String: String] = dataArray[indexPath.row]
+        let value = dic.values.first!
         
+        let bundlePath = Bundle.main.path(forResource: "EmoticonQQ", ofType: "bundle")!
+        let bundle = Bundle.init(path: bundlePath)
+        let pngPath = bundle?.path(forResource: "\(value)@2x", ofType: "png")
+        let image = UIImage(contentsOfFile: pngPath!)
+        
+        cell.emojiImage.image = image
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let dic: [String: String] = dataArray[indexPath.row]
+        let value = dic.values.first!
+        delegate?.selectedEmojiWithImageTag(tag: value)
+    }
     
 }

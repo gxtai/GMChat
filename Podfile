@@ -12,5 +12,6 @@ target 'GMChat' do
     pod 'YYCategories'
     pod 'YYText'
     pod 'RealmSwift', '~> 3.10.0' # realm数据库
+    pod 'YYImage'
     use_frameworks!
 end
