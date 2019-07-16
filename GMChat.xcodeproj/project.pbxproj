@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2E93A7FF4507F3F8EDC9CEEA /* Pods_GMChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962B0483A47257E7397F840A /* Pods_GMChat.framework */; };
+		A61BA2CA22DDAA4700A37997 /* DynamicSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BA2C922DDAA4700A37997 /* DynamicSectionModel.swift */; };
+		A61BA2CC22DDB1FF00A37997 /* DynamicListContentBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BA2CB22DDB1FF00A37997 /* DynamicListContentBaseView.swift */; };
+		A61BA2D022DDBD2200A37997 /* DynamicListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BA2CF22DDBD2200A37997 /* DynamicListModel.swift */; };
+		A61BA2D422DDC58C00A37997 /* DynamicListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BA2D322DDC58C00A37997 /* DynamicListService.swift */; };
+		A61BA2D522DDCAF800A37997 /* DynamicList.geojson in Resources */ = {isa = PBXBuildFile; fileRef = A61BA2C022DD9C2700A37997 /* DynamicList.geojson */; };
 		A6230FD322B73C2C00A5DD95 /* RowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6230FD122B73C2C00A5DD95 /* RowModel.swift */; };
 		A6230FD422B73C2C00A5DD95 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6230FD222B73C2C00A5DD95 /* SectionModel.swift */; };
 		A6230FD922B7606200A5DD95 /* AddressBookList.geojson in Resources */ = {isa = PBXBuildFile; fileRef = A6230FD822B7606200A5DD95 /* AddressBookList.geojson */; };
@@ -77,6 +82,11 @@
 
 /* Begin PBXFileReference section */
 		962B0483A47257E7397F840A /* Pods_GMChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GMChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A61BA2C022DD9C2700A37997 /* DynamicList.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = DynamicList.geojson; sourceTree = "<group>"; };
+		A61BA2C922DDAA4700A37997 /* DynamicSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSectionModel.swift; sourceTree = "<group>"; };
+		A61BA2CB22DDB1FF00A37997 /* DynamicListContentBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListContentBaseView.swift; sourceTree = "<group>"; };
+		A61BA2CF22DDBD2200A37997 /* DynamicListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListModel.swift; sourceTree = "<group>"; };
+		A61BA2D322DDC58C00A37997 /* DynamicListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListService.swift; sourceTree = "<group>"; };
 		A6230FD122B73C2C00A5DD95 /* RowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowModel.swift; sourceTree = "<group>"; };
 		A6230FD222B73C2C00A5DD95 /* SectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		A6230FD822B7606200A5DD95 /* AddressBookList.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AddressBookList.geojson; sourceTree = "<group>"; };
@@ -181,6 +191,47 @@
 				F98D7EA5716AE7B126DB5379 /* Pods-GMChat.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A61BA2C222DDA76C00A37997 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A61BA2C422DDA7AC00A37997 /* Cell */,
+				A61BA2C322DDA7A100A37997 /* ContentHeader */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A61BA2C322DDA7A100A37997 /* ContentHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A61BA2CB22DDB1FF00A37997 /* DynamicListContentBaseView.swift */,
+			);
+			path = ContentHeader;
+			sourceTree = "<group>";
+		};
+		A61BA2C422DDA7AC00A37997 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A61BA2C822DDAA3200A37997 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A61BA2C922DDAA4700A37997 /* DynamicSectionModel.swift */,
+				A61BA2CF22DDBD2200A37997 /* DynamicListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A61BA2D222DDC55200A37997 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A61BA2D322DDC58C00A37997 /* DynamicListService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		A6230FD022B73C1800A5DD95 /* CellModel */ = {
@@ -461,8 +512,9 @@
 		A67F193522B35006007D20D4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				A6EAE90A22D3196100B3BD8E /* EmoticonQQ.bundle */,
 				A6230FD822B7606200A5DD95 /* AddressBookList.geojson */,
+				A61BA2C022DD9C2700A37997 /* DynamicList.geojson */,
+				A6EAE90A22D3196100B3BD8E /* EmoticonQQ.bundle */,
 				A67F191B22B34C40007D20D4 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -490,6 +542,9 @@
 		A67F193822B35568007D20D4 /* DynamicList */ = {
 			isa = PBXGroup;
 			children = (
+				A61BA2D222DDC55200A37997 /* Service */,
+				A61BA2C822DDAA3200A37997 /* Model */,
+				A61BA2C222DDA76C00A37997 /* View */,
 				A67F193C22B35590007D20D4 /* Controller */,
 			);
 			path = DynamicList;
@@ -795,6 +850,7 @@
 				A67F191A22B34C3E007D20D4 /* Main.storyboard in Resources */,
 				A6EAE90B22D3196100B3BD8E /* EmoticonQQ.bundle in Resources */,
 				A6230FD922B7606200A5DD95 /* AddressBookList.geojson in Resources */,
+				A61BA2D522DDCAF800A37997 /* DynamicList.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -897,12 +953,14 @@
 				A631784222C1F0D000EA8A73 /* UserInfo.swift in Sources */,
 				A67F191722B34C3D007D20D4 /* ViewController.swift in Sources */,
 				A6B782B022D4A258007AD9BF /* EmojiKeyboardView.swift in Sources */,
+				A61BA2D022DDBD2200A37997 /* DynamicListModel.swift in Sources */,
 				A66C646722DC5931006AE547 /* YYAnimatedImageView.m in Sources */,
 				A67F191522B34C3D007D20D4 /* AppDelegate.swift in Sources */,
 				A6EAE91222D31A7900B3BD8E /* PublishDynamicToolBar.swift in Sources */,
 				A67F194B22B356EA007D20D4 /* MineMainPageViewController.swift in Sources */,
 				A67F195922B38D99007D20D4 /* UIBarButtonItem+Extensions.swift in Sources */,
 				A68E9B6922B8EC470029F547 /* BookListHeaderView.swift in Sources */,
+				A61BA2CA22DDAA4700A37997 /* DynamicSectionModel.swift in Sources */,
 				A631784822C20CAC00EA8A73 /* PlaceHolderView.swift in Sources */,
 				A67F195422B37DE1007D20D4 /* UIImage+Extensions.swift in Sources */,
 				A66C647322DC8F74006AE547 /* PublishSelectPictureViewCell.swift in Sources */,
@@ -929,6 +987,8 @@
 				A6230FD422B73C2C00A5DD95 /* SectionModel.swift in Sources */,
 				A624040622C0CE2A00496D3A /* LoginProvider.swift in Sources */,
 				A6983D0122C49E8F0042B591 /* RCIMDataSource.swift in Sources */,
+				A61BA2D422DDC58C00A37997 /* DynamicListService.swift in Sources */,
+				A61BA2CC22DDB1FF00A37997 /* DynamicListContentBaseView.swift in Sources */,
 				A67F192D22B34DB5007D20D4 /* BaseNavigationViewController.swift in Sources */,
 				A68D381822BB25CF00D317EE /* SearchPageSearchBarView.swift in Sources */,
 				A66D6F7A22BCA9EF006F5B2C /* BookListIndexView.swift in Sources */,

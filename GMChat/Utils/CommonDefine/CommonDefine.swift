@@ -35,6 +35,7 @@ let kTopHeight : CGFloat = kStatusBarHeight + kNavBarHeight
 let mainColor = UIColor.withRGB(255, 220, 47)
 /// 常用color
 let color_333333 = UIColor.withHex(hexString: "#333333")
+let color_888888 = UIColor.withHex(hexString: "#888888")
 let color_000000 = UIColor.withHex(hexString: "#000000")
 let color_b2b2b2 = UIColor.withHex(hexString: "#b2b2b2")
 let color_666666 = UIColor.withHex(hexString: "#666666")

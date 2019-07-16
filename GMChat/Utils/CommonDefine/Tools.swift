@@ -43,6 +43,11 @@ func swiftClassFromString(className: String) -> AnyClass! {
 }
 
 /// msg toast
+func showMessage(_ message: String?) {
+    hudHide()
+    guard let message = message else { return }
+    SwiftProgressHUD.showOnlyText(message)
+}
 func showSuccessMessage(_ message: String?) {
     hudHide()
     guard let message = message else { return }
@@ -86,3 +91,4 @@ func emojiImage(name: String) -> YYImage {
     image?.preloadAllAnimatedImageFrames = true
     return image!
 }
+

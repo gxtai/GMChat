@@ -9,7 +9,6 @@
 import UIKit
 
 protocol PublishDynamicToolBarDelegate: NSObjectProtocol {
-    func chooseThePicture()
     func chooseThePeople()
     func chooseTheEmoji()
     func abandonChooseTheEmoji()
@@ -43,10 +42,6 @@ class PublishDynamicToolBar: UIView {
             make.bottom.equalToSuperview()
         }
     }
-    /// 选择图片
-    @objc func pictureBtnClicked() {
-        delegate?.chooseThePicture()
-    }
     /// 选择@
     @objc func atBtnClicked() {
         delegate?.chooseThePeople()
@@ -68,15 +63,6 @@ class PublishDynamicToolBar: UIView {
         }
         emojiBtn.isSelected = false
     }
-    
-    
-    lazy var pictureBtn: UIButton = {
-        let pictureBtn = UIButton(type: .custom)
-        pictureBtn.setBackgroundImage(UIImage(named: "dynamic_publish_bar_choose_image_btn"), for: .normal)
-        addSubview(pictureBtn)
-        pictureBtn.addTarget(self, action: #selector(pictureBtnClicked), for: .touchUpInside)
-        return pictureBtn
-    }()
     
     lazy var atBtn: UIButton = {
         let atBtn = UIButton(type: .custom)
@@ -120,19 +106,14 @@ class PublishDynamicToolBar: UIView {
 extension PublishDynamicToolBar {
     func setupViews() {
         backgroundColor = UIColor.withRGB(229, 229, 229)
-        pictureBtn.snp.makeConstraints { (make) in
+        atBtn.snp.makeConstraints { (make) in
             make.left.equalTo(20)
             make.top.equalTo(10)
             make.size.equalTo(CGSize(width: 25, height: 25))
         }
-        atBtn.snp.makeConstraints { (make) in
-            make.left.equalTo(pictureBtn.snp_right).offset(20)
-            make.centerY.equalTo(pictureBtn.snp_centerY).offset(0)
-            make.size.equalTo(CGSize(width: 25, height: 25))
-        }
         emojiBtn.snp.makeConstraints { (make) in
             make.left.equalTo(atBtn.snp_right).offset(20)
-            make.centerY.equalTo(pictureBtn.snp_centerY).offset(0)
+            make.centerY.equalTo(atBtn.snp_centerY).offset(0)
             make.size.equalTo(CGSize(width: 25, height: 25))
         }
     }

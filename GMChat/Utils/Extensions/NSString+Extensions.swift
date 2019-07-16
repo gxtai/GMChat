@@ -83,6 +83,8 @@ extension String {
     }
     
     /// 手机号加密
+    ///
+    /// - Returns: 手机号加星
     func phoneNumReplaceWithStar() -> String {
         var replaceString = self
         if replaceString.count == 11 {
@@ -91,5 +93,33 @@ extension String {
         return replaceString
     }
     
+    /// 时间显示
+    ///
+    /// - Parameter time: 时间戳
+    /// - Returns: 显示的时间
+//    func timeDesString(timeString: String) -> String {
+//        let time = TimeInterval(timeString)!
+//        let currentDate = Date()
+//        let currentTimeInterval = currentDate.timeIntervalSince1970
+//        let date = Date(timeIntervalSince1970: time / 1000)
+//        // 年
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy"
+//        let year = formatter.string(from: date)
+//        let currentYear = formatter.string(from: currentDate)
+//        // 月
+//        formatter.dateFormat = "MM"
+//        var month = formatter.string(from: date)
+//        if month.count == 1 {
+//            month = "0\(month)"
+//        }
+//        // 日
+//        formatter.dateFormat = "dd"
+//        let day = formatter.string(from: date)
+//        // 上午下午
+//        formatter.dateFormat = "ahh:mm"
+//        let detail = formatter.string(from: date).rep
+//
+//    }
 }
 

@@ -90,3 +90,29 @@ extension UIView {
     }
     
 }
+
+extension UIView {
+    
+    
+    func findController() -> UIViewController! {
+        return self.findControllerWithClass(UIViewController.self)
+    }
+    
+    func findNavigator() -> UINavigationController! {
+        return self.findControllerWithClass(UINavigationController.self)
+    }
+    
+    func findControllerWithClass<T>(_ clzz: AnyClass) -> T? {
+        var responder = self.next
+        while(responder != nil) {
+            if (responder!.isKind(of: clzz)) {
+                return responder as? T
+            }
+            responder = responder?.next
+        }
+        
+        return nil
+    }
+    
+    
+}

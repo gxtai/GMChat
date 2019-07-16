@@ -8,11 +8,20 @@
 
 import UIKit
 let PublishSelectPictureViewCellID = "PublishSelectPictureViewCellID"
+
+protocol PublishSelectPictureViewCellDelegate: NSObjectProtocol {
+    func deleteThePicture(index: Int)
+}
+
 class PublishSelectPictureViewCell: UICollectionViewCell {
-    
+    weak var delegate: PublishSelectPictureViewCellDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+    }
+    
+    @objc func delBtnClicked(sender: UIButton) {
+        delegate?.deleteThePicture(index: sender.tag)
     }
     
     func setupViews() {
@@ -45,6 +54,7 @@ class PublishSelectPictureViewCell: UICollectionViewCell {
         delBtn.setImage(UIImage(named: "dynamic_publish_delegate_picture_default"), for: .normal)
         delBtn.setImage(UIImage(named: "dynamic_publish_delegate_picture_press"), for: .highlighted)
         self.contentView.addSubview(delBtn)
+        delBtn.addTarget(self, action: #selector(delBtnClicked(sender:)), for: .touchUpInside)
         return delBtn
     }()
     

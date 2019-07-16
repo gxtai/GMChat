@@ -66,7 +66,7 @@ class BookListViewController: BaseViewController {
     
     /// UI
     func setupViews() {
-        setupNavigationItem(icon: "book_add_friends_btn_normal", highIcon: nil, isLeft: false)
+//        setupNavigationItem(icon: "book_add_friends_btn_normal", highIcon: nil, isLeft: false)
         view.addSubview(tableView)
         view.addSubview(indexView)
     }

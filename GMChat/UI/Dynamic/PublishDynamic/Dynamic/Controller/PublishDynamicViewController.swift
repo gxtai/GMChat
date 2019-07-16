@@ -28,6 +28,13 @@ class PublishDynamicViewController: BaseViewController {
     /// 发布
     override func rightBtnClicked(sender: UIButton) {
         
+        if textView.text.count == 0 && selectPictureView.photoArray.count == 0 {
+            showMessage("发表内容不能为空")
+            return
+        }
+        
+        
+        
     }
     /// 点击屏幕
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -129,10 +136,6 @@ extension PublishDynamicViewController: YYTextViewDelegate {
 }
 /// toolbar
 extension PublishDynamicViewController: PublishDynamicToolBarDelegate {
-    /// 选择图片
-    func chooseThePicture() {
-        
-    }
     /// at某人
     func chooseThePeople() {
         let vc = AtFriendsListViewController()

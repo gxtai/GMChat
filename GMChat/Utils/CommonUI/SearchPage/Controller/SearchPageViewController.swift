@@ -105,7 +105,7 @@ extension SearchPageViewController: SearchPageSearchBarViewDelegate {
         // 联系人
         for listModel in bookListArray {
             if listModel.name.range(of: text) != nil {
-                let rowModel = RowModel(title: nil, className: NSStringFromClass(BookListCell.self), reuseIdentifier: BookListCellID)
+                let rowModel = RowModel(title: nil, className: NSStringFromClass(BookListCell.self), reuseIdentifier: "BookListCellID")
                 rowModel.accessoryType = .none
                 rowModel.dataModel = listModel
                 rowModel.height = 64
