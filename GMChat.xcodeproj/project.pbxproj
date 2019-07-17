@@ -43,6 +43,7 @@
 		A66C647122DC8C95006AE547 /* PublishSelectPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C647022DC8C95006AE547 /* PublishSelectPictureView.swift */; };
 		A66C647322DC8F74006AE547 /* PublishSelectPictureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C647222DC8F74006AE547 /* PublishSelectPictureViewCell.swift */; };
 		A66D6F7A22BCA9EF006F5B2C /* BookListIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D6F7922BCA9EF006F5B2C /* BookListIndexView.swift */; };
+		A67642AF22DF09D60065DDD1 /* DynamicListLikesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67642AE22DF09D60065DDD1 /* DynamicListLikesCell.swift */; };
 		A67F191522B34C3D007D20D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F191422B34C3D007D20D4 /* AppDelegate.swift */; };
 		A67F191722B34C3D007D20D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F191622B34C3D007D20D4 /* ViewController.swift */; };
 		A67F191A22B34C3E007D20D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67F191822B34C3E007D20D4 /* Main.storyboard */; };
@@ -123,6 +124,7 @@
 		A66C647022DC8C95006AE547 /* PublishSelectPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishSelectPictureView.swift; sourceTree = "<group>"; };
 		A66C647222DC8F74006AE547 /* PublishSelectPictureViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishSelectPictureViewCell.swift; sourceTree = "<group>"; };
 		A66D6F7922BCA9EF006F5B2C /* BookListIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListIndexView.swift; sourceTree = "<group>"; };
+		A67642AE22DF09D60065DDD1 /* DynamicListLikesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListLikesCell.swift; sourceTree = "<group>"; };
 		A67F191122B34C3D007D20D4 /* GMChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67F191422B34C3D007D20D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A67F191622B34C3D007D20D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		A61BA2C422DDA7AC00A37997 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				A67642AE22DF09D60065DDD1 /* DynamicListLikesCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -997,6 +1000,7 @@
 				A631783D22C1BCC500EA8A73 /* UserInfoRealm.swift in Sources */,
 				A6983D0A22C4B9B20042B591 /* UIImageView+Extensions.swift in Sources */,
 				A6983D0822C4B4590042B591 /* MineMainPageUserInfoView.swift in Sources */,
+				A67642AF22DF09D60065DDD1 /* DynamicListLikesCell.swift in Sources */,
 				A67F195322B37DE1007D20D4 /* UIColor+Extensions.swift in Sources */,
 				A624040E22C0D55700496D3A /* Date+Extensions.swift in Sources */,
 				A624040A22C0D1F100496D3A /* Provider+Config.swift in Sources */,

@@ -222,7 +222,7 @@ extension SearchPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let sectionModel = dataArray[indexPath.section]
         let cellModel = sectionModel.mutableCells[indexPath.row]
-        return CGFloat(cellModel.height)
+        return cellModel.height
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

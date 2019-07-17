@@ -45,6 +45,7 @@ let color_e5e5e5 = UIColor.withHex(hexString: "#e5e5e5")
 let color_246 = UIColor.withRGB(246, 246, 246)
 let color_51 = UIColor.withRGB(51, 51, 51)
 let color_204 = UIColor.withRGB(204, 204, 204)
+let color_link = UIColor.withRGB(71, 122, 172)
 /// 通用按钮背景图片
 let btnNormalImage = UIImage.from(color: UIColor.withHex(hexString: "#ffdc2f"))
 let headerPlaceholderImage = UIImage(named: "common_user_header_image_place")

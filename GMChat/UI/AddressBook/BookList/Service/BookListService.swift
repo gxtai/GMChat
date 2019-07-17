@@ -63,11 +63,31 @@ func fetchUserInfo<T>(userId: String, type: T.Type, callback: ((result: Bool, mo
                 }
                 break
             }
-            
         }
         callback(modelData)
-
     }
 }
 
+/// 根据userName获取用户信息 BookListModel / RCUserInfo
+func fetchUserInfo<T>(userName: String, type: T.Type, callback: ((result: Bool, model: T?)) -> Void) {
+    fetchAllAddressBookList { (listArray) in
+        
+        var modelData: (Bool, T?) = (false, nil)
+        
+        for listModel in listArray {
+            
+            if listModel.name == userName {
+                // 判断泛型类型
+                if type == BookListModel.self {
+                    modelData = (true, listModel) as! (Bool, T?)
+                } else if type == RCUserInfo.self {
+                    let rcUser = RCUserInfo(userId: listModel.id, name: listModel.name, portrait: listModel.photo)
+                    modelData = (true, rcUser) as! (Bool, T?)
+                }
+                break
+            }
+        }
+        callback(modelData)
+    }
+}
 

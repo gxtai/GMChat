@@ -4,7 +4,7 @@
         {
             "id":"100",
             "feed_content":"第一组：人如果没有理想，那和咸鱼有什么区别？努力！奋斗！！！@伯来",
-            "like_count":"3",
+            "like_count":"6",
             "feed_comment_count":"11",
             "created_at":"1563256522",
             "has_like":"0",
@@ -35,6 +35,48 @@
                 }
             ],
             "likes":[
+                {
+                    "id":"1001",
+                    "name":"伯来",
+                    "photo":"http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160503/14622764778932thumbnail.jpg",
+                    "phone":"13666666601"
+                },
+                {
+                    "id":"1001",
+                    "name":"伯来",
+                    "photo":"http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160503/14622764778932thumbnail.jpg",
+                    "phone":"13666666601"
+                },
+                {
+                    "id":"1001",
+                    "name":"伯来",
+                    "photo":"http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160503/14622764778932thumbnail.jpg",
+                    "phone":"13666666601"
+                },
+                {
+                    "id":"1001",
+                    "name":"伯来",
+                    "photo":"http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160503/14622764778932thumbnail.jpg",
+                    "phone":"13666666601"
+                },
+                {
+                    "id":"1001",
+                    "name":"伯来",
+                    "photo":"http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160503/14622764778932thumbnail.jpg",
+                    "phone":"13666666601"
+                },
+                {
+                    "id":"1001",
+                    "name":"伯来",
+                    "photo":"http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160503/14622764778932thumbnail.jpg",
+                    "phone":"13666666601"
+                },
+                {
+                    "id":"1001",
+                    "name":"伯来",
+                    "photo":"http://weixintest.ihk.cn/ihkwx_upload/commentPic/20160503/14622764778932thumbnail.jpg",
+                    "phone":"13666666601"
+                },
                 {
                     "id":"1001",
                     "name":"伯来",

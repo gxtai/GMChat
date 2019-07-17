@@ -10,15 +10,25 @@ import UIKit
 
 let DynamicListContentBaseViewID = "DynamicListContentBaseViewID"
 let DynamicListContentBaseViewH: CGFloat = 86.0
+let DynamicListHeaderImageViewW: CGFloat = 34.0
 
 class DynamicListContentBaseView: UITableViewHeaderFooterView {
-
+    
+    var sectionModel: DynamicSectionModel?
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setupViews()
     }
     
+    @objc func likeBtnClicked(sender: UIButton) {
+        var listModel: DynamicListModel = self.sectionModel!.dataModel as! DynamicListModel
+        listModel.likes.remove(at: 0)
+    }
+    
     @objc func showDataWithSectionModel(_ sectionModel: DynamicSectionModel) {
+        
+        self.sectionModel = sectionModel
         
         let listModel: DynamicListModel = sectionModel.dataModel as! DynamicListModel
         
@@ -26,13 +36,40 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
             guard let image = image else {return}
             let w = image.size.width > image.size.height ? image.size.height : image.size.width
             let imagee = image.byResize(to: CGSize(width: w, height: w))
-            let imageee = imagee!.byRoundCornerRadius(w / 2.0)
+            let imageee = imagee!.byRoundCornerRadius(w / 10.0)
             self?.headerImageView.image = imageee
         }
-        
         nameLab.text = listModel.user.name
+        timeLab.text = listModel.created_at_string
         
+        /// 内容
+        contentLab.attributedText = listModel.attributedTextString
+        contentLab.snp_updateConstraints { (make) in
+            make.height.equalTo(listModel.content_h)
+        }
+        contentLab.highlightTapAction = { [weak self] (containerView, text, range, rect) in
+            let highlight = text.yy_attribute(YYTextHighlightAttributeName, at: UInt(range.location))
+            self?.tapAction(label: containerView as! YYLabel, highlight: highlight as! YYTextHighlight, textRange: range)
+        }
         
+        likeBtn.setTitle(listModel.like_count > 0 ? "\(listModel.like_count)" : "", for: .normal)
+        commentBtn.setTitle(listModel.feed_comment_count > 0 ? "\(listModel.feed_comment_count)" : "", for: .normal)
+    }
+    
+    func tapAction(label: YYLabel, highlight: YYTextHighlight, textRange: NSRange) {
+        let info = highlight.userInfo
+        let linkValue = "\(info!["linkValue"] ?? "")"
+        fetchUserInfo(userName: linkValue, type: RCUserInfo.self) { (result) in
+            if result.result == false { return }
+            guard let user = result.model else { return }
+            // 点击跳转到聊天界面  后续改为个人主页
+            let sessionDetail = SessionDetailViewController()
+            sessionDetail.conversationType = RCConversationType.ConversationType_PRIVATE
+            sessionDetail.targetId = user.userId
+            sessionDetail.title = user.name
+            sessionDetail.displayUserNameInCell = false
+            findNavigator().pushViewController(sessionDetail, animated: true)
+        }
     }
     
     func setupViews() {
@@ -43,7 +80,7 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         headerImageView.snp.makeConstraints { (make) in
             make.left.equalTo(10)
             make.top.equalTo(12)
-            make.size.equalTo(CGSize(width: 34, height: 34))
+            make.size.equalTo(CGSize(width: DynamicListHeaderImageViewW, height: DynamicListHeaderImageViewW))
         }
         nameLab.snp.makeConstraints { (make) in
             make.left.equalTo(headerImageView.snp_right).offset(10)
@@ -56,6 +93,8 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         contentLab.snp_makeConstraints { (make) in
             make.left.equalTo(headerImageView.snp_right).offset(10)
             make.top.equalTo(timeLab.snp_bottom).offset(3)
+            make.right.equalTo(-10)
+            make.height.equalTo(0)
         }
         likeBtn.snp_makeConstraints { (make) in
             make.left.equalTo(54)
@@ -79,7 +118,7 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
     }()
     
     lazy var headerImageView: UIImageView = {
-        let headerImageView = UIImageView(image: headerPlaceholderImage?.byRoundCornerRadius(17))
+        let headerImageView = UIImageView(image: headerPlaceholderImage)
         self.bgView.addSubview(headerImageView)
         return headerImageView
     }()
@@ -123,7 +162,7 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         let parser = YYTextSimpleEmoticonParser()
         parser.emoticonMapper = mapper
         contentLab.textParser = parser
-        
+
         return contentLab
     }()
     
@@ -135,6 +174,7 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         likeBtn.setTitleColor(color_888888, for: .normal)
         likeBtn.titleLabel?.font = FONT(12)
         self.bgView.addSubview(likeBtn)
+        likeBtn.addTarget(self, action: #selector(likeBtnClicked(sender:)), for: .touchUpInside)
         return likeBtn
     }()
     
@@ -147,4 +187,5 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         self.bgView.addSubview(commentBtn)
         return commentBtn
     }()
+    
 }

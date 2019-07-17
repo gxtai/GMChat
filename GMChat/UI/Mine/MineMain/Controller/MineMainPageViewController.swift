@@ -33,7 +33,7 @@ class MineMainPageViewController: BaseViewController {
     }
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: -kStatusBarHeight, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - kTabBarHeight - kStatusBarHeight), style: .grouped)
+        let tableView = UITableView(frame: CGRect(x: 0, y: -kStatusBarHeight, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - kStatusBarHeight), style: .grouped)
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
         tableView.delegate = self
         tableView.dataSource = self
@@ -142,7 +142,7 @@ extension MineMainPageViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let sectionModel = dataArray[indexPath.section]
         let cellModel = sectionModel.mutableCells[indexPath.row]
-        return CGFloat(cellModel.height)
+        return cellModel.height
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

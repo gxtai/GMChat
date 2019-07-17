@@ -33,7 +33,7 @@ class DynamicListViewController: BaseViewController {
     }
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: kTopHeight, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - kTopHeight - kTabBarHeight), style: .grouped)
+        let tableView = UITableView(frame: self.view.frame, style: .grouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = color_246
@@ -57,6 +57,13 @@ extension DynamicListViewController: UITableViewDelegate, UITableViewDataSource 
         let sectionModel = dataArray[section]
         return sectionModel.mutableCells.count
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let sectionModel = dataArray[indexPath.section]
+        let cellModel = sectionModel.mutableCells[indexPath.row]
+        return cellModel.height
+    }
+    
     /// 点赞和评论
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sectionModel = dataArray[indexPath.section]
@@ -105,7 +112,14 @@ extension DynamicListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
+        let sectionModel = dataArray[section]
+        var footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "footerID")
+        if  footerView == nil {
+            footerView = UITableViewHeaderFooterView.init(reuseIdentifier: "footerID")
+            footerView?.height = sectionModel.footerHeigth
+            footerView?.contentView.backgroundColor = .white
+        }
+        return footerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -134,19 +148,24 @@ extension DynamicListViewController {
     }
     
     func configSectionData(listModel: DynamicListModel) -> DynamicSectionModel {
-        /// 点赞的cell
-        let likesModel = RowModel(title: nil, className: NSStringFromClass(BookListCell.self), reuseIdentifier: BookListCellID)
-        likesModel.height = 64
-        likesModel.accessoryType = .none
-        /// 评论的cell
         /// 动态内容
         let sectionModel = DynamicSectionModel()
         sectionModel.className = NSStringFromClass(DynamicListContentBaseView.self)
         sectionModel.reuseIdentifier = DynamicListContentBaseViewID
-        sectionModel.headerHeight = DynamicListContentBaseViewH
-        sectionModel.footerHeigth = 0.1
+        sectionModel.headerHeight = listModel.total_h
+        sectionModel.footerHeigth = 10
         sectionModel.showDataString = "showDataWithSectionModel:"
         sectionModel.dataModel = listModel
+        
+        /// 点赞的cell
+        let likesModel = RowModel(title: nil, className: NSStringFromClass(DynamicListLikesCell.self), reuseIdentifier: DynamicListLikesCellID)
+        likesModel.height = listModel.likes_h
+        likesModel.accessoryType = .none
+        likesModel.selectionStyle = .none
+        sectionModel.mutableCells.append(likesModel)
+        likesModel.dataModel = listModel
+        /// 评论的cell
+        
         return sectionModel
     }
 }

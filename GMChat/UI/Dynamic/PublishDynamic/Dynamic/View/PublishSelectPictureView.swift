@@ -21,7 +21,7 @@ class PublishSelectPictureView: UICollectionView, UICollectionViewDelegate, UICo
         backgroundColor = .white
         dataSource = self
         delegate = self
-        let row = Int(maxCount / lineCount) + Int(maxCount % lineCount)
+        let row = Int(maxCount / lineCount) + Int(maxCount % lineCount) == 0 ? 0 : 1
         self.height = SCREEN_WIDTH / CGFloat(lineCount) * CGFloat(row)
     }
     

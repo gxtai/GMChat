@@ -79,7 +79,7 @@ class BookListViewController: BaseViewController {
     }()
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: kTopHeight, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - kTopHeight - kTabBarHeight), style: .plain)
+        let tableView = UITableView(frame: self.view.frame, style: .plain)
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
         tableView.delegate = self
         tableView.dataSource = self
@@ -222,7 +222,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
         let cellModel = sectionModel.mutableCells[indexPath.row]
         var cell = tableView.dequeueReusableCell(withIdentifier: cellModel.className!)
         if cell == nil {
-            let className = NSClassFromString(cellModel.className!) as? UITableViewCell.Type//swiftClassFromString(className: cellModel.className!) as? UITableViewCell.Type
+            let className = NSClassFromString(cellModel.className!) as? UITableViewCell.Type
             cell = className!.init(style: cellModel.style, reuseIdentifier: cellModel.reuseIdentifier)
         }
         cellModel.indexPath = indexPath
@@ -246,7 +246,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let sectionModel = dataArray[indexPath.section]
         let cellModel = sectionModel.mutableCells[indexPath.row]
-        return CGFloat(cellModel.height)
+        return cellModel.height
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

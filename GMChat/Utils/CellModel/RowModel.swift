@@ -12,7 +12,7 @@ class RowModel: NSObject {
     var title: String?
     var subTitle: String?
     var imageName: String?
-    var height: Double = 0
+    var height: CGFloat = 0
     var size: CGSize = .zero
     var selectorString: String?
     var showDataString: String?

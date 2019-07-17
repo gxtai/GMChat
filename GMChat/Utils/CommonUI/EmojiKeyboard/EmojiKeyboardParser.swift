@@ -29,7 +29,7 @@ class EmojiKeyboardParser: YYTextSimpleEmoticonParser {
             if result == nil { return }
             let range = result?.range
             if range?.location == NSNotFound || range!.length < 1 { return }
-            text.yy_setColor(UIColor.withRGB(71, 122, 172), range: range!)
+            text.yy_setColor(color_link, range: range!)
             changed = true
         })
         return changed
