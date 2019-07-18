@@ -21,9 +21,9 @@ struct DynamicListModel: ModelProtocol {
     let brand: String
     let user: DynamicListUserModel
     var likes: [DynamicListUserModel]
-    var likes_h: CGFloat // 点赞的高度
-    
-    
+    var images: [DynamicListImagesModel]
+    let imagesH: CGFloat // 图片view高度
+    var likes_h: CGFloat // 点赞cell的高度
     let content_h: CGFloat // 文本的高度
     let attributedTextString: NSMutableAttributedString
     let total_h: CGFloat // 总高度 指的动态内容的高度
@@ -39,11 +39,31 @@ struct DynamicListModel: ModelProtocol {
         self.user = DynamicListUserModel.init(json: json["user"])
         self.created_at_string = Date.setupDateString(time: created_at)
         self.likes = json["likes"].arrayValue.map(DynamicListUserModel.init(json:))
-        // 点赞的高度
+        // 点赞的cell高度
         self.likes_h = DynamicListModel.likesH(likesArray: self.likes)
+        // 文本内容
+        let content = DynamicListModel.contentHAndAttributeString(content: self.feed_content)
+        self.attributedTextString = content.attributedText
+        self.content_h = content.contentH
+        // 图片高度
+        self.images = json["images"].arrayValue.map(DynamicListImagesModel.init(json:))
+        self.imagesH = DynamicListModel.imagesH(imagesArray: self.images)
+        // 总高度
+        var totalHeight = DynamicListContentBaseViewH
+        if self.content_h > 0 {
+            totalHeight = totalHeight + self.content_h + 5
+        }
+        if self.imagesH > 0 {
+            totalHeight = totalHeight + self.imagesH + 20
+        }
+        self.total_h = totalHeight
+    }
+    
+    /// 文本内容和内容高度
+    static func contentHAndAttributeString(content: String) ->(contentH: CGFloat, attributedText: NSMutableAttributedString) {
         /// 组装内容
-        if self.feed_content.count > 0 {
-            let contentString = self.feed_content
+        if content.count > 0 {
+            let contentString = content
             let attributedText = NSMutableAttributedString(string: contentString)
             attributedText.yy_setFont(FONT(14), range: attributedText.yy_rangeOfAll())
             attributedText.yy_setColor(color_51, range: attributedText.yy_rangeOfAll())
@@ -72,25 +92,25 @@ struct DynamicListModel: ModelProtocol {
                     attributedText.yy_setTextHighlight(highlight, range: at.range)
                 }
             }
-            // 文本内容
-            self.attributedTextString = attributedText
             // 文本高度
             let size = CGSize(width: SCREEN_WIDTH - 30 - DynamicListHeaderImageViewW, height: CGFloat.greatestFiniteMagnitude)
             let layout = YYTextLayout(containerSize: size, text: attributedText)
             let introHeight = layout!.textBoundingRect.height + 1
-            self.content_h = introHeight
+            return (introHeight, attributedText)
         } else {
-            self.attributedTextString = NSMutableAttributedString(string: "")
-            self.content_h = 0
+            return (0, NSMutableAttributedString(string: ""))
         }
-        // 总高度
-        var totalHeight = DynamicListContentBaseViewH
-        if feed_content.count > 0 {
-            totalHeight = totalHeight + self.content_h + 5
-        }
-        self.total_h = totalHeight
     }
     
+    /// 图片view高度
+    static func imagesH(imagesArray: [DynamicListImagesModel]) -> CGFloat {
+        let imagesCount: CGFloat = CGFloat(imagesArray.count)
+        let a = floor(imagesCount / 3)
+        let b = imagesCount.truncatingRemainder(dividingBy: 3) == 0 ? 0 : 1
+        let lineCount = a + CGFloat(b)
+        return CGFloat(lineCount) * dynamicListImagesH + a * dynamicListImagesDis
+    }
+    /// 点赞cell高度
     static func likesH(likesArray: [DynamicListUserModel]) -> CGFloat {
         var h: CGFloat = 0
         if likesArray.count > 0 {
@@ -100,10 +120,12 @@ struct DynamicListModel: ModelProtocol {
             let a = floor(headerTotalCount / likesLineHeaderCount)
             let b = headerTotalCount.truncatingRemainder(dividingBy: likesLineHeaderCount) == 0 ? 0 : 1
             let lineCount = a + CGFloat(b)
-            h = CGFloat(lineCount) * dynamicListlikesCellBaseH + CGFloat((2-b) * 5)
+            h = CGFloat(lineCount) * dynamicListlikesCellBaseH + (lineCount > 1 ? 5 : 10)
         }
         return h
     }
+    ///
+    
 }
 
 struct DynamicListUserModel: ModelProtocol {
@@ -118,6 +140,20 @@ struct DynamicListUserModel: ModelProtocol {
         self.name = json["name"].stringValue
         self.phone = json["phone"].stringValue
         self.photo = json["photo"].stringValue
+    }
+    
+}
+
+struct DynamicListImagesModel: ModelProtocol {
+    
+    let url: String
+    let width: CGFloat
+    let height: CGFloat
+    
+    init(json: JSON) {
+        self.url = json["url"].stringValue
+        self.width = CGFloat(json["width"].floatValue)
+        self.height = CGFloat(json["height"].floatValue)
     }
     
 }

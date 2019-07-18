@@ -101,7 +101,6 @@ class DynamicListLikesCell: UITableViewCell {
             
         }
         
-        
     }
     
     func setupViews() {
@@ -117,7 +116,7 @@ class DynamicListLikesCell: UITableViewCell {
         self.contentView.addSubview(likesImageView)
         return likesImageView
     }()
-    
+    /// 缓存裁剪后的图片
     lazy var imageDic: [String: UIImage] = {
         let imageDic = [String: UIImage]()
         return imageDic

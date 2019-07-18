@@ -62,6 +62,9 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
             self?.tapAction(label: containerView as! YYLabel, highlight: highlight as! YYTextHighlight, textRange: range)
         }
         
+        /// 图片
+        imagesView.imagesArray = listModel.images
+        
         likeBtn.setTitle(listModel.like_count > 0 ? "\(listModel.like_count)" : "", for: .normal)
         commentBtn.setTitle(listModel.feed_comment_count > 0 ? "\(listModel.feed_comment_count)" : "", for: .normal)
         likeBtn.isSelected = listModel.has_like
@@ -118,7 +121,7 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         
         imagesView.snp_makeConstraints { (make) in
             make.left.equalTo(headerImageView.snp_right).offset(10)
-            make.top.equalTo(contentLab.snp_bottom).offset(0)
+            make.top.equalTo(contentLab.snp_bottom).offset(10)
             make.right.equalTo(-10)
             make.height.equalTo(0)
         }
