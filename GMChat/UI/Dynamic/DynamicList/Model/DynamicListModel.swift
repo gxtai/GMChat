@@ -40,17 +40,7 @@ struct DynamicListModel: ModelProtocol {
         self.created_at_string = Date.setupDateString(time: created_at)
         self.likes = json["likes"].arrayValue.map(DynamicListUserModel.init(json:))
         // 点赞的高度
-        if self.likes.count > 0 {
-            /// 头像总个数
-            let headerTotalCount: CGFloat = CGFloat(self.likes.count)
-            /// 头像总行数
-            let a = floor(headerTotalCount / likesLineHeaderCount) 
-            let b = headerTotalCount.truncatingRemainder(dividingBy: likesLineHeaderCount) == 0 ? 0 : 1
-            let lineCount = a + CGFloat(b)
-            self.likes_h = CGFloat(lineCount) * dynamicListlikesCellBaseH + 5
-        } else {
-            self.likes_h = 0
-        }
+        self.likes_h = DynamicListModel.likesH(likesArray: self.likes)
         /// 组装内容
         if self.feed_content.count > 0 {
             let contentString = self.feed_content
@@ -101,6 +91,19 @@ struct DynamicListModel: ModelProtocol {
         self.total_h = totalHeight
     }
     
+    static func likesH(likesArray: [DynamicListUserModel]) -> CGFloat {
+        var h: CGFloat = 0
+        if likesArray.count > 0 {
+            /// 头像总个数
+            let headerTotalCount: CGFloat = CGFloat(likesArray.count)
+            /// 头像总行数
+            let a = floor(headerTotalCount / likesLineHeaderCount)
+            let b = headerTotalCount.truncatingRemainder(dividingBy: likesLineHeaderCount) == 0 ? 0 : 1
+            let lineCount = a + CGFloat(b)
+            h = CGFloat(lineCount) * dynamicListlikesCellBaseH + CGFloat((2-b) * 5)
+        }
+        return h
+    }
 }
 
 struct DynamicListUserModel: ModelProtocol {

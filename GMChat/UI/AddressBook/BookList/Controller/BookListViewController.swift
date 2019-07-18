@@ -220,7 +220,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sectionModel = dataArray[indexPath.section]
         let cellModel = sectionModel.mutableCells[indexPath.row]
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellModel.className!)
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellModel.reuseIdentifier!)
         if cell == nil {
             let className = NSClassFromString(cellModel.className!) as? UITableViewCell.Type
             cell = className!.init(style: cellModel.style, reuseIdentifier: cellModel.reuseIdentifier)

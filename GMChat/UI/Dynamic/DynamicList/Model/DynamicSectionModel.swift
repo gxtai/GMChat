@@ -9,7 +9,7 @@
 import UIKit
 
 class DynamicSectionModel: SectionModel {
-    var dataModel: Any?
+    var dataModel: DynamicListModel?
     var className: String?
     var reuseIdentifier: String?
     var showDataString: String?

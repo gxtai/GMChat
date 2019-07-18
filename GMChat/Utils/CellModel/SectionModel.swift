@@ -17,6 +17,7 @@ class SectionModel: NSObject {
     var headerSize: CGSize = .zero
     var footerSize: CGSize = .zero
     var mutableCells: [RowModel] = []
+    weak var delegate: NSObjectProtocol?
     
     override init() {
         super.init()

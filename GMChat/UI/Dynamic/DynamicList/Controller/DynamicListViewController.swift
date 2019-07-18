@@ -12,6 +12,7 @@
  3、文本和图片
  */
 import UIKit
+import SwiftyJSON
 
 class DynamicListViewController: BaseViewController {
 
@@ -68,7 +69,7 @@ extension DynamicListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sectionModel = dataArray[indexPath.section]
         let cellModel = sectionModel.mutableCells[indexPath.row]
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellModel.className!)
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellModel.reuseIdentifier!)
         if cell == nil {
             let className = NSClassFromString(cellModel.className!) as? UITableViewCell.Type
             cell = className!.init(style: cellModel.style, reuseIdentifier: cellModel.reuseIdentifier)
@@ -141,6 +142,15 @@ extension DynamicListViewController {
         fetchDynamicList { (listArray) in
             for listModel in listArray {
                 dataArray.append(configSectionData(listModel: listModel))
+                dataArray.append(configSectionData(listModel: listModel))
+                dataArray.append(configSectionData(listModel: listModel))
+                dataArray.append(configSectionData(listModel: listModel))
+                dataArray.append(configSectionData(listModel: listModel))
+                dataArray.append(configSectionData(listModel: listModel))
+                dataArray.append(configSectionData(listModel: listModel))
+                dataArray.append(configSectionData(listModel: listModel))
+                dataArray.append(configSectionData(listModel: listModel))
+                dataArray.append(configSectionData(listModel: listModel))
             }
         }
         tableView.reloadData()
@@ -156,16 +166,59 @@ extension DynamicListViewController {
         sectionModel.footerHeigth = 10
         sectionModel.showDataString = "showDataWithSectionModel:"
         sectionModel.dataModel = listModel
-        
+        sectionModel.delegate = self
         /// 点赞的cell
-        let likesModel = RowModel(title: nil, className: NSStringFromClass(DynamicListLikesCell.self), reuseIdentifier: DynamicListLikesCellID)
-        likesModel.height = listModel.likes_h
-        likesModel.accessoryType = .none
-        likesModel.selectionStyle = .none
-        sectionModel.mutableCells.append(likesModel)
-        likesModel.dataModel = listModel
+        sectionModel.mutableCells.append(likesModel(listModel: listModel))
         /// 评论的cell
         
         return sectionModel
     }
+    /// 点赞的cell
+    func likesModel(listModel: DynamicListModel) -> RowModel {
+        let likesModel = RowModel(title: nil, className: NSStringFromClass(DynamicListLikesCell.self), reuseIdentifier: DynamicListLikesCellID)
+        likesModel.height = listModel.likes_h
+        likesModel.accessoryType = .none
+        likesModel.selectionStyle = .none
+        likesModel.dataModel = listModel
+        return likesModel
+    }
+}
+
+/// content delegate
+extension DynamicListViewController: DynamicListContentBaseViewDelegate {
+    /// 点赞/取消点赞
+    func isLikeTheDynamic(sectionModel: DynamicSectionModel, isLike: Bool) {
+        let sec = dataArray[sectionModel.section]
+        var contentModel = sec.dataModel!
+        contentModel.has_like = isLike
+        /// 模拟网络过程
+        let userJson = ["id":UserInfo.shared.userId,
+                        "name":UserInfo.shared.name,
+                        "photo":UserInfo.shared.photo,
+                        "phone":UserInfo.shared.phoneNum]
+        let userModel = DynamicListUserModel(json: JSON(userJson))
+        if isLike {
+            contentModel.likes.append(userModel)
+        } else {
+            let index = contentModel.likes.firstIndex(where: { (model) -> Bool in
+                return model.id == userModel.id
+            })
+            if let index = index {
+                contentModel.likes.remove(at: index)
+            }
+            
+        }
+        contentModel.likes_h = DynamicListModel.likesH(likesArray: contentModel.likes)
+        /// 判断之前是否有点赞的cell
+        if (sectionModel.dataModel?.likes.count)! > 0 {
+            sec.mutableCells.first?.height = contentModel.likes_h
+            sec.mutableCells.first?.dataModel = contentModel
+        } else {
+            sec.mutableCells.append(likesModel(listModel: contentModel))
+        }
+        
+        sec.dataModel = contentModel
+        tableView.reloadData()
+    }
+    
 }

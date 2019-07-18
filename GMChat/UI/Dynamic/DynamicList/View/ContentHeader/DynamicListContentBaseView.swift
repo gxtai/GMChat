@@ -12,9 +12,14 @@ let DynamicListContentBaseViewID = "DynamicListContentBaseViewID"
 let DynamicListContentBaseViewH: CGFloat = 86.0
 let DynamicListHeaderImageViewW: CGFloat = 34.0
 
+protocol DynamicListContentBaseViewDelegate: NSObjectProtocol {
+    func isLikeTheDynamic(sectionModel: DynamicSectionModel, isLike: Bool)
+}
+
 class DynamicListContentBaseView: UITableViewHeaderFooterView {
     
     var sectionModel: DynamicSectionModel?
+    weak var delegate: DynamicListContentBaseViewDelegate?
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -22,22 +27,27 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
     }
     
     @objc func likeBtnClicked(sender: UIButton) {
-        var listModel: DynamicListModel = self.sectionModel!.dataModel as! DynamicListModel
-        listModel.likes.remove(at: 0)
+        delegate?.isLikeTheDynamic(sectionModel: sectionModel!, isLike: !sender.isSelected)
     }
     
     @objc func showDataWithSectionModel(_ sectionModel: DynamicSectionModel) {
         
         self.sectionModel = sectionModel
         
-        let listModel: DynamicListModel = sectionModel.dataModel as! DynamicListModel
+        delegate = (sectionModel.delegate as! DynamicListContentBaseViewDelegate)
         
-        headerImageView.kf.setImage(with: URL(string: listModel.user.photo), placeholder: headerPlaceholderImage, options: nil, progressBlock: nil) { [weak self] (image, error, cacheType, url)  in
-            guard let image = image else {return}
-            let w = image.size.width > image.size.height ? image.size.height : image.size.width
-            let imagee = image.byResize(to: CGSize(width: w, height: w))
-            let imageee = imagee!.byRoundCornerRadius(w / 10.0)
-            self?.headerImageView.image = imageee
+        let listModel: DynamicListModel = sectionModel.dataModel!
+        
+        headerImageView.kf.setImage(with: URL(string: listModel.user.photo), placeholder: headerPlaceholderImage, options: [.transition(.fade(0.2))], progressBlock: nil) { [weak self] (image, error, cacheType, url)  in
+            DispatchQueue.global().async {
+                guard let image = image else {return}
+                let w = image.size.width > image.size.height ? image.size.height : image.size.width
+                let imagee = image.byResize(to: CGSize(width: w, height: w))
+                let imageee = imagee!.byRoundCornerRadius(w / 10.0)
+                DispatchQueue.main.async {
+                    self?.headerImageView.image = imageee
+                }
+            }
         }
         nameLab.text = listModel.user.name
         timeLab.text = listModel.created_at_string
@@ -54,6 +64,7 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         
         likeBtn.setTitle(listModel.like_count > 0 ? "\(listModel.like_count)" : "", for: .normal)
         commentBtn.setTitle(listModel.feed_comment_count > 0 ? "\(listModel.feed_comment_count)" : "", for: .normal)
+        likeBtn.isSelected = listModel.has_like
     }
     
     func tapAction(label: YYLabel, highlight: YYTextHighlight, textRange: NSRange) {
@@ -103,6 +114,13 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         commentBtn.snp_makeConstraints { (make) in
             make.left.equalTo(113)
             make.bottom.equalTo(-10)
+        }
+        
+        imagesView.snp_makeConstraints { (make) in
+            make.left.equalTo(headerImageView.snp_right).offset(10)
+            make.top.equalTo(contentLab.snp_bottom).offset(0)
+            make.right.equalTo(-10)
+            make.height.equalTo(0)
         }
     }
     
@@ -172,6 +190,7 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         likeBtn.setImage(UIImage(named: "dynamic_list_finger"), for: .normal)
         likeBtn.setImage(UIImage(named: "dynamic_list_finger_selected"), for: .selected)
         likeBtn.setTitleColor(color_888888, for: .normal)
+        likeBtn.setTitleColor(UIColor.withHex(hexString: "#ea4335"), for: .selected)
         likeBtn.titleLabel?.font = FONT(12)
         self.bgView.addSubview(likeBtn)
         likeBtn.addTarget(self, action: #selector(likeBtnClicked(sender:)), for: .touchUpInside)
@@ -188,4 +207,9 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         return commentBtn
     }()
     
+    lazy var imagesView: DynamicListImagesView = {
+        let imagesView = DynamicListImagesView()
+        self.bgView.addSubview(imagesView)
+        return imagesView
+    }()
 }
