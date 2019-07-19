@@ -2,7 +2,7 @@
 //  DynamicListService.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/7/16.
+//  Created by GXT on 2019/7/16.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 

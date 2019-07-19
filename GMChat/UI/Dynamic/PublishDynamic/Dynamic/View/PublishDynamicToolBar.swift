@@ -89,18 +89,18 @@ class PublishDynamicToolBar: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        var view = super.hitTest(point, with: event)
-        if view == nil {
-            for subView in subviews {
-                let p = subView.convert(point, from: self)
-                if subView.bounds.contains(p) {
-                    view = subView
-                }
-            }
-        }
-        return view
-    }
+//    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+//        var view = super.hitTest(point, with: event)
+//        if view == nil {
+//            for subView in subviews {
+//                let p = subView.convert(point, from: self)
+//                if subView.bounds.contains(p) {
+//                    view = subView
+//                }
+//            }
+//        }
+//        return view
+//    }
 }
 
 extension PublishDynamicToolBar {

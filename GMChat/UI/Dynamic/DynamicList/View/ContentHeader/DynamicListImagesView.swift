@@ -2,7 +2,7 @@
 //  DynamicListImagesView.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/7/18.
+//  Created by GXT on 2019/7/18.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 
@@ -20,16 +20,16 @@ let dynamicListImagesTag = 2000
 
 class DynamicListImagesView: UIView {
 
-    var imagesArray: [DynamicListImagesModel]? {
+    var listModel: DynamicListModel? {
         didSet {
-            setupViews(imagesArray: imagesArray!)
+            setupViews(listModel: listModel!)
         }
     }
     
-    func setupViews(imagesArray: [DynamicListImagesModel]) {
-        
+    func setupViews(listModel: DynamicListModel) {
+        let imagesArray = listModel.images
         for view in subviews {
-            if view.tag > (dynamicListImagesTag + imagesArray.count) {
+            if view.tag > (dynamicListImagesTag + imagesArray.count - 1) {
                 view.isHidden = true
             }
         }
@@ -51,32 +51,47 @@ class DynamicListImagesView: UIView {
                 }
             }
             
+            imageView?.isHidden = false
+            
             let imageModel = imagesArray[index]
             let imageString = imageModel.url
             let imagee = UIImage(named: imageString)
             guard let image = imagee else {return}
             
-            let photoImage = imageDic[imageModel.url]
+            let photoImage = DynamicListImageStore.shared.listImageDic[imageModel.url]
             
             if let photoImage = photoImage {
                 imageView!.image = photoImage
-            } else {
-                DispatchQueue.global().async { [weak self] in
-                    let sizeImage = image.byResize(to: CGSize(width: dynamicListImagesW, height: dynamicListImagesH))
-                    self?.imageDic[imageModel.url] = sizeImage
-                    DispatchQueue.main.async {
+                // 在真实项目中，这种情况避免存在
+                if imagesArray.count > 1 {
+                    if photoImage.size.width > dynamicListImagesW || photoImage.size.height > dynamicListImagesH {
+                        let sizeImage = image.byResize(to: CGSize(width: dynamicListImagesW, height: dynamicListImagesH), contentMode: .scaleAspectFill)
                         imageView!.image = sizeImage
                     }
                 }
+            } else {
+                
+                DispatchQueue.global().async {
+                    
+                    var sizeImage: UIImage?
+                    
+                    if imagesArray.count == 1 {
+                        sizeImage = image.byResize(to: CGSize(width: listModel.firstImageSize.width, height: listModel.firstImageSize.height), contentMode: .scaleAspectFill)
+                    } else {
+                        sizeImage = image.byResize(to: CGSize(width: dynamicListImagesW, height: dynamicListImagesH), contentMode: .scaleAspectFill)
+                    }
+                    
+                    DynamicListImageStore.shared.listImageDic[imageModel.url] = sizeImage
+                    DispatchQueue.main.async {
+                        imageView!.image = sizeImage
+                    }
+                    
+                }
+                
             }
             
             
         }
     }
-    /// 缓存裁剪后的图片
-    lazy var imageDic: [String: UIImage] = {
-        let imageDic = [String: UIImage]()
-        return imageDic
-    }()
     
 }

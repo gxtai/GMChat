@@ -2,11 +2,12 @@
 //  DynamicListContentBaseView.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/7/16.
+//  Created by GXT on 2019/7/16.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 
 import UIKit
+import AudioToolbox
 
 let DynamicListContentBaseViewID = "DynamicListContentBaseViewID"
 let DynamicListContentBaseViewH: CGFloat = 86.0
@@ -14,6 +15,7 @@ let DynamicListHeaderImageViewW: CGFloat = 34.0
 
 protocol DynamicListContentBaseViewDelegate: NSObjectProtocol {
     func isLikeTheDynamic(sectionModel: DynamicSectionModel, isLike: Bool)
+    func pushTheCommentViewShow(sectionModel: DynamicSectionModel)
 }
 
 class DynamicListContentBaseView: UITableViewHeaderFooterView {
@@ -27,7 +29,12 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
     }
     
     @objc func likeBtnClicked(sender: UIButton) {
+        AudioServicesPlaySystemSound(1519)
         delegate?.isLikeTheDynamic(sectionModel: sectionModel!, isLike: !sender.isSelected)
+    }
+    @objc func commentBtnClicked() {
+        AudioServicesPlaySystemSound(1519)
+        delegate?.pushTheCommentViewShow(sectionModel: sectionModel!)
     }
     
     @objc func showDataWithSectionModel(_ sectionModel: DynamicSectionModel) {
@@ -38,17 +45,28 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         
         let listModel: DynamicListModel = sectionModel.dataModel!
         
-        headerImageView.kf.setImage(with: URL(string: listModel.user.photo), placeholder: headerPlaceholderImage, options: [.transition(.fade(0.2))], progressBlock: nil) { [weak self] (image, error, cacheType, url)  in
-            DispatchQueue.global().async {
-                guard let image = image else {return}
-                let w = image.size.width > image.size.height ? image.size.height : image.size.width
-                let imagee = image.byResize(to: CGSize(width: w, height: w))
-                let imageee = imagee!.byRoundCornerRadius(w / 10.0)
-                DispatchQueue.main.async {
-                    self?.headerImageView.image = imageee
+        let photoString = listModel.user.photo
+        let photoImage = DynamicListImageStore.shared.listUserHeaderDic[photoString]
+        if let photoImage = photoImage {
+            headerImageView.image = photoImage
+        } else {
+            
+            headerImageView.kf.setImage(with: URL(string: photoString), placeholder: headerPlaceholderImage, options: [.transition(.fade(0.2))], progressBlock: nil) { [weak self] (image, error, cacheType, url)  in
+                DispatchQueue.global().async {
+                    guard let image = image else {return}
+                    let w = image.size.width > image.size.height ? image.size.height : image.size.width
+                    let imagee = image.byResize(to: CGSize(width: w, height: w), contentMode: .scaleAspectFill)
+                    let imageee = imagee!.byRoundCornerRadius(w / 10.0)
+                    DynamicListImageStore.shared.listUserHeaderDic[photoString] = imageee
+                    DispatchQueue.main.async {
+                        self?.headerImageView.image = imageee
+                    }
                 }
             }
+            
         }
+        
+        
         nameLab.text = listModel.user.name
         timeLab.text = listModel.created_at_string
         
@@ -63,10 +81,10 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         }
         
         /// 图片
-        imagesView.imagesArray = listModel.images
+        imagesView.listModel = listModel
         
-        likeBtn.setTitle(listModel.like_count > 0 ? "\(listModel.like_count)" : "", for: .normal)
-        commentBtn.setTitle(listModel.feed_comment_count > 0 ? "\(listModel.feed_comment_count)" : "", for: .normal)
+        likeBtn.setTitle(listModel.like_count > 0 ? "\(listModel.likes.count)" : "", for: .normal)
+        commentBtn.setTitle(listModel.feed_comment_count > 0 ? "\(listModel.comments.count)" : "", for: .normal)
         likeBtn.isSelected = listModel.has_like
     }
     
@@ -125,6 +143,20 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
             make.right.equalTo(-10)
             make.height.equalTo(0)
         }
+        
+        headerImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer { [weak self] (ges) in
+            let userModel = self?.sectionModel?.dataModel?.user
+            // 点击跳转到聊天界面  后续改为个人主页
+            let sessionDetail = SessionDetailViewController()
+            sessionDetail.conversationType = RCConversationType.ConversationType_PRIVATE
+            sessionDetail.targetId = userModel?.id
+            sessionDetail.title = userModel?.name
+            sessionDetail.displayUserNameInCell = false
+            self?.findNavigator().pushViewController(sessionDetail, animated: true)
+        }
+        headerImageView.addGestureRecognizer(tap)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -146,8 +178,8 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
     
     lazy var nameLab: UILabel = {
         let nameLabl = UILabel()
-        nameLabl.textColor = color_666666
-        nameLabl.font = FONT(14)
+        nameLabl.textColor = color_link
+        nameLabl.font = FONT_Medium(14)
         nameLabl.text = "不喜勿争"
         self.bgView.addSubview(nameLabl)
         return nameLabl
@@ -207,6 +239,7 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         commentBtn.setTitleColor(color_888888, for: .normal)
         commentBtn.titleLabel?.font = FONT(12)
         self.bgView.addSubview(commentBtn)
+        commentBtn.addTarget(self, action: #selector(commentBtnClicked), for: .touchUpInside)
         return commentBtn
     }()
     

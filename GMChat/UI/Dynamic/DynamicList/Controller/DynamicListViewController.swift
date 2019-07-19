@@ -16,6 +16,8 @@ import SwiftyJSON
 
 class DynamicListViewController: BaseViewController {
 
+    var selectSectionModel: DynamicSectionModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "动态"
@@ -31,6 +33,11 @@ class DynamicListViewController: BaseViewController {
     
     func setupViews() {
         view.addSubview(tableView)
+        pushCommentView.snp_makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.height.equalTo(pushCommentView.height)
+            make.bottom.equalTo(pushCommentView.height)
+        }
     }
     
     lazy var tableView: UITableView = {
@@ -39,6 +46,7 @@ class DynamicListViewController: BaseViewController {
         tableView.dataSource = self
         tableView.backgroundColor = color_246
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
         return tableView
     }()
     
@@ -46,6 +54,14 @@ class DynamicListViewController: BaseViewController {
         let dataArray: [DynamicSectionModel] = []
         return dataArray
     }()
+    
+    lazy var pushCommentView: DynamicPushCommentView = {
+        let pushCommentView = DynamicPushCommentView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 132))
+        self.view.addSubview(pushCommentView)
+        pushCommentView.delegate = self
+        return pushCommentView
+    }()
+    
 }
 
 
@@ -102,6 +118,7 @@ extension DynamicListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let sectionModel = dataArray[section]
+        sectionModel.section = section
         let selString = sectionModel.showDataString
         if selString != nil {
             let selec = NSSelectorFromString(sectionModel.showDataString ?? "")
@@ -109,7 +126,7 @@ extension DynamicListViewController: UITableViewDelegate, UITableViewDataSource 
                 view.perform(selec, with: sectionModel)
             }
         }
-        sectionModel.section = section
+        
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -133,6 +150,10 @@ extension DynamicListViewController: UITableViewDelegate, UITableViewDataSource 
         return sectionModel.footerHeigth
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        pushCommentView.dismiss()
+    }
+    
 }
 /// 数据组装和处理
 extension DynamicListViewController {
@@ -141,15 +162,6 @@ extension DynamicListViewController {
         
         fetchDynamicList { (listArray) in
             for listModel in listArray {
-                dataArray.append(configSectionData(listModel: listModel))
-                dataArray.append(configSectionData(listModel: listModel))
-                dataArray.append(configSectionData(listModel: listModel))
-                dataArray.append(configSectionData(listModel: listModel))
-                dataArray.append(configSectionData(listModel: listModel))
-                dataArray.append(configSectionData(listModel: listModel))
-                dataArray.append(configSectionData(listModel: listModel))
-                dataArray.append(configSectionData(listModel: listModel))
-                dataArray.append(configSectionData(listModel: listModel))
                 dataArray.append(configSectionData(listModel: listModel))
             }
         }
@@ -168,9 +180,17 @@ extension DynamicListViewController {
         sectionModel.dataModel = listModel
         sectionModel.delegate = self
         /// 点赞的cell
-        sectionModel.mutableCells.append(likesModel(listModel: listModel))
+        if listModel.likes.count > 0 {
+            sectionModel.mutableCells.append(likesModel(listModel: listModel))
+        }
         /// 评论的cell
-        
+        for index in 0..<listModel.comments.count {
+            var commentModel  = listModel.comments[index]
+            if index == 0 {
+                commentModel.isShowlikesImage = true
+            }
+            sectionModel.mutableCells.append(commentsModel(commentModel: commentModel))
+        }
         return sectionModel
     }
     /// 点赞的cell
@@ -181,6 +201,15 @@ extension DynamicListViewController {
         likesModel.selectionStyle = .none
         likesModel.dataModel = listModel
         return likesModel
+    }
+    /// 评论的cell
+    func commentsModel(commentModel: DynamicListCommentsModel) -> RowModel {
+        let commentsModel = RowModel(title: nil, className: NSStringFromClass(DynamicListCommentsCell.self), reuseIdentifier: DynamicListCommentsCellID)
+        commentsModel.height = commentModel.commentH
+        commentsModel.accessoryType = .none
+        commentsModel.selectionStyle = .none
+        commentsModel.dataModel = commentModel
+        return commentsModel
     }
 }
 
@@ -197,9 +226,9 @@ extension DynamicListViewController: DynamicListContentBaseViewDelegate {
                         "photo":UserInfo.shared.photo,
                         "phone":UserInfo.shared.phoneNum]
         let userModel = DynamicListUserModel(json: JSON(userJson))
-        if isLike {
+        if isLike { // 点赞
             contentModel.likes.append(userModel)
-        } else {
+        } else { // 取消点赞
             let index = contentModel.likes.firstIndex(where: { (model) -> Bool in
                 return model.id == userModel.id
             })
@@ -214,11 +243,50 @@ extension DynamicListViewController: DynamicListContentBaseViewDelegate {
             sec.mutableCells.first?.height = contentModel.likes_h
             sec.mutableCells.first?.dataModel = contentModel
         } else {
-            sec.mutableCells.append(likesModel(listModel: contentModel))
+            sec.mutableCells.insert(likesModel(listModel: contentModel), at: 0)
         }
         
         sec.dataModel = contentModel
         tableView.reloadData()
     }
     
+    /// 评论框出现
+    func pushTheCommentViewShow(sectionModel: DynamicSectionModel) {
+        selectSectionModel = sectionModel
+        pushCommentView.show()
+    }
 }
+
+/// 发表评论
+extension DynamicListViewController: DynamicPushCommentViewDelegate {
+    
+    func pushTheComment(comment: String) {
+        
+        let sec = dataArray[selectSectionModel!.section]
+        var listModel = sec.dataModel!
+        
+        /// 模拟网络过程
+        let dic: [String: Any] = ["id":"100",
+                                  "body":comment,
+                                  "created_at":Date().timeIntervalSince1970,
+                                  "user":["id":UserInfo.shared.userId,
+                                          "name":UserInfo.shared.name,
+                                          "photo":UserInfo.shared.photo,
+                                          "phone":UserInfo.shared.phoneNum]]
+        var commentModel = DynamicListCommentsModel(json: JSON(dic))
+        if listModel.comments.count == 0{
+            commentModel.isShowlikesImage = true
+        }
+        listModel.comments.append(commentModel)
+        
+        sec.dataModel = listModel
+        sec.mutableCells.append(commentsModel(commentModel: commentModel))
+        
+        tableView.reloadData()
+        
+    }
+    
+}
+
+
+

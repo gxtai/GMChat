@@ -2,7 +2,7 @@
 //  DynamicListLikesCell.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/7/17.
+//  Created by GXT on 2019/7/17.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 
@@ -68,17 +68,17 @@ class DynamicListLikesCell: UITableViewCell {
             
             let photoString = listModel.likes[index].photo
             
-            let photoImage = imageDic[photoString]
+            let photoImage = DynamicListImageStore.shared.likesUserHeaderDic[photoString]
             if let photoImage = photoImage {
                 imageView.image = photoImage
             } else {
-                imageView.kf.setImage(with: URL(string: photoString), placeholder: headerPlaceholderImage, options: [.transition(.fade(0.2))], progressBlock: nil) { [weak self] (image, error, cacheType, url)  in
+                imageView.kf.setImage(with: URL(string: photoString), placeholder: headerPlaceholderImage, options: [.transition(.fade(0.2))], progressBlock: nil) { (image, error, cacheType, url)  in
                     DispatchQueue.global().async {
                         guard let image = image else {return}
                         let w = image.size.width > image.size.height ? image.size.height : image.size.width
-                        let imagee = image.byResize(to: CGSize(width: w, height: w))
+                        let imagee = image.byResize(to: CGSize(width: w, height: w), contentMode: .scaleAspectFill)
                         let imageee = imagee!.byRoundCornerRadius(w / 10.0)
-                        self?.imageDic[photoString] = imageee
+                        DynamicListImageStore.shared.likesUserHeaderDic[photoString] = imageee
                         DispatchQueue.main.async {
                             imageView.image = imageee
                         }
@@ -115,11 +115,6 @@ class DynamicListLikesCell: UITableViewCell {
         let likesImageView = UIImageView(image: UIImage(named: "dynamic_comment_finger_default"))
         self.contentView.addSubview(likesImageView)
         return likesImageView
-    }()
-    /// 缓存裁剪后的图片
-    lazy var imageDic: [String: UIImage] = {
-        let imageDic = [String: UIImage]()
-        return imageDic
     }()
     
     required init?(coder aDecoder: NSCoder) {

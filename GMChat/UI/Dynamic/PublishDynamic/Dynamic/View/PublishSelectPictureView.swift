@@ -2,7 +2,7 @@
 //  PublishSelectPictureView.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/7/15.
+//  Created by GXT on 2019/7/15.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 
@@ -21,7 +21,7 @@ class PublishSelectPictureView: UICollectionView, UICollectionViewDelegate, UICo
         backgroundColor = .white
         dataSource = self
         delegate = self
-        let row = Int(maxCount / lineCount) + Int(maxCount % lineCount) == 0 ? 0 : 1
+        let row = Int(maxCount / lineCount) + (Int(maxCount % lineCount) == 0 ? 0 : 1)
         self.height = SCREEN_WIDTH / CGFloat(lineCount) * CGFloat(row)
     }
     

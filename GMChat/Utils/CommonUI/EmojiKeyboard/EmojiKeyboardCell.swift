@@ -2,7 +2,7 @@
 //  EmojiKeyboardCell.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/7/12.
+//  Created by GXT on 2019/7/12.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 

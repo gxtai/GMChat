@@ -53,3 +53,6 @@ let headerPlaceholderImage = UIImage(named: "common_user_header_image_place")
 /// default
 let loginStatus = "loginStatus" // 登录状态
 let currentUserID = "currentUserID" // 当前登录的用户no
+
+/// notice
+let touchEventNotice: NSNotification.Name = NSNotification.Name(rawValue: "touchEventNotice")

@@ -2,7 +2,7 @@
 //  DynamicListModel.swift
 //  GMChat
 //
-//  Created by 花动传媒 on 2019/7/16.
+//  Created by GXT on 2019/7/16.
 //  Copyright © 2019 GXT. All rights reserved.
 //
 
@@ -23,10 +23,12 @@ struct DynamicListModel: ModelProtocol {
     var likes: [DynamicListUserModel]
     var images: [DynamicListImagesModel]
     let imagesH: CGFloat // 图片view高度
+    let firstImageSize: CGSize // 第一张图片的size
     var likes_h: CGFloat // 点赞cell的高度
     let content_h: CGFloat // 文本的高度
     let attributedTextString: NSMutableAttributedString
     let total_h: CGFloat // 总高度 指的动态内容的高度
+    var comments: [DynamicListCommentsModel]
     
     init(json: JSON) {
         self.id = json["id"].stringValue
@@ -39,6 +41,7 @@ struct DynamicListModel: ModelProtocol {
         self.user = DynamicListUserModel.init(json: json["user"])
         self.created_at_string = Date.setupDateString(time: created_at)
         self.likes = json["likes"].arrayValue.map(DynamicListUserModel.init(json:))
+        self.comments = json["comments"].arrayValue.map(DynamicListCommentsModel.init(json:))
         // 点赞的cell高度
         self.likes_h = DynamicListModel.likesH(likesArray: self.likes)
         // 文本内容
@@ -47,7 +50,9 @@ struct DynamicListModel: ModelProtocol {
         self.content_h = content.contentH
         // 图片高度
         self.images = json["images"].arrayValue.map(DynamicListImagesModel.init(json:))
-        self.imagesH = DynamicListModel.imagesH(imagesArray: self.images)
+        let imagesViewResult = DynamicListModel.imagesH(imagesArray: self.images)
+        self.imagesH = imagesViewResult.imageViewH
+        self.firstImageSize = imagesViewResult.firstImageSize
         // 总高度
         var totalHeight = DynamicListContentBaseViewH
         if self.content_h > 0 {
@@ -102,13 +107,43 @@ struct DynamicListModel: ModelProtocol {
         }
     }
     
-    /// 图片view高度
-    static func imagesH(imagesArray: [DynamicListImagesModel]) -> CGFloat {
-        let imagesCount: CGFloat = CGFloat(imagesArray.count)
-        let a = floor(imagesCount / 3)
-        let b = imagesCount.truncatingRemainder(dividingBy: 3) == 0 ? 0 : 1
-        let lineCount = a + CGFloat(b)
-        return CGFloat(lineCount) * dynamicListImagesH + a * dynamicListImagesDis
+    /// 图片view高度 和 第一张图片的size
+    static func imagesH(imagesArray: [DynamicListImagesModel]) -> (imageViewH: CGFloat, firstImageSize: CGSize) {
+        /// 只有一张图片
+        if imagesArray.count == 1 {
+            let imageModel = imagesArray.first!
+            var imageW = imageModel.width
+            var imageH = imageModel.height
+            let percent = imageW / imageH
+            if imageW > imageH { // 宽图
+                if imageW > dynamicListImagesTotalW {
+                    imageW = dynamicListImagesTotalW
+                }
+                imageH = imageW / percent
+                
+                if imageH < (dynamicListImagesTotalW / 3) {
+                    imageH = dynamicListImagesTotalW / 3
+                }
+            } else { // 高图
+                if (imageH > dynamicListImagesTotalW) {
+                    imageH = dynamicListImagesTotalW
+                }
+                
+                imageW = imageH * percent;
+                
+                if (imageW < dynamicListImagesTotalW / 3) {
+                    imageW = dynamicListImagesTotalW / 3;
+                }
+            }
+            return (imageH, CGSize(width: imageW, height: imageH))
+        } else {
+            let imagesCount: CGFloat = CGFloat(imagesArray.count)
+            let a = floor(imagesCount / 3)
+            let b = imagesCount.truncatingRemainder(dividingBy: 3) == 0 ? 0 : 1
+            let lineCount = a + CGFloat(b)
+            return (CGFloat(lineCount) * dynamicListImagesH + a * dynamicListImagesDis, CGSize(width: dynamicListImagesW, height: dynamicListImagesH))
+        }
+        
     }
     /// 点赞cell高度
     static func likesH(likesArray: [DynamicListUserModel]) -> CGFloat {
@@ -135,6 +170,7 @@ struct DynamicListUserModel: ModelProtocol {
     let phone: String
     let photo: String
     
+    
     init(json: JSON) {
         self.id = json["id"].stringValue
         self.name = json["name"].stringValue
@@ -154,6 +190,37 @@ struct DynamicListImagesModel: ModelProtocol {
         self.url = json["url"].stringValue
         self.width = CGFloat(json["width"].floatValue)
         self.height = CGFloat(json["height"].floatValue)
+    }
+    
+}
+
+struct DynamicListCommentsModel: ModelProtocol {
+    
+    let id: String
+    let body: String
+    let created_at: Double
+    let created_at_string: String
+    let user: DynamicListUserModel
+    let commentH: CGFloat
+    var isShowlikesImage: Bool
+    
+    init(json: JSON) {
+        self.id = json["id"].stringValue
+        self.body = json["body"].stringValue
+        self.created_at = json["created_at"].doubleValue
+        self.user = DynamicListUserModel.init(json: json["user"])
+        self.created_at_string = Date.setupDateString(time: created_at)
+        self.commentH = DynamicListCommentsModel.commentH(comment: self.body as NSString)
+        self.isShowlikesImage = false
+    }
+    
+    static func commentH(comment: NSString) -> CGFloat {
+        var h: CGFloat = 25
+        h = h + comment.size(for: FONT(12), size: CGSize(width: SCREEN_WIDTH - likesHeaderImageLeftDis - likesHeaderImageW - 20, height: CGFloat.greatestFiniteMagnitude), mode: .byWordWrapping).height
+        if h < 45 {
+            h = 45
+        }
+        return h
     }
     
 }
