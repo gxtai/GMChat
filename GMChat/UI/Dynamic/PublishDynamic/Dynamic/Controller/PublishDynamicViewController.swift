@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PublishDynamicViewController: BaseViewController {
+    
+    var publistSuccessCallback: ((_ model: DynamicListModel) -> Void)?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,7 +36,38 @@ class PublishDynamicViewController: BaseViewController {
             return
         }
         
+        /// 组装动态数据源
+        // id
+        let id: Int = Int(arc4random() % 100) + 100
         
+        
+        var listDic: [String: Any] = [
+            "id": "\(id)",
+            "feed_content":textView.text ?? "",
+            "like_count":"0",
+            "feed_comment_count":"0",
+            "created_at":Date().timeStamp,
+            "has_like":"0",
+            "brand":UIDevice.current.modelName,
+            "user":[
+                "id":UserInfo.shared.userId,
+                "name":UserInfo.shared.name,
+                "photo":UserInfo.shared.photo
+            ],
+            "comments":[],
+            "likes":[]
+            ]
+        
+        
+        listDic["images"] = selectPictureView.photoArray
+        
+        let listModel = DynamicListModel(json: JSON(listDic))
+        
+        if let publistSuccessCallback = publistSuccessCallback {
+            publistSuccessCallback(listModel)
+        }
+        
+        dismiss(animated: true, completion: nil)
         
     }
     /// 点击屏幕

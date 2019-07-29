@@ -19,4 +19,6 @@ class DynamicListImageStore {
     var likesUserHeaderDic: [String: UIImage] = [String: UIImage]()
     /// 评论者头像
     var commentsUserHeaderDic: [String: UIImage] = [String: UIImage]()
+    /// 相册选取的图片
+    var localImagesDic: [String: UIImage] = [String: UIImage]()
 }

@@ -55,7 +55,13 @@ class DynamicListImagesView: UIView {
             
             let imageModel = imagesArray[index]
             let imageString = imageModel.url
-            let imagee = UIImage(named: imageString)
+            var imagee: UIImage?
+            /// 本地相册图片
+            if imageString.contains("://") {
+                imagee = DynamicListImageStore.shared.localImagesDic[imageString]
+            } else {
+                imagee = UIImage(named: imageString)
+            }
             guard let image = imagee else {return}
             
             let photoImage = DynamicListImageStore.shared.listImageDic[imageModel.url]
@@ -64,7 +70,7 @@ class DynamicListImagesView: UIView {
                 imageView!.image = photoImage
                 // 在真实项目中，这种情况避免存在
                 if imagesArray.count > 1 {
-                    if photoImage.size.width > dynamicListImagesW || photoImage.size.height > dynamicListImagesH {
+                    if photoImage.size.width > (dynamicListImagesW + 1) || photoImage.size.height > (dynamicListImagesH + 1) {
                         let sizeImage = image.byResize(to: CGSize(width: dynamicListImagesW, height: dynamicListImagesH), contentMode: .scaleAspectFill)
                         imageView!.image = sizeImage
                     }

@@ -49,7 +49,9 @@ class PublishSelectPictureView: UICollectionView, UICollectionViewDelegate, UICo
             cell.coverImageView.image = UIImage(named: "dynamic_publish_add_picture_default")
             cell.delBtn.isHidden = true
         } else {
-            cell.coverImageView.image = photoArray[indexPath.row]
+            let imageKey = photoArray[indexPath.row]["url"] as! String
+            let image = DynamicListImageStore.shared.localImagesDic[imageKey]
+            cell.coverImageView.image = image
             cell.delBtn.isHidden = false
             cell.delBtn.tag = indexPath.row
         }
@@ -57,8 +59,8 @@ class PublishSelectPictureView: UICollectionView, UICollectionViewDelegate, UICo
     }
     
     
-    lazy var photoArray: [UIImage] = {
-        let photoArray = [UIImage]()
+    lazy var photoArray: [[String: Any]] = {
+        let photoArray = [[String: Any]]()
         return photoArray
     }()
     
@@ -73,8 +75,16 @@ extension PublishSelectPictureView: UIImagePickerControllerDelegate, UINavigatio
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         findController()?.dismiss(animated: true, completion: nil)
+        
         guard let image: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-        photoArray.append(image)
+        
+        let urlString = "\(info[UIImagePickerController.InfoKey.referenceURL] ?? 0)" + "\(Date().milliStamp)"
+        let imageDic: [String: Any] = ["url": urlString,
+                        "width": image.size.width,
+                        "height": image.size.height
+                        ]
+        DynamicListImageStore.shared.localImagesDic[urlString] = image
+        photoArray.append(imageDic)
         reloadData()
     }
     func deleteThePicture(index: Int) {

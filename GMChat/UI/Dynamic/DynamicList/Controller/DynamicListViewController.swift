@@ -27,8 +27,13 @@ class DynamicListViewController: BaseViewController {
     }
     
     override func rightBtnClicked(sender: UIButton) {
-        let publishNA = BaseNavigationViewController(rootViewController: PublishDynamicViewController())
+        let publistVC = PublishDynamicViewController()
+        let publishNA = BaseNavigationViewController(rootViewController: publistVC)
         present(publishNA, animated: true, completion: nil)
+        publistVC.publistSuccessCallback = { [weak self] (model) in
+            self?.dataArray.insert((self?.configSectionData(listModel: model))!, at: 0)
+            self?.tableView.reloadData()
+        }
     }
     
     func setupViews() {

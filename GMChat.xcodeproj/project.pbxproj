@@ -81,6 +81,7 @@
 		A6B0BCED22CF571200B9E52D /* PublishDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B0BCEC22CF571200B9E52D /* PublishDynamicViewController.swift */; };
 		A6B782B022D4A258007AD9BF /* EmojiKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B782AF22D4A258007AD9BF /* EmojiKeyboardView.swift */; };
 		A6B8CC8922E051F700083451 /* DynamicListImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B8CC8822E051F700083451 /* DynamicListImagesView.swift */; };
+		A6DEA8C722EEBE02009BBFAF /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEA8C622EEBE02009BBFAF /* UIDevice+Extensions.swift */; };
 		A6EAE90B22D3196100B3BD8E /* EmoticonQQ.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6EAE90A22D3196100B3BD8E /* EmoticonQQ.bundle */; };
 		A6EAE91222D31A7900B3BD8E /* PublishDynamicToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EAE91122D31A7900B3BD8E /* PublishDynamicToolBar.swift */; };
 /* End PBXBuildFile section */
@@ -168,6 +169,7 @@
 		A6B0BCEC22CF571200B9E52D /* PublishDynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDynamicViewController.swift; sourceTree = "<group>"; };
 		A6B782AF22D4A258007AD9BF /* EmojiKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiKeyboardView.swift; sourceTree = "<group>"; };
 		A6B8CC8822E051F700083451 /* DynamicListImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListImagesView.swift; sourceTree = "<group>"; };
+		A6DEA8C622EEBE02009BBFAF /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		A6EAE90A22D3196100B3BD8E /* EmoticonQQ.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonQQ.bundle; sourceTree = "<group>"; };
 		A6EAE91122D31A7900B3BD8E /* PublishDynamicToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDynamicToolBar.swift; sourceTree = "<group>"; };
 		CC9C0806FEC8FCF867EC6B38 /* Pods-GMChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GMChat/Pods-GMChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -628,6 +630,7 @@
 				A67F195A22B39786007D20D4 /* UIView+Extensions.swift */,
 				A624040D22C0D55700496D3A /* Date+Extensions.swift */,
 				A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */,
+				A6DEA8C622EEBE02009BBFAF /* UIDevice+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -986,6 +989,7 @@
 				A67F195922B38D99007D20D4 /* UIBarButtonItem+Extensions.swift in Sources */,
 				A68E9B6922B8EC470029F547 /* BookListHeaderView.swift in Sources */,
 				A61BA2CA22DDAA4700A37997 /* DynamicSectionModel.swift in Sources */,
+				A6DEA8C722EEBE02009BBFAF /* UIDevice+Extensions.swift in Sources */,
 				A631784822C20CAC00EA8A73 /* PlaceHolderView.swift in Sources */,
 				A67F195422B37DE1007D20D4 /* UIImage+Extensions.swift in Sources */,
 				A66C647322DC8F74006AE547 /* PublishSelectPictureViewCell.swift in Sources */,
