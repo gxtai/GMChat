@@ -96,8 +96,44 @@ class DynamicListImagesView: UIView {
                 
             }
             
+            /// 点击图片
+            imageView!.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer { [weak self] (ges) in
+                self?.openPhotoBrowser(index: index, imagesArray: imagesArray)
+            }
+            imageView!.addGestureRecognizer(tap)
             
         }
+        
+    }
+    
+    func openPhotoBrowser(index: Int, imagesArray: [DynamicListImagesModel]) {
+        // 数据源
+        let dataSource = JXLocalDataSource(numberOfItems: {
+            // 共有多少项
+            return imagesArray.count
+        }, localImage: { index -> UIImage? in
+            // 每一项的图片对象
+            let imageModel = imagesArray[index]
+            let imageString = imageModel.url
+            var imagee: UIImage?
+            /// 本地相册图片
+            if imageString.contains("://") {
+                imagee = DynamicListImageStore.shared.localImagesDic[imageString]
+            } else {
+                imagee = UIImage(named: imageString)
+            }
+            return imagee
+        })
+        // 视图代理，实现了光点型页码指示器
+        let delegate = JXDefaultPageControlDelegate()
+        // 转场动画
+        let trans = JXPhotoBrowserZoomTransitioning { [weak self] (browser, index, view) -> UIView? in
+            return self?.viewWithTag(dynamicListImagesTag + index)
+        }
+        // 打开浏览器
+        JXPhotoBrowser(dataSource: dataSource, delegate: delegate, transDelegate: trans)
+            .show(pageIndex: index)
     }
     
 }

@@ -81,6 +81,9 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         }
         
         /// 图片
+        imagesView.snp.updateConstraints { (make) in
+            make.height.equalTo(listModel.imagesH)
+        }
         imagesView.listModel = listModel
         
         likeBtn.setTitle(listModel.like_count > 0 ? "\(listModel.likes.count)" : "", for: .normal)

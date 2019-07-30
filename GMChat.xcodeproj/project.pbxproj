@@ -81,6 +81,36 @@
 		A6B0BCED22CF571200B9E52D /* PublishDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B0BCEC22CF571200B9E52D /* PublishDynamicViewController.swift */; };
 		A6B782B022D4A258007AD9BF /* EmojiKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B782AF22D4A258007AD9BF /* EmojiKeyboardView.swift */; };
 		A6B8CC8922E051F700083451 /* DynamicListImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B8CC8822E051F700083451 /* DynamicListImagesView.swift */; };
+		A6D86BBA22F04FA6005793B1 /* JXPhotoBrowserFadeTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86B9522F04FA5005793B1 /* JXPhotoBrowserFadeTransitioning.swift */; };
+		A6D86BBB22F04FA6005793B1 /* JXPhotoBrowserZoomTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86B9622F04FA5005793B1 /* JXPhotoBrowserZoomTransitioning.swift */; };
+		A6D86BBC22F04FA6005793B1 /* JXPhotoBrowserPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86B9722F04FA5005793B1 /* JXPhotoBrowserPresentationController.swift */; };
+		A6D86BBD22F04FA6005793B1 /* JXPhotoBrowserTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86B9822F04FA5005793B1 /* JXPhotoBrowserTransitioning.swift */; };
+		A6D86BBE22F04FA6005793B1 /* JXPhotoBrowserProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86B9A22F04FA5005793B1 /* JXPhotoBrowserProgressView.swift */; };
+		A6D86BBF22F04FA6005793B1 /* JXPhotoBrowserRawButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86B9B22F04FA5005793B1 /* JXPhotoBrowserRawButtonCell.swift */; };
+		A6D86BC022F04FA6005793B1 /* JXNetworkingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86B9C22F04FA5005793B1 /* JXNetworkingDataSource.swift */; };
+		A6D86BC122F04FA6005793B1 /* JXRawImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86B9D22F04FA5005793B1 /* JXRawImageDataSource.swift */; };
+		A6D86BC222F04FA6005793B1 /* JXPhotoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86B9E22F04FA5005793B1 /* JXPhotoLoader.swift */; };
+		A6D86BC322F04FA6005793B1 /* JXPhotoBrowserNetworkingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86B9F22F04FA5005793B1 /* JXPhotoBrowserNetworkingCell.swift */; };
+		A6D86BC422F04FA6005793B1 /* UICollectionView+JX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BA122F04FA5005793B1 /* UICollectionView+JX.swift */; };
+		A6D86BC522F04FA6005793B1 /* UIViewController+JX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BA222F04FA5005793B1 /* UIViewController+JX.swift */; };
+		A6D86BC622F04FA6005793B1 /* JXNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BA322F04FA5005793B1 /* JXNamespace.swift */; };
+		A6D86BC722F04FA6005793B1 /* JXPhotoBrowserZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BA522F04FA5005793B1 /* JXPhotoBrowserZoomAnimator.swift */; };
+		A6D86BC822F04FA6005793B1 /* JXPhotoBrowserFadePresentingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BA622F04FA5005793B1 /* JXPhotoBrowserFadePresentingAnimator.swift */; };
+		A6D86BC922F04FA6005793B1 /* JXPhotoBrowserFadeDismissingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BA722F04FA5005793B1 /* JXPhotoBrowserFadeDismissingAnimator.swift */; };
+		A6D86BCA22F04FA6005793B1 /* JXPhotoBrowserZoomPresentingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BA822F04FA5005793B1 /* JXPhotoBrowserZoomPresentingAnimator.swift */; };
+		A6D86BCB22F04FA6005793B1 /* JXPhotoBrowserZoomDismissingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BA922F04FA5005793B1 /* JXPhotoBrowserZoomDismissingAnimator.swift */; };
+		A6D86BCC22F04FA6005793B1 /* JXPhotoBrowserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BAB22F04FA5005793B1 /* JXPhotoBrowserDelegate.swift */; };
+		A6D86BCD22F04FA6005793B1 /* JXPhotoBrowserTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BAC22F04FA5005793B1 /* JXPhotoBrowserTransitioningDelegate.swift */; };
+		A6D86BCE22F04FA6005793B1 /* JXPhotoBrowserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BAD22F04FA5005793B1 /* JXPhotoBrowserDataSource.swift */; };
+		A6D86BCF22F04FA6005793B1 /* JXLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BAE22F04FA5005793B1 /* JXLocalDataSource.swift */; };
+		A6D86BD022F04FA6005793B1 /* JXPhotoBrowserBaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BAF22F04FA5005793B1 /* JXPhotoBrowserBaseDelegate.swift */; };
+		A6D86BD122F04FA6005793B1 /* JXPhotoBrowserBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BB022F04FA5005793B1 /* JXPhotoBrowserBaseCell.swift */; };
+		A6D86BD222F04FA6005793B1 /* JXNumberPageControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BB222F04FA5005793B1 /* JXNumberPageControlDelegate.swift */; };
+		A6D86BD322F04FA6005793B1 /* JXDefaultPageControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BB322F04FA5005793B1 /* JXDefaultPageControlDelegate.swift */; };
+		A6D86BD422F04FA6005793B1 /* JXCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BB422F04FA5005793B1 /* JXCollectionViewFlowLayout.swift */; };
+		A6D86BD522F04FA6005793B1 /* JXPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BB522F04FA5005793B1 /* JXPhotoBrowser.swift */; };
+		A6D86BD622F04FA6005793B1 /* JXKingfisherLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BB722F04FA5005793B1 /* JXKingfisherLoader.swift */; };
+		A6D86BD722F04FA6005793B1 /* JXKingfisherWebPLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BB922F04FA5005793B1 /* JXKingfisherWebPLoader.swift */; };
 		A6DEA8C722EEBE02009BBFAF /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEA8C622EEBE02009BBFAF /* UIDevice+Extensions.swift */; };
 		A6EAE90B22D3196100B3BD8E /* EmoticonQQ.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6EAE90A22D3196100B3BD8E /* EmoticonQQ.bundle */; };
 		A6EAE91222D31A7900B3BD8E /* PublishDynamicToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EAE91122D31A7900B3BD8E /* PublishDynamicToolBar.swift */; };
@@ -169,6 +199,36 @@
 		A6B0BCEC22CF571200B9E52D /* PublishDynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDynamicViewController.swift; sourceTree = "<group>"; };
 		A6B782AF22D4A258007AD9BF /* EmojiKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiKeyboardView.swift; sourceTree = "<group>"; };
 		A6B8CC8822E051F700083451 /* DynamicListImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListImagesView.swift; sourceTree = "<group>"; };
+		A6D86B9522F04FA5005793B1 /* JXPhotoBrowserFadeTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserFadeTransitioning.swift; sourceTree = "<group>"; };
+		A6D86B9622F04FA5005793B1 /* JXPhotoBrowserZoomTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserZoomTransitioning.swift; sourceTree = "<group>"; };
+		A6D86B9722F04FA5005793B1 /* JXPhotoBrowserPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserPresentationController.swift; sourceTree = "<group>"; };
+		A6D86B9822F04FA5005793B1 /* JXPhotoBrowserTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserTransitioning.swift; sourceTree = "<group>"; };
+		A6D86B9A22F04FA5005793B1 /* JXPhotoBrowserProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserProgressView.swift; sourceTree = "<group>"; };
+		A6D86B9B22F04FA5005793B1 /* JXPhotoBrowserRawButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserRawButtonCell.swift; sourceTree = "<group>"; };
+		A6D86B9C22F04FA5005793B1 /* JXNetworkingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXNetworkingDataSource.swift; sourceTree = "<group>"; };
+		A6D86B9D22F04FA5005793B1 /* JXRawImageDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXRawImageDataSource.swift; sourceTree = "<group>"; };
+		A6D86B9E22F04FA5005793B1 /* JXPhotoLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoLoader.swift; sourceTree = "<group>"; };
+		A6D86B9F22F04FA5005793B1 /* JXPhotoBrowserNetworkingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserNetworkingCell.swift; sourceTree = "<group>"; };
+		A6D86BA122F04FA5005793B1 /* UICollectionView+JX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+JX.swift"; sourceTree = "<group>"; };
+		A6D86BA222F04FA5005793B1 /* UIViewController+JX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+JX.swift"; sourceTree = "<group>"; };
+		A6D86BA322F04FA5005793B1 /* JXNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXNamespace.swift; sourceTree = "<group>"; };
+		A6D86BA522F04FA5005793B1 /* JXPhotoBrowserZoomAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserZoomAnimator.swift; sourceTree = "<group>"; };
+		A6D86BA622F04FA5005793B1 /* JXPhotoBrowserFadePresentingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserFadePresentingAnimator.swift; sourceTree = "<group>"; };
+		A6D86BA722F04FA5005793B1 /* JXPhotoBrowserFadeDismissingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserFadeDismissingAnimator.swift; sourceTree = "<group>"; };
+		A6D86BA822F04FA5005793B1 /* JXPhotoBrowserZoomPresentingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserZoomPresentingAnimator.swift; sourceTree = "<group>"; };
+		A6D86BA922F04FA5005793B1 /* JXPhotoBrowserZoomDismissingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserZoomDismissingAnimator.swift; sourceTree = "<group>"; };
+		A6D86BAB22F04FA5005793B1 /* JXPhotoBrowserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserDelegate.swift; sourceTree = "<group>"; };
+		A6D86BAC22F04FA5005793B1 /* JXPhotoBrowserTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserTransitioningDelegate.swift; sourceTree = "<group>"; };
+		A6D86BAD22F04FA5005793B1 /* JXPhotoBrowserDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserDataSource.swift; sourceTree = "<group>"; };
+		A6D86BAE22F04FA5005793B1 /* JXLocalDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXLocalDataSource.swift; sourceTree = "<group>"; };
+		A6D86BAF22F04FA5005793B1 /* JXPhotoBrowserBaseDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserBaseDelegate.swift; sourceTree = "<group>"; };
+		A6D86BB022F04FA5005793B1 /* JXPhotoBrowserBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowserBaseCell.swift; sourceTree = "<group>"; };
+		A6D86BB222F04FA5005793B1 /* JXNumberPageControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXNumberPageControlDelegate.swift; sourceTree = "<group>"; };
+		A6D86BB322F04FA5005793B1 /* JXDefaultPageControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXDefaultPageControlDelegate.swift; sourceTree = "<group>"; };
+		A6D86BB422F04FA5005793B1 /* JXCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		A6D86BB522F04FA5005793B1 /* JXPhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowser.swift; sourceTree = "<group>"; };
+		A6D86BB722F04FA5005793B1 /* JXKingfisherLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXKingfisherLoader.swift; sourceTree = "<group>"; };
+		A6D86BB922F04FA5005793B1 /* JXKingfisherWebPLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXKingfisherWebPLoader.swift; sourceTree = "<group>"; };
 		A6DEA8C622EEBE02009BBFAF /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		A6EAE90A22D3196100B3BD8E /* EmoticonQQ.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonQQ.bundle; sourceTree = "<group>"; };
 		A6EAE91122D31A7900B3BD8E /* PublishDynamicToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDynamicToolBar.swift; sourceTree = "<group>"; };
@@ -366,6 +426,7 @@
 		A66C645722DC56FE006AE547 /* ThirdLib */ = {
 			isa = PBXGroup;
 			children = (
+				A6D86B9222F04F88005793B1 /* JXPhotoBrowser */,
 				A66C645822DC5931006AE547 /* YYImage */,
 			);
 			path = ThirdLib;
@@ -767,6 +828,115 @@
 			path = EmojiKeyboard;
 			sourceTree = "<group>";
 		};
+		A6D86B9222F04F88005793B1 /* JXPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				A6D86B9322F04FA5005793B1 /* Core */,
+				A6D86BB622F04FA5005793B1 /* Kingfisher */,
+				A6D86BB822F04FA5005793B1 /* KingfisherWebP */,
+			);
+			path = JXPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		A6D86B9322F04FA5005793B1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A6D86B9422F04FA5005793B1 /* Transition */,
+				A6D86B9922F04FA5005793B1 /* Networking */,
+				A6D86BA022F04FA5005793B1 /* Utils */,
+				A6D86BA422F04FA5005793B1 /* Animator */,
+				A6D86BAA22F04FA5005793B1 /* Protocol */,
+				A6D86BAE22F04FA5005793B1 /* JXLocalDataSource.swift */,
+				A6D86BAF22F04FA5005793B1 /* JXPhotoBrowserBaseDelegate.swift */,
+				A6D86BB022F04FA5005793B1 /* JXPhotoBrowserBaseCell.swift */,
+				A6D86BB122F04FA5005793B1 /* Enhance */,
+				A6D86BB422F04FA5005793B1 /* JXCollectionViewFlowLayout.swift */,
+				A6D86BB522F04FA5005793B1 /* JXPhotoBrowser.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A6D86B9422F04FA5005793B1 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				A6D86B9522F04FA5005793B1 /* JXPhotoBrowserFadeTransitioning.swift */,
+				A6D86B9622F04FA5005793B1 /* JXPhotoBrowserZoomTransitioning.swift */,
+				A6D86B9722F04FA5005793B1 /* JXPhotoBrowserPresentationController.swift */,
+				A6D86B9822F04FA5005793B1 /* JXPhotoBrowserTransitioning.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		A6D86B9922F04FA5005793B1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A6D86B9A22F04FA5005793B1 /* JXPhotoBrowserProgressView.swift */,
+				A6D86B9B22F04FA5005793B1 /* JXPhotoBrowserRawButtonCell.swift */,
+				A6D86B9C22F04FA5005793B1 /* JXNetworkingDataSource.swift */,
+				A6D86B9D22F04FA5005793B1 /* JXRawImageDataSource.swift */,
+				A6D86B9E22F04FA5005793B1 /* JXPhotoLoader.swift */,
+				A6D86B9F22F04FA5005793B1 /* JXPhotoBrowserNetworkingCell.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A6D86BA022F04FA5005793B1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A6D86BA122F04FA5005793B1 /* UICollectionView+JX.swift */,
+				A6D86BA222F04FA5005793B1 /* UIViewController+JX.swift */,
+				A6D86BA322F04FA5005793B1 /* JXNamespace.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A6D86BA422F04FA5005793B1 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				A6D86BA522F04FA5005793B1 /* JXPhotoBrowserZoomAnimator.swift */,
+				A6D86BA622F04FA5005793B1 /* JXPhotoBrowserFadePresentingAnimator.swift */,
+				A6D86BA722F04FA5005793B1 /* JXPhotoBrowserFadeDismissingAnimator.swift */,
+				A6D86BA822F04FA5005793B1 /* JXPhotoBrowserZoomPresentingAnimator.swift */,
+				A6D86BA922F04FA5005793B1 /* JXPhotoBrowserZoomDismissingAnimator.swift */,
+			);
+			path = Animator;
+			sourceTree = "<group>";
+		};
+		A6D86BAA22F04FA5005793B1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A6D86BAB22F04FA5005793B1 /* JXPhotoBrowserDelegate.swift */,
+				A6D86BAC22F04FA5005793B1 /* JXPhotoBrowserTransitioningDelegate.swift */,
+				A6D86BAD22F04FA5005793B1 /* JXPhotoBrowserDataSource.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		A6D86BB122F04FA5005793B1 /* Enhance */ = {
+			isa = PBXGroup;
+			children = (
+				A6D86BB222F04FA5005793B1 /* JXNumberPageControlDelegate.swift */,
+				A6D86BB322F04FA5005793B1 /* JXDefaultPageControlDelegate.swift */,
+			);
+			path = Enhance;
+			sourceTree = "<group>";
+		};
+		A6D86BB622F04FA5005793B1 /* Kingfisher */ = {
+			isa = PBXGroup;
+			children = (
+				A6D86BB722F04FA5005793B1 /* JXKingfisherLoader.swift */,
+			);
+			path = Kingfisher;
+			sourceTree = "<group>";
+		};
+		A6D86BB822F04FA5005793B1 /* KingfisherWebP */ = {
+			isa = PBXGroup;
+			children = (
+				A6D86BB922F04FA5005793B1 /* JXKingfisherWebPLoader.swift */,
+			);
+			path = KingfisherWebP;
+			sourceTree = "<group>";
+		};
 		A6EAE90C22D3199A00B3BD8E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -978,6 +1148,9 @@
 			files = (
 				A631784222C1F0D000EA8A73 /* UserInfo.swift in Sources */,
 				A67F191722B34C3D007D20D4 /* ViewController.swift in Sources */,
+				A6D86BCF22F04FA6005793B1 /* JXLocalDataSource.swift in Sources */,
+				A6D86BC922F04FA6005793B1 /* JXPhotoBrowserFadeDismissingAnimator.swift in Sources */,
+				A6D86BBC22F04FA6005793B1 /* JXPhotoBrowserPresentationController.swift in Sources */,
 				A6B8CC8922E051F700083451 /* DynamicListImagesView.swift in Sources */,
 				A6B782B022D4A258007AD9BF /* EmojiKeyboardView.swift in Sources */,
 				A61BA2D022DDBD2200A37997 /* DynamicListModel.swift in Sources */,
@@ -991,18 +1164,30 @@
 				A61BA2CA22DDAA4700A37997 /* DynamicSectionModel.swift in Sources */,
 				A6DEA8C722EEBE02009BBFAF /* UIDevice+Extensions.swift in Sources */,
 				A631784822C20CAC00EA8A73 /* PlaceHolderView.swift in Sources */,
+				A6D86BBE22F04FA6005793B1 /* JXPhotoBrowserProgressView.swift in Sources */,
+				A6D86BBA22F04FA6005793B1 /* JXPhotoBrowserFadeTransitioning.swift in Sources */,
+				A6D86BC522F04FA6005793B1 /* UIViewController+JX.swift in Sources */,
 				A67F195422B37DE1007D20D4 /* UIImage+Extensions.swift in Sources */,
+				A6D86BD122F04FA6005793B1 /* JXPhotoBrowserBaseCell.swift in Sources */,
+				A6D86BC222F04FA6005793B1 /* JXPhotoLoader.swift in Sources */,
 				A66C647322DC8F74006AE547 /* PublishSelectPictureViewCell.swift in Sources */,
 				A67F194E22B37842007D20D4 /* CommonDefine.swift in Sources */,
 				A6230FD322B73C2C00A5DD95 /* RowModel.swift in Sources */,
 				A66C647122DC8C95006AE547 /* PublishSelectPictureView.swift in Sources */,
+				A6D86BCA22F04FA6005793B1 /* JXPhotoBrowserZoomPresentingAnimator.swift in Sources */,
+				A6D86BD422F04FA6005793B1 /* JXCollectionViewFlowLayout.swift in Sources */,
 				A631784522C1FBA600EA8A73 /* UserInfoModel.swift in Sources */,
 				A631783722C1B51F00EA8A73 /* LoginViewController.swift in Sources */,
+				A6D86BC622F04FA6005793B1 /* JXNamespace.swift in Sources */,
 				A69ABA7322C606CE00EA844C /* SearchResultCell.swift in Sources */,
 				A6860FD822D856C7007F57D5 /* EmojiKeyboardCell.swift in Sources */,
 				A67F195B22B39786007D20D4 /* UIView+Extensions.swift in Sources */,
 				A6B0BCED22CF571200B9E52D /* PublishDynamicViewController.swift in Sources */,
+				A6D86BD022F04FA6005793B1 /* JXPhotoBrowserBaseDelegate.swift in Sources */,
 				A631783822C1B52000EA8A73 /* LoginViewController+Extension.swift in Sources */,
+				A6D86BD522F04FA6005793B1 /* JXPhotoBrowser.swift in Sources */,
+				A6D86BC822F04FA6005793B1 /* JXPhotoBrowserFadePresentingAnimator.swift in Sources */,
+				A6D86BBD22F04FA6005793B1 /* JXPhotoBrowserTransitioning.swift in Sources */,
 				A67F194922B356C6007D20D4 /* DynamicListViewController.swift in Sources */,
 				A67F192B22B34D91007D20D4 /* BaseViewController.swift in Sources */,
 				A68D381222BB213800D317EE /* BookListService.swift in Sources */,
@@ -1012,10 +1197,12 @@
 				A66C646622DC5931006AE547 /* YYFrameImage.m in Sources */,
 				A67F193022B34E0F007D20D4 /* TabBarViewController.swift in Sources */,
 				A6230FE422B7900A00A5DD95 /* BookListCell.swift in Sources */,
+				A6D86BC322F04FA6005793B1 /* JXPhotoBrowserNetworkingCell.swift in Sources */,
 				A62FA82722DC30E200BDA3A2 /* EmojiKeyboardParser.swift in Sources */,
 				A6230FD422B73C2C00A5DD95 /* SectionModel.swift in Sources */,
 				A624040622C0CE2A00496D3A /* LoginProvider.swift in Sources */,
 				A6983D0122C49E8F0042B591 /* RCIMDataSource.swift in Sources */,
+				A6D86BD722F04FA6005793B1 /* JXKingfisherWebPLoader.swift in Sources */,
 				A61BA2D422DDC58C00A37997 /* DynamicListService.swift in Sources */,
 				A61BA2CC22DDB1FF00A37997 /* DynamicListContentBaseView.swift in Sources */,
 				A67F192D22B34DB5007D20D4 /* BaseNavigationViewController.swift in Sources */,
@@ -1023,28 +1210,41 @@
 				A66D6F7A22BCA9EF006F5B2C /* BookListIndexView.swift in Sources */,
 				A683790622BA3627008DCD40 /* SearchBar.swift in Sources */,
 				A62403FA22C06F5D00496D3A /* Interface.swift in Sources */,
+				A6D86BC422F04FA6005793B1 /* UICollectionView+JX.swift in Sources */,
+				A6D86BD222F04FA6005793B1 /* JXNumberPageControlDelegate.swift in Sources */,
 				A631783D22C1BCC500EA8A73 /* UserInfoRealm.swift in Sources */,
 				A6983D0A22C4B9B20042B591 /* UIImageView+Extensions.swift in Sources */,
+				A6D86BC722F04FA6005793B1 /* JXPhotoBrowserZoomAnimator.swift in Sources */,
 				A6983D0822C4B4590042B591 /* MineMainPageUserInfoView.swift in Sources */,
+				A6D86BD622F04FA6005793B1 /* JXKingfisherLoader.swift in Sources */,
 				A67642AF22DF09D60065DDD1 /* DynamicListLikesCell.swift in Sources */,
 				A67F195322B37DE1007D20D4 /* UIColor+Extensions.swift in Sources */,
 				A624040E22C0D55700496D3A /* Date+Extensions.swift in Sources */,
+				A6D86BC022F04FA6005793B1 /* JXNetworkingDataSource.swift in Sources */,
 				A624040A22C0D1F100496D3A /* Provider+Config.swift in Sources */,
 				A6B08F8622E16AF4001BD2D5 /* DynamicListCommentsCell.swift in Sources */,
 				A624040C22C0D31F00496D3A /* ThirdPartConfig.swift in Sources */,
 				A6983D0422C4A85A0042B591 /* MineMainPageNormalCell.swift in Sources */,
+				A6D86BCB22F04FA6005793B1 /* JXPhotoBrowserZoomDismissingAnimator.swift in Sources */,
 				A66C646322DC5931006AE547 /* YYSpriteSheetImage.m in Sources */,
 				A67F195722B38C87007D20D4 /* UIViewController+Extensions.swift in Sources */,
 				A67F194122B355E9007D20D4 /* SessionListViewController.swift in Sources */,
 				A67F195522B37DE1007D20D4 /* NSString+Extensions.swift in Sources */,
 				A6230FE022B7797400A5DD95 /* BookListModel.swift in Sources */,
+				A6D86BD322F04FA6005793B1 /* JXDefaultPageControlDelegate.swift in Sources */,
 				A6B08F8B22E1AAB5001BD2D5 /* DynamicPushCommentView.swift in Sources */,
 				A69ABA7722C60D2D00EA844C /* SearchResultModel.swift in Sources */,
 				A683790822BA3B36008DCD40 /* SearchPageViewController.swift in Sources */,
 				A62403F822C06F4C00496D3A /* Network.swift in Sources */,
+				A6D86BBF22F04FA6005793B1 /* JXPhotoBrowserRawButtonCell.swift in Sources */,
 				A67F194722B356AA007D20D4 /* BookListViewController.swift in Sources */,
+				A6D86BCE22F04FA6005793B1 /* JXPhotoBrowserDataSource.swift in Sources */,
 				A631784C22C2179400EA8A73 /* SessionDetailViewController.swift in Sources */,
+				A6D86BCC22F04FA6005793B1 /* JXPhotoBrowserDelegate.swift in Sources */,
 				A66C646522DC5931006AE547 /* YYImageCoder.m in Sources */,
+				A6D86BC122F04FA6005793B1 /* JXRawImageDataSource.swift in Sources */,
+				A6D86BBB22F04FA6005793B1 /* JXPhotoBrowserZoomTransitioning.swift in Sources */,
+				A6D86BCD22F04FA6005793B1 /* JXPhotoBrowserTransitioningDelegate.swift in Sources */,
 				A66C646B22DC5D83006AE547 /* AtFriendsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
