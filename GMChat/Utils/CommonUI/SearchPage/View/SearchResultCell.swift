@@ -7,7 +7,7 @@
 //
 
 import UIKit
-let SearchResultCellID = "SearchResultCellID"
+
 class SearchResultCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

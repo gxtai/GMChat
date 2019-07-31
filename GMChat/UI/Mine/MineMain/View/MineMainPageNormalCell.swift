@@ -8,8 +8,6 @@
 
 import UIKit
 
-let MineMainPageNormalCellID = "MineMainPageNormalCellID"
-
 class MineMainPageNormalCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

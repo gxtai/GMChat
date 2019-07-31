@@ -7,7 +7,6 @@
 //
 
 import UIKit
-let PublishSelectPictureViewCellID = "PublishSelectPictureViewCellID"
 
 protocol PublishSelectPictureViewCellDelegate: NSObjectProtocol {
     func deleteThePicture(index: Int)

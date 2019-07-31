@@ -8,8 +8,6 @@
 
 import UIKit
 
-let DynamicListCommentsCellID = "DynamicListCommentsCellID"
-
 class DynamicListCommentsCell: UITableViewCell {
     var rowModel: RowModel?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

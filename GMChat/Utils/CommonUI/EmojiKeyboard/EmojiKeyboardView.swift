@@ -36,7 +36,7 @@ class EmojiKeyboardView: UIView {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(EmojiKeyboardCell.self, forCellWithReuseIdentifier: EmojiKeyboardCellID)
+        collectionView.register(EmojiKeyboardCell.self, forCellWithReuseIdentifier: NSStringFromClass(EmojiKeyboardCell.self))
         collectionView.backgroundColor = .white
         return collectionView
     }()
@@ -60,7 +60,7 @@ extension EmojiKeyboardView: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: EmojiKeyboardCell = collectionView.dequeueReusableCell(withReuseIdentifier: EmojiKeyboardCellID, for: indexPath) as! EmojiKeyboardCell
+        let cell: EmojiKeyboardCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(EmojiKeyboardCell.self), for: indexPath) as! EmojiKeyboardCell
         let dic: [String: String] = dataArray[indexPath.row]
         let value = dic.values.first!
         

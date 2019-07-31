@@ -8,8 +8,6 @@
 
 import UIKit
 
-let EmojiKeyboardCellID = "EmojiKeyboardCellID"
-
 class EmojiKeyboardCell: UICollectionViewCell {
     
     override init(frame: CGRect) {

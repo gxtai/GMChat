@@ -8,9 +8,6 @@
 
 import UIKit
 
-let BookListHeaderViewID = "BookListHeaderViewID"
-
-
 class BookListHeaderView: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {

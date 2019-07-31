@@ -10,8 +10,6 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-let BookListCellID = "BookListCellID"
-
 class BookListCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

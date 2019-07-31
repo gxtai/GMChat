@@ -17,7 +17,7 @@ class PublishSelectPictureView: UICollectionView, UICollectionViewDelegate, UICo
         layout.minimumInteritemSpacing = 0
         layout.itemSize = CGSize(width: SCREEN_WIDTH / CGFloat(lineCount), height: SCREEN_WIDTH / CGFloat(lineCount))
         super.init(frame: frame, collectionViewLayout: layout)
-        self.register(PublishSelectPictureViewCell.self, forCellWithReuseIdentifier: PublishSelectPictureViewCellID)
+        self.register(PublishSelectPictureViewCell.self, forCellWithReuseIdentifier:NSStringFromClass(PublishSelectPictureViewCell.self))
         backgroundColor = .white
         dataSource = self
         delegate = self
@@ -43,7 +43,7 @@ class PublishSelectPictureView: UICollectionView, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PublishSelectPictureViewCellID, for: indexPath) as! PublishSelectPictureViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(PublishSelectPictureViewCell.self), for: indexPath) as! PublishSelectPictureViewCell
         cell.delegate = self
         if indexPath.row == photoArray.count {
             cell.coverImageView.image = UIImage(named: "dynamic_publish_add_picture_default")

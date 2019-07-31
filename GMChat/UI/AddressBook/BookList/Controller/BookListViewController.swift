@@ -133,7 +133,7 @@ extension BookListViewController {
         let selStrArray = ["notificationList:", "teamAdvanceList:", "teamNormalList:", "subscriptionList:", "blackList:"]
         let sectionModel = SectionModel()
         for i in 0..<imageArray.count {
-            let rowModel = RowModel(title: titleArray[i], className: NSStringFromClass(BookListCell.self), reuseIdentifier: BookListCellID)
+            let rowModel = RowModel(title: titleArray[i], className: NSStringFromClass(BookListCell.self), reuseIdentifier: NSStringFromClass(BookListCell.self))
             rowModel.imageName = imageArray[i]
             rowModel.height = 64
             rowModel.accessoryType = .none
@@ -150,7 +150,7 @@ extension BookListViewController {
         
         for friendModel in modelList {
             
-            let rowModel = RowModel(title: nil, className: NSStringFromClass(BookListCell.self), reuseIdentifier: BookListCellID)
+            let rowModel = RowModel(title: nil, className: NSStringFromClass(BookListCell.self), reuseIdentifier: NSStringFromClass(BookListCell.self))
             rowModel.height = 64
             rowModel.accessoryType = .none
             rowModel.selectorString = "clickedTheCell:"
@@ -261,10 +261,10 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
             return nil
         }
         
-        var headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: BookListHeaderViewID)
+        var headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: NSStringFromClass(BookListHeaderView.self))
         
         if headerView == nil {
-            headerView = BookListHeaderView(reuseIdentifier: BookListHeaderViewID)
+            headerView = BookListHeaderView(reuseIdentifier: NSStringFromClass(BookListHeaderView.self))
         }
 
         (headerView as! BookListHeaderView).title = sectionModel.title

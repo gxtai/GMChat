@@ -72,7 +72,7 @@ extension MineMainPageViewController {
     
     func initTableViewData() {
         // 我的主页
-        let pageRowModel = RowModel(title: "我的主页", className: NSStringFromClass(MineMainPageNormalCell.self), reuseIdentifier: MineMainPageNormalCellID)
+        let pageRowModel = RowModel(title: "我的主页", className: NSStringFromClass(MineMainPageNormalCell.self), reuseIdentifier: NSStringFromClass(MineMainPageNormalCell.self))
         pageRowModel.imageName = "mine_user_page_icon"
         pageRowModel.selectorString = "gotoUserPage"
         let sectionModelOne = SectionModel(title: nil)
@@ -80,7 +80,7 @@ extension MineMainPageViewController {
         sectionModelOne.headerHeight = 10
         sectionModelOne.footerHeigth = 0.1
         // 设置
-        let settingRowModel = RowModel(title: "设置", className: NSStringFromClass(MineMainPageNormalCell.self), reuseIdentifier: MineMainPageNormalCellID)
+        let settingRowModel = RowModel(title: "设置", className: NSStringFromClass(MineMainPageNormalCell.self), reuseIdentifier: NSStringFromClass(MineMainPageNormalCell.self))
         settingRowModel.imageName = "mine_setting_icon"
         settingRowModel.selectorString = "gotoSettingPage"
         let sectionModelTwo = SectionModel(title: nil)

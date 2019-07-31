@@ -105,7 +105,7 @@ extension SearchPageViewController: SearchPageSearchBarViewDelegate {
         // 联系人
         for listModel in bookListArray {
             if listModel.name.range(of: text) != nil {
-                let rowModel = RowModel(title: nil, className: NSStringFromClass(BookListCell.self), reuseIdentifier: "BookListCellID")
+                let rowModel = RowModel(title: nil, className: NSStringFromClass(BookListCell.self), reuseIdentifier: NSStringFromClass(BookListCell.self))
                 rowModel.accessoryType = .none
                 rowModel.dataModel = listModel
                 rowModel.height = 64
@@ -163,7 +163,7 @@ extension SearchPageViewController: SearchPageSearchBarViewDelegate {
             model.searchType = .chatHistory
             model.count = result.matchCount
             
-            let rowModel = RowModel(title: nil, className: NSStringFromClass(SearchResultCell.self), reuseIdentifier: SearchResultCellID)
+            let rowModel = RowModel(title: nil, className: NSStringFromClass(SearchResultCell.self), reuseIdentifier: NSStringFromClass(SearchResultCell.self))
             rowModel.accessoryType = .none
             rowModel.dataModel = model
             rowModel.height = 64
@@ -240,10 +240,10 @@ extension SearchPageViewController: UITableViewDelegate, UITableViewDataSource {
             return nil
         }
         
-        var headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: BookListHeaderViewID)
+        var headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: NSStringFromClass(BookListHeaderView.self))
         
         if headerView == nil {
-            headerView = BookListHeaderView(reuseIdentifier: BookListHeaderViewID)
+            headerView = BookListHeaderView(reuseIdentifier: NSStringFromClass(BookListHeaderView.self))
         }
         
         (headerView as! BookListHeaderView).title = sectionModel.title

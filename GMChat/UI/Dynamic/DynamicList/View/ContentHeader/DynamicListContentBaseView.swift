@@ -9,7 +9,6 @@
 import UIKit
 import AudioToolbox
 
-let DynamicListContentBaseViewID = "DynamicListContentBaseViewID"
 let DynamicListContentBaseViewH: CGFloat = 86.0
 let DynamicListHeaderImageViewW: CGFloat = 34.0
 

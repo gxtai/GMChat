@@ -178,7 +178,7 @@ extension DynamicListViewController {
         /// 动态内容
         let sectionModel = DynamicSectionModel()
         sectionModel.className = NSStringFromClass(DynamicListContentBaseView.self)
-        sectionModel.reuseIdentifier = DynamicListContentBaseViewID
+        sectionModel.reuseIdentifier = NSStringFromClass(DynamicListContentBaseView.self)
         sectionModel.headerHeight = listModel.total_h
         sectionModel.footerHeigth = 10
         sectionModel.showDataString = "showDataWithSectionModel:"
@@ -200,7 +200,7 @@ extension DynamicListViewController {
     }
     /// 点赞的cell
     func likesModel(listModel: DynamicListModel) -> RowModel {
-        let likesModel = RowModel(title: nil, className: NSStringFromClass(DynamicListLikesCell.self), reuseIdentifier: DynamicListLikesCellID)
+        let likesModel = RowModel(title: nil, className: NSStringFromClass(DynamicListLikesCell.self), reuseIdentifier: NSStringFromClass(DynamicListLikesCell.self))
         likesModel.height = listModel.likes_h
         likesModel.accessoryType = .none
         likesModel.selectionStyle = .none
@@ -209,7 +209,7 @@ extension DynamicListViewController {
     }
     /// 评论的cell
     func commentsModel(commentModel: DynamicListCommentsModel) -> RowModel {
-        let commentsModel = RowModel(title: nil, className: NSStringFromClass(DynamicListCommentsCell.self), reuseIdentifier: DynamicListCommentsCellID)
+        let commentsModel = RowModel(title: nil, className: NSStringFromClass(DynamicListCommentsCell.self), reuseIdentifier: NSStringFromClass(DynamicListCommentsCell.self))
         commentsModel.height = commentModel.commentH
         commentsModel.accessoryType = .none
         commentsModel.selectionStyle = .none

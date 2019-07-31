@@ -9,8 +9,6 @@
 import UIKit
 import Kingfisher
 
-let DynamicListLikesCellID = "DynamicListLikesCellID"
-
 let dynamicListlikesCellBaseH: CGFloat = 40
 /// 头像宽
 let likesHeaderImageW: CGFloat = 30
