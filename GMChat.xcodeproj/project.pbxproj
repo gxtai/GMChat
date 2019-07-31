@@ -75,6 +75,7 @@
 		A6983D0A22C4B9B20042B591 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */; };
 		A69ABA7322C606CE00EA844C /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ABA7222C606CE00EA844C /* SearchResultCell.swift */; };
 		A69ABA7722C60D2D00EA844C /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */; };
+		A6B02E8B22F19F930045A476 /* UserDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B02E8A22F19F930045A476 /* UserDynamicViewController.swift */; };
 		A6B08F8622E16AF4001BD2D5 /* DynamicListCommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B08F8522E16AF4001BD2D5 /* DynamicListCommentsCell.swift */; };
 		A6B08F8822E19407001BD2D5 /* DynamicListImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B08F8722E19407001BD2D5 /* DynamicListImageStore.swift */; };
 		A6B08F8B22E1AAB5001BD2D5 /* DynamicPushCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B08F8A22E1AAB5001BD2D5 /* DynamicPushCommentView.swift */; };
@@ -193,6 +194,7 @@
 		A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		A69ABA7222C606CE00EA844C /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
+		A6B02E8A22F19F930045A476 /* UserDynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDynamicViewController.swift; sourceTree = "<group>"; };
 		A6B08F8522E16AF4001BD2D5 /* DynamicListCommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListCommentsCell.swift; sourceTree = "<group>"; };
 		A6B08F8722E19407001BD2D5 /* DynamicListImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListImageStore.swift; sourceTree = "<group>"; };
 		A6B08F8A22E1AAB5001BD2D5 /* DynamicPushCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicPushCommentView.swift; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 		A67F193322B34FE6007D20D4 /* Dynamic */ = {
 			isa = PBXGroup;
 			children = (
+				A6B02E8822F19E650045A476 /* UserPage */,
 				A66C646822DC5D1C006AE547 /* AtFriends */,
 				A6B0BCEA22CF56F700B9E52D /* PublishDynamic */,
 				A67F193822B35568007D20D4 /* DynamicList */,
@@ -791,6 +794,22 @@
 				A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A6B02E8822F19E650045A476 /* UserPage */ = {
+			isa = PBXGroup;
+			children = (
+				A6B02E8922F19F2E0045A476 /* Controller */,
+			);
+			path = UserPage;
+			sourceTree = "<group>";
+		};
+		A6B02E8922F19F2E0045A476 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A6B02E8A22F19F930045A476 /* UserDynamicViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		A6B08F8922E1A9DC001BD2D5 /* PushComment */ = {
@@ -1162,6 +1181,7 @@
 				A67F195922B38D99007D20D4 /* UIBarButtonItem+Extensions.swift in Sources */,
 				A68E9B6922B8EC470029F547 /* BookListHeaderView.swift in Sources */,
 				A61BA2CA22DDAA4700A37997 /* DynamicSectionModel.swift in Sources */,
+				A6B02E8B22F19F930045A476 /* UserDynamicViewController.swift in Sources */,
 				A6DEA8C722EEBE02009BBFAF /* UIDevice+Extensions.swift in Sources */,
 				A631784822C20CAC00EA8A73 /* PlaceHolderView.swift in Sources */,
 				A6D86BBE22F04FA6005793B1 /* JXPhotoBrowserProgressView.swift in Sources */,

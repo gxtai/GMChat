@@ -18,6 +18,9 @@ class SessionDetailViewController: RCConversationViewController {
         config()
     }
     
+    override func rightBtnClicked(sender: UIButton) {
+        navigationController?.pushViewController(UserDynamicViewController(), animated: true)
+    }
     
     func config() {
         enableUnreadMessageIcon = true
@@ -26,6 +29,7 @@ class SessionDetailViewController: RCConversationViewController {
         if conversationType == .ConversationType_PRIVATE {
             displayUserNameInCell = false
         }
+        setupNavigationItem(icon: "session_detail_user_info_icon", highIcon: "session_detail_user_info_icon", isLeft: false)
     }
 }
 
