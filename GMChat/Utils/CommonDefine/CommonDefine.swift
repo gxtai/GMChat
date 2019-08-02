@@ -56,3 +56,4 @@ let currentUserID = "currentUserID" // 当前登录的用户no
 
 /// notice
 let touchEventNotice: NSNotification.Name = NSNotification.Name(rawValue: "touchEventNotice")
+let userDynamicLeaveFromTopScrollNotice: NSNotification.Name = NSNotification.Name(rawValue: "userDynamicLeaveFromTopScrollNotice")

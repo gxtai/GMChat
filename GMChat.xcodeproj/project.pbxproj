@@ -113,6 +113,8 @@
 		A6D86BD622F04FA6005793B1 /* JXKingfisherLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BB722F04FA5005793B1 /* JXKingfisherLoader.swift */; };
 		A6D86BD722F04FA6005793B1 /* JXKingfisherWebPLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D86BB922F04FA5005793B1 /* JXKingfisherWebPLoader.swift */; };
 		A6DEA8C722EEBE02009BBFAF /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEA8C622EEBE02009BBFAF /* UIDevice+Extensions.swift */; };
+		A6E23F8F22F3D3AC0090D399 /* UserDynamicInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E23F8E22F3D3AC0090D399 /* UserDynamicInfoView.swift */; };
+		A6E23F9122F3E8AD0090D399 /* UserDynamicNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E23F9022F3E8AD0090D399 /* UserDynamicNavigationBarView.swift */; };
 		A6EAE90B22D3196100B3BD8E /* EmoticonQQ.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6EAE90A22D3196100B3BD8E /* EmoticonQQ.bundle */; };
 		A6EAE91222D31A7900B3BD8E /* PublishDynamicToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EAE91122D31A7900B3BD8E /* PublishDynamicToolBar.swift */; };
 /* End PBXBuildFile section */
@@ -232,6 +234,8 @@
 		A6D86BB722F04FA5005793B1 /* JXKingfisherLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXKingfisherLoader.swift; sourceTree = "<group>"; };
 		A6D86BB922F04FA5005793B1 /* JXKingfisherWebPLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXKingfisherWebPLoader.swift; sourceTree = "<group>"; };
 		A6DEA8C622EEBE02009BBFAF /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
+		A6E23F8E22F3D3AC0090D399 /* UserDynamicInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDynamicInfoView.swift; sourceTree = "<group>"; };
+		A6E23F9022F3E8AD0090D399 /* UserDynamicNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDynamicNavigationBarView.swift; sourceTree = "<group>"; };
 		A6EAE90A22D3196100B3BD8E /* EmoticonQQ.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonQQ.bundle; sourceTree = "<group>"; };
 		A6EAE91122D31A7900B3BD8E /* PublishDynamicToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDynamicToolBar.swift; sourceTree = "<group>"; };
 		CC9C0806FEC8FCF867EC6B38 /* Pods-GMChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GMChat/Pods-GMChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -799,6 +803,7 @@
 		A6B02E8822F19E650045A476 /* UserPage */ = {
 			isa = PBXGroup;
 			children = (
+				A6E23F8D22F3D3850090D399 /* View */,
 				A6B02E8922F19F2E0045A476 /* Controller */,
 			);
 			path = UserPage;
@@ -954,6 +959,15 @@
 				A6D86BB922F04FA5005793B1 /* JXKingfisherWebPLoader.swift */,
 			);
 			path = KingfisherWebP;
+			sourceTree = "<group>";
+		};
+		A6E23F8D22F3D3850090D399 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A6E23F8E22F3D3AC0090D399 /* UserDynamicInfoView.swift */,
+				A6E23F9022F3E8AD0090D399 /* UserDynamicNavigationBarView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A6EAE90C22D3199A00B3BD8E /* View */ = {
@@ -1232,6 +1246,7 @@
 				A62403FA22C06F5D00496D3A /* Interface.swift in Sources */,
 				A6D86BC422F04FA6005793B1 /* UICollectionView+JX.swift in Sources */,
 				A6D86BD222F04FA6005793B1 /* JXNumberPageControlDelegate.swift in Sources */,
+				A6E23F8F22F3D3AC0090D399 /* UserDynamicInfoView.swift in Sources */,
 				A631783D22C1BCC500EA8A73 /* UserInfoRealm.swift in Sources */,
 				A6983D0A22C4B9B20042B591 /* UIImageView+Extensions.swift in Sources */,
 				A6D86BC722F04FA6005793B1 /* JXPhotoBrowserZoomAnimator.swift in Sources */,
@@ -1256,6 +1271,7 @@
 				A69ABA7722C60D2D00EA844C /* SearchResultModel.swift in Sources */,
 				A683790822BA3B36008DCD40 /* SearchPageViewController.swift in Sources */,
 				A62403F822C06F4C00496D3A /* Network.swift in Sources */,
+				A6E23F9122F3E8AD0090D399 /* UserDynamicNavigationBarView.swift in Sources */,
 				A6D86BBF22F04FA6005793B1 /* JXPhotoBrowserRawButtonCell.swift in Sources */,
 				A67F194722B356AA007D20D4 /* BookListViewController.swift in Sources */,
 				A6D86BCE22F04FA6005793B1 /* JXPhotoBrowserDataSource.swift in Sources */,

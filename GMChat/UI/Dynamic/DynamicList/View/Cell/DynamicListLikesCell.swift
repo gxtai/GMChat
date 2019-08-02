@@ -76,8 +76,8 @@ class DynamicListLikesCell: UITableViewCell {
                         let w = image.size.width > image.size.height ? image.size.height : image.size.width
                         let imagee = image.byResize(to: CGSize(width: w, height: w), contentMode: .scaleAspectFill)
                         let imageee = imagee!.byRoundCornerRadius(w / 10.0)
-                        DynamicListImageStore.shared.likesUserHeaderDic[photoString] = imageee
                         DispatchQueue.main.async {
+                            DynamicListImageStore.shared.likesUserHeaderDic[photoString] = imageee!
                             imageView.image = imageee
                         }
                     }

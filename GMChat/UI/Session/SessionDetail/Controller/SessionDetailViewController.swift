@@ -19,7 +19,9 @@ class SessionDetailViewController: RCConversationViewController {
     }
     
     override func rightBtnClicked(sender: UIButton) {
-        navigationController?.pushViewController(UserDynamicViewController(), animated: true)
+        let userDynamicVC = UserDynamicViewController()
+        userDynamicVC.userId = targetId
+        navigationController?.pushViewController(userDynamicVC, animated: true)
     }
     
     func config() {

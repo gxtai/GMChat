@@ -33,7 +33,7 @@ class MineMainPageViewController: BaseViewController {
     }
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: -kStatusBarHeight, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - kStatusBarHeight), style: .grouped)
+        let tableView = UITableView(frame: CGRect(x: 0, y: -kStatusBarHeight, width: SCREEN_WIDTH, height: SCREEN_HEIGHT + kStatusBarHeight), style: .grouped)
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
         tableView.delegate = self
         tableView.dataSource = self

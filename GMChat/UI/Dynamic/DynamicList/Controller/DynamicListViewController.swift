@@ -14,12 +14,26 @@
 import UIKit
 import SwiftyJSON
 
+protocol DynamicListViewControllerDelegate: NSObjectProtocol {
+    /// 动态列表开始滑动的代理
+    func scrollViewIsScrolling(scrollView: UIScrollView)
+}
+
 class DynamicListViewController: BaseViewController {
 
+    weak var delegate: DynamicListViewControllerDelegate?
+    
+    /// 个人主页解决手势冲突使用
+    var scrollView: UIScrollView?
+    
     var selectSectionModel: DynamicSectionModel?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /// 列表停止滑动
+        NotificationCenter.default.addObserver(self, selector:#selector(leaveFromTop), name: userDynamicLeaveFromTopScrollNotice, object: nil)
+        
         title = "动态"
         setupNavigationItem(icon: "dynamic_publish_icon", highIcon: "dynamic_publish_icon", isLeft: false)
         setupViews()
@@ -67,6 +81,9 @@ class DynamicListViewController: BaseViewController {
         return pushCommentView
     }()
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 
@@ -279,7 +296,7 @@ extension DynamicListViewController: DynamicPushCommentViewDelegate {
                                           "photo":UserInfo.shared.photo,
                                           "phone":UserInfo.shared.phoneNum]]
         var commentModel = DynamicListCommentsModel(json: JSON(dic))
-        if listModel.comments.count == 0{
+        if listModel.comments.count == 0 {
             commentModel.isShowlikesImage = true
         }
         listModel.comments.append(commentModel)
@@ -293,5 +310,18 @@ extension DynamicListViewController: DynamicPushCommentViewDelegate {
     
 }
 
-
-
+/// 处理滑动 个人主页的时候需要用到
+extension DynamicListViewController {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if self.scrollView == nil {
+            self.scrollView = scrollView
+        }
+        delegate?.scrollViewIsScrolling(scrollView: scrollView)
+    }
+    
+    @objc func leaveFromTop() {
+        scrollView?.contentOffset = CGPoint.zero
+    }
+}

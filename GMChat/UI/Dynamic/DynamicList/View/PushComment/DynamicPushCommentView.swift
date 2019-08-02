@@ -15,7 +15,7 @@ protocol DynamicPushCommentViewDelegate: NSObjectProtocol {
 
 class DynamicPushCommentView: UIView {
 
-    var delegate: DynamicPushCommentViewDelegate?
+    weak var delegate: DynamicPushCommentViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
