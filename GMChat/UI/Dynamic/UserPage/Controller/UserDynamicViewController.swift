@@ -103,6 +103,7 @@ extension UserDynamicViewController: UITableViewDelegate, UITableViewDataSource 
             cell = UITableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
             // cell 添加动态列表controller
             let dynamicVC = DynamicListViewController()
+            dynamicVC.view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
             dynamicVC.delegate = self
             cell?.addSubview(dynamicVC.view)
             self.addChild(dynamicVC)
