@@ -8,11 +8,21 @@
 
 import UIKit
 
+protocol UserDynamicNavigationBarViewDelegate: NSObjectProtocol {
+    func leftBtnClicked()
+}
+
 class UserDynamicNavigationBarView: UIView {
 
+    weak var delegate: UserDynamicNavigationBarViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+    }
+    
+    @objc func backBtnClicked() {
+        delegate?.leftBtnClicked()
     }
     
     var listModel: BookListModel? {
@@ -54,6 +64,7 @@ class UserDynamicNavigationBarView: UIView {
     lazy var backBtn: UIButton = {
         let backBtn = UIButton(type: .custom)
         backBtn.setImage(UIImage(named: "common_back_white"), for: .normal)
+        backBtn.addTarget(self, action: #selector(backBtnClicked), for: .touchUpInside)
         self.addSubview(backBtn)
         return backBtn
     }()

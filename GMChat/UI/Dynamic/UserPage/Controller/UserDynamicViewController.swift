@@ -14,7 +14,7 @@ class UserDynamicTableView: UITableView, UIGestureRecognizerDelegate {
     }
 }
 
-class UserDynamicViewController: BaseViewController {
+class UserDynamicViewController: BaseViewController, UserDynamicNavigationBarViewDelegate {
 
     var userId: String?
     var childScrollView: UIScrollView?
@@ -34,6 +34,10 @@ class UserDynamicViewController: BaseViewController {
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
         setupViews()
         fetchListData()
+    }
+    
+    func leftBtnClicked() {
+        navigationController?.popViewController(animated: true)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -58,6 +62,7 @@ class UserDynamicViewController: BaseViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .white
         tableView.showsVerticalScrollIndicator = false
+        tableView.backgroundColor = UIColor.white
         return tableView
     }()
     
@@ -70,6 +75,7 @@ class UserDynamicViewController: BaseViewController {
         let navi = UserDynamicNavigationBarView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: kTopHeight))
         navi.bgImageView.alpha = 0
         navi.nameLab.alpha = 0
+        navi.delegate = self
         return navi
     }()
 }
@@ -103,6 +109,7 @@ extension UserDynamicViewController: UITableViewDelegate, UITableViewDataSource 
             cell = UITableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
             // cell 添加动态列表controller
             let dynamicVC = DynamicListViewController()
+            dynamicVC.pushCommentView.extraH = UserDynamicInfoViewH
             dynamicVC.view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
             dynamicVC.delegate = self
             cell?.addSubview(dynamicVC.view)

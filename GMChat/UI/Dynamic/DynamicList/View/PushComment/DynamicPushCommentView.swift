@@ -15,6 +15,7 @@ protocol DynamicPushCommentViewDelegate: NSObjectProtocol {
 
 class DynamicPushCommentView: UIView {
 
+    var extraH: CGFloat = 0
     weak var delegate: DynamicPushCommentViewDelegate?
     
     override init(frame: CGRect) {
@@ -46,15 +47,11 @@ class DynamicPushCommentView: UIView {
             return
         }
         let keyBoardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-        snp.updateConstraints { (make) in
-            make.bottom.equalTo(-(keyBoardFrame.size.height))
-        }
+        self.y = SCREEN_HEIGHT - keyBoardFrame.size.height - self.height - extraH
     }
     /// 键盘将要消失
     @objc func keyBoardWillHide(_ notification:Notification){
-        snp.updateConstraints { (make) in
-            make.bottom.equalTo(self.height)
-        }
+        self.y = SCREEN_HEIGHT
     }
     
     func setupViews() {

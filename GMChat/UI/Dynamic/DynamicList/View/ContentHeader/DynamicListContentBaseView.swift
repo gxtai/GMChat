@@ -146,13 +146,10 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         headerImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer { [weak self] (ges) in
             let userModel = self?.sectionModel?.dataModel?.user
-            // 点击跳转到聊天界面  后续改为个人主页
-            let sessionDetail = SessionDetailViewController()
-            sessionDetail.conversationType = RCConversationType.ConversationType_PRIVATE
-            sessionDetail.targetId = userModel?.id
-            sessionDetail.title = userModel?.name
-            sessionDetail.displayUserNameInCell = false
-            self?.findNavigator().pushViewController(sessionDetail, animated: true)
+            /// 个人主页
+            let userDynamicVC = UserDynamicViewController()
+            userDynamicVC.userId = userModel?.id
+            self?.findNavigator().pushViewController(userDynamicVC, animated: true)
         }
         headerImageView.addGestureRecognizer(tap)
         

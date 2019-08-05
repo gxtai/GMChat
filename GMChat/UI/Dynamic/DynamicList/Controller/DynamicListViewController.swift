@@ -52,11 +52,7 @@ class DynamicListViewController: BaseViewController {
     
     func setupViews() {
         view.addSubview(tableView)
-        pushCommentView.snp_makeConstraints { (make) in
-            make.left.right.equalToSuperview()
-            make.height.equalTo(pushCommentView.height)
-            make.bottom.equalTo(pushCommentView.height)
-        }
+        view.addSubview(pushCommentView)
     }
     
     lazy var tableView: UITableView = {
@@ -75,8 +71,7 @@ class DynamicListViewController: BaseViewController {
     }()
     
     lazy var pushCommentView: DynamicPushCommentView = {
-        let pushCommentView = DynamicPushCommentView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 132))
-        self.view.addSubview(pushCommentView)
+        let pushCommentView = DynamicPushCommentView(frame: CGRect(x: 0, y: SCREEN_HEIGHT, width: SCREEN_WIDTH, height: 132))
         pushCommentView.delegate = self
         return pushCommentView
     }()

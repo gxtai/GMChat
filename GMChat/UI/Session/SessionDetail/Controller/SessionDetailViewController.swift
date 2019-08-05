@@ -36,6 +36,7 @@ class SessionDetailViewController: RCConversationViewController {
 }
 
 extension SessionDetailViewController {
+    
     override func willDisplayMessageCell(_ cell: RCMessageBaseCell!, at indexPath: IndexPath!) {
     }
     
@@ -47,21 +48,52 @@ extension SessionDetailViewController {
         navigationController?.pushViewController(userDynamicVC, animated: true)
     }
     
+    /// 查看图片 点击图片
     override func presentImagePreviewController(_ model: RCMessageModel!) {
-        print(model)
-//        let loader = JXKingfisherLoader()
-//        let dataSource = JXNetworkingDataSource(photoLoader: loader, numberOfItems: { () -> Int in
-//            return 1
-//        }, placeholder: { index -> UIImage? in
-//            return nil
-//        }) { [weak self] index -> String? in
-//            return model.
-//        }
-//        let delegate = JXDefaultPageControlDelegate()
-//        let trans = JXPhotoBrowserZoomTransitioning { [weak self] (browser, index, view) -> UIView? in
-//            return self?.headerImageView
-//        }
-//        JXPhotoBrowser(dataSource: dataSource, delegate: delegate, transDelegate: trans)
-//            .show(pageIndex: 0)
+        
+        guard let messageContent = model.content else { return }
+        if !messageContent.isKind(of: RCImageMessage.self) { return }
+        
+        var cellArray: [RCImageMessageCell] = [RCImageMessageCell]()
+        var imageArray: [String] = [String]()
+        
+        var row: NSInteger = 0
+        
+        for i in 0..<conversationDataRepository!.count {
+            
+            let rcMessageModel: RCMessageModel = conversationDataRepository[i] as! RCMessageModel
+            /// 图片和cell
+            if rcMessageModel.content.isKind(of: RCImageMessage.self) {
+                let imageModel: RCImageMessage = rcMessageModel.content as! RCImageMessage
+                let cell = self.conversationMessageCollectionView.cellForItem(at: IndexPath(item: i, section: 0)) as! RCImageMessageCell
+                cellArray.append(cell)
+                imageArray.append(imageModel.imageUrl)
+            }
+            /// 当前点击的cell
+            if rcMessageModel.messageId == model.messageId {
+                row = imageArray.count - 1
+            }
+            
+        }
+        /// 弹出图片浏览器
+        let loader = JXKingfisherLoader()
+        let dataSource = JXNetworkingDataSource(photoLoader: loader, numberOfItems: { () -> Int in
+            return imageArray.count
+        }, placeholder: { index -> UIImage? in
+            let cell = cellArray[index]
+            return cell.pictureView.image
+        }) { index -> String? in
+            return imageArray[index]
+        }
+        let delegate = JXDefaultPageControlDelegate()
+        let trans = JXPhotoBrowserZoomTransitioning { (browser, index, view) -> UIView? in
+            let cell = cellArray[index]
+            return cell.pictureView
+        }
+        JXPhotoBrowser(dataSource: dataSource, delegate: delegate, transDelegate: trans)
+            .show(pageIndex: row)
+            
     }
+    
+    
 }
