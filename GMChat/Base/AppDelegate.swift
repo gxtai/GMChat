@@ -4,7 +4,8 @@
 //
 //  Created by GXT on 2019/6/14.
 //  Copyright © 2019 GXT. All rights reserved.
-//
+//  项目中的用户头像数据使用【文明https://github.com/zhengwenming/WeChat】项目中的头像数据
+//  动态列表的界面布局参考了【文明https://github.com/zhengwenming/WeChat】项目中的布局方式 header+cell
 
 import UIKit
 
