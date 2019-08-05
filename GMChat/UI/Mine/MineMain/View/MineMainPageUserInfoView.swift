@@ -39,10 +39,10 @@ class MineMainPageUserInfoView: UIView {
             make.top.equalTo(nameLab.snp_bottom).offset(11)
         }
         
-        arrImageView.snp_makeConstraints { (make) in
-            make.right.equalTo(-15)
-            make.centerY.equalTo(headerImageView.snp_centerY).offset(0)
-        }
+//        arrImageView.snp_makeConstraints { (make) in
+//            make.right.equalTo(-15)
+//            make.centerY.equalTo(headerImageView.snp_centerY).offset(0)
+//        }
     }
     
     lazy var headerImageView: UIImageView = {

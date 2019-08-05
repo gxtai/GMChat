@@ -59,7 +59,9 @@ class MineMainPageViewController: BaseViewController {
 extension MineMainPageViewController {
     /// 我的主页
     @objc func gotoUserPage() {
-        
+        let userDynamicVC = UserDynamicViewController()
+        userDynamicVC.userId = UserInfo.shared.userId
+        navigationController?.pushViewController(userDynamicVC, animated: true)
     }
     /// 设置
     @objc func gotoSettingPage() {
@@ -80,7 +82,7 @@ extension MineMainPageViewController {
         sectionModelOne.headerHeight = 10
         sectionModelOne.footerHeigth = 0.1
         // 设置
-        let settingRowModel = RowModel(title: "设置", className: NSStringFromClass(MineMainPageNormalCell.self), reuseIdentifier: NSStringFromClass(MineMainPageNormalCell.self))
+        let settingRowModel = RowModel(title: "退出登录", className: NSStringFromClass(MineMainPageNormalCell.self), reuseIdentifier: NSStringFromClass(MineMainPageNormalCell.self))
         settingRowModel.imageName = "mine_setting_icon"
         settingRowModel.selectorString = "gotoSettingPage"
         let sectionModelTwo = SectionModel(title: nil)
