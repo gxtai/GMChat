@@ -56,17 +56,13 @@ class BookListViewController: BaseViewController {
     @objc func clickedTheCell(_ rowModel: RowModel) {
         print(rowModel)
         let listModel: BookListModel = rowModel.dataModel as! BookListModel
-        let sessionDetail = SessionDetailViewController()
-        sessionDetail.conversationType = RCConversationType.ConversationType_PRIVATE
-        sessionDetail.targetId = listModel.id
-        sessionDetail.title = listModel.name
-        sessionDetail.displayUserNameInCell = false
-        navigationController?.pushViewController(sessionDetail, animated: true)
+        let userDynamicVC = UserDynamicViewController()
+        userDynamicVC.userId = listModel.id
+        navigationController?.pushViewController(userDynamicVC, animated: true)
     }
     
     /// UI
     func setupViews() {
-//        setupNavigationItem(icon: "book_add_friends_btn_normal", highIcon: nil, isLeft: false)
         view.addSubview(tableView)
         view.addSubview(indexView)
     }

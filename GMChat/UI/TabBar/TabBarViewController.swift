@@ -22,8 +22,8 @@ class TabBarViewController: UITabBarController {
         /// 数组元素为元组类型
         let controllers: [(String, String, String, UIViewController.Type)] = [
             ("消息", "tab_session_normal", "tab_session_selected", SessionListViewController.self),
-            ("通讯录", "tab_address_book_normal", "tab_address_book_selected", BookListViewController.self),
             ("动态", "tab_address_dynamic_normal", "tab_address_dynamic_selected", DynamicListViewController.self),
+            ("通讯录", "tab_address_book_normal", "tab_address_book_selected", BookListViewController.self),
             ("我的", "tab_user_normal", "tab_user_selected", MineMainPageViewController.self)
         ]
         

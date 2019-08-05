@@ -96,13 +96,10 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         fetchUserInfo(userName: linkValue, type: RCUserInfo.self) { (result) in
             if result.result == false { return }
             guard let user = result.model else { return }
-            // 点击跳转到聊天界面  后续改为个人主页
-            let sessionDetail = SessionDetailViewController()
-            sessionDetail.conversationType = RCConversationType.ConversationType_PRIVATE
-            sessionDetail.targetId = user.userId
-            sessionDetail.title = user.name
-            sessionDetail.displayUserNameInCell = false
-            findNavigator().pushViewController(sessionDetail, animated: true)
+            /// 个人主页
+            let userDynamicVC = UserDynamicViewController()
+            userDynamicVC.userId = user.userId
+            findNavigator().pushViewController(userDynamicVC, animated: true)
         }
     }
     

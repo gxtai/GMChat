@@ -38,4 +38,30 @@ class SessionDetailViewController: RCConversationViewController {
 extension SessionDetailViewController {
     override func willDisplayMessageCell(_ cell: RCMessageBaseCell!, at indexPath: IndexPath!) {
     }
+    
+    /// 点击用户头像
+    override func didTapCellPortrait(_ userId: String!) {
+        /// 个人主页
+        let userDynamicVC = UserDynamicViewController()
+        userDynamicVC.userId = userId
+        navigationController?.pushViewController(userDynamicVC, animated: true)
+    }
+    
+    override func presentImagePreviewController(_ model: RCMessageModel!) {
+        print(model)
+//        let loader = JXKingfisherLoader()
+//        let dataSource = JXNetworkingDataSource(photoLoader: loader, numberOfItems: { () -> Int in
+//            return 1
+//        }, placeholder: { index -> UIImage? in
+//            return nil
+//        }) { [weak self] index -> String? in
+//            return model.
+//        }
+//        let delegate = JXDefaultPageControlDelegate()
+//        let trans = JXPhotoBrowserZoomTransitioning { [weak self] (browser, index, view) -> UIView? in
+//            return self?.headerImageView
+//        }
+//        JXPhotoBrowser(dataSource: dataSource, delegate: delegate, transDelegate: trans)
+//            .show(pageIndex: 0)
+    }
 }

@@ -77,13 +77,10 @@ class DynamicListCommentsCell: UITableViewCell {
         let tap = UITapGestureRecognizer { [weak self] (ges) in
             let commentModel = self?.rowModel!.dataModel as! DynamicListCommentsModel
             let userModel = commentModel.user
-            // 点击跳转到聊天界面  后续改为个人主页
-            let sessionDetail = SessionDetailViewController()
-            sessionDetail.conversationType = RCConversationType.ConversationType_PRIVATE
-            sessionDetail.targetId = userModel.id
-            sessionDetail.title = userModel.name
-            sessionDetail.displayUserNameInCell = false
-            self?.findNavigator().pushViewController(sessionDetail, animated: true)
+            /// 个人主页
+            let userDynamicVC = UserDynamicViewController()
+            userDynamicVC.userId = userModel.id
+            self?.findNavigator().pushViewController(userDynamicVC, animated: true)
         }
         headerImageView.addGestureRecognizer(tap)
     }
