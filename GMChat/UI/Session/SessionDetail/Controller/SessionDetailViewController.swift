@@ -85,13 +85,17 @@ extension SessionDetailViewController {
         }) { index -> String? in
             return imageArray[index]
         }
-        let delegate = JXDefaultPageControlDelegate()
         let trans = JXPhotoBrowserZoomTransitioning { (browser, index, view) -> UIView? in
             let cell = cellArray[index]
             return cell.pictureView
         }
+        let delegate = JXDefaultPageControlDelegate()
         JXPhotoBrowser(dataSource: dataSource, delegate: delegate, transDelegate: trans)
             .show(pageIndex: row)
+        /// 长按手势  保存图片
+        delegate.longPressedCallback = { browser, index, image, gesture in
+            print("长按手势  保存图片")
+        }
             
     }
     
