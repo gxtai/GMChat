@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-GMChat/Pods-GMChat-resources.sh
+${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle
+${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj
+${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj
+${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist
+${PODS_ROOT}/RongCloudIM/RongCloudIM/RCColor.plist
+${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist

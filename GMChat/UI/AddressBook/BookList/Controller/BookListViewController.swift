@@ -56,9 +56,13 @@ class BookListViewController: BaseViewController {
     @objc func clickedTheCell(_ rowModel: RowModel) {
         print(rowModel)
         let listModel: BookListModel = rowModel.dataModel as! BookListModel
-        let userDynamicVC = UserDynamicViewController()
-        userDynamicVC.userId = listModel.id
-        navigationController?.pushViewController(userDynamicVC, animated: true)
+//        let userDynamicVC = UserDynamicViewController()
+//        userDynamicVC.userId = listModel.id
+//        navigationController?.pushViewController(userDynamicVC, animated: true)
+        
+        let userDynamicVC = HMMediator.sharedInstance().mediator_gotoUserDynamicPage(["userId": listModel.id])
+        
+        navigationController?.pushViewController(userDynamicVC!, animated: true)
     }
     
     /// UI

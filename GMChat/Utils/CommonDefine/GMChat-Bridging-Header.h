@@ -6,3 +6,4 @@
 #import <YYCategories/YYCategories.h>
 #import <YYText/YYText.h>
 #import "YYImage.h"
+#import "HMMediator.h"

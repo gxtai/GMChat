@@ -7,11 +7,11 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
   - ObjectMapper (3.5.0)
-  - Realm (3.10.0):
-    - Realm/Headers (= 3.10.0)
-  - Realm/Headers (3.10.0)
-  - RealmSwift (3.10.0):
-    - Realm (= 3.10.0)
+  - Realm (3.20.0):
+    - Realm/Headers (= 3.20.0)
+  - Realm/Headers (3.20.0)
+  - RealmSwift (3.20.0):
+    - Realm (= 3.20.0)
   - Result (4.1.0)
   - RongCloudIM/IMKit (2.9.18):
     - RongCloudIM/IMLib
@@ -28,7 +28,7 @@ DEPENDENCIES:
   - Kingfisher
   - Moya (~> 13.0)
   - ObjectMapper
-  - RealmSwift (~> 3.10.0)
+  - RealmSwift (~> 3.20.0)
   - RongCloudIM/IMKit (~> 2.9.18)
   - RongCloudIM/IMLib (~> 2.9.18)
   - SnapKit (~> 4.0.0)
@@ -38,13 +38,11 @@ DEPENDENCIES:
   - YYText
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Kingfisher
     - Moya
     - ObjectMapper
-    - Realm
-    - RealmSwift
     - Result
     - RongCloudIM
     - SnapKit
@@ -52,14 +50,17 @@ SPEC REPOS:
     - SwiftyJSON
     - YYCategories
     - YYText
+  trunk:
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjectMapper: 078b564ed25c6578b62588e306bf1da3924636d4
-  Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
-  RealmSwift: 69121c8b86d0ae005fb779efdb10e606732e1c74
+  Realm: 8b2ca5bc6479a91f379b6b42b5922e396cd5ba5a
+  RealmSwift: 1949ef26a279e1845bd51d591b9103adfcd121df
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RongCloudIM: 827c498ea45c93b389b4b57ececc528f2601ee1e
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
@@ -68,6 +69,6 @@ SPEC CHECKSUMS:
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 07359cc9231a6f3e6b59848d9641fcce92209571
+PODFILE CHECKSUM: 092219d110db4d6e90030e57b8d929131f9b5e2c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4

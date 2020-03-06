@@ -75,6 +75,9 @@
 		A6983D0A22C4B9B20042B591 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */; };
 		A69ABA7322C606CE00EA844C /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ABA7222C606CE00EA844C /* SearchResultCell.swift */; };
 		A69ABA7722C60D2D00EA844C /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */; };
+		A6A36A5123A0C6C200F7F32A /* HMMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A36A4F23A0C6C200F7F32A /* HMMediator.m */; };
+		A6A36A5423A0C7FD00F7F32A /* Book_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A36A5323A0C7FD00F7F32A /* Book_Extension.swift */; };
+		A6A36A5623A0C81600F7F32A /* Target_Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A36A5523A0C81600F7F32A /* Target_Book.swift */; };
 		A6B02E8B22F19F930045A476 /* UserDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B02E8A22F19F930045A476 /* UserDynamicViewController.swift */; };
 		A6B08F8622E16AF4001BD2D5 /* DynamicListCommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B08F8522E16AF4001BD2D5 /* DynamicListCommentsCell.swift */; };
 		A6B08F8822E19407001BD2D5 /* DynamicListImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B08F8722E19407001BD2D5 /* DynamicListImageStore.swift */; };
@@ -196,6 +199,10 @@
 		A6983D0922C4B9B20042B591 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		A69ABA7222C606CE00EA844C /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
+		A6A36A4F23A0C6C200F7F32A /* HMMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMMediator.m; sourceTree = "<group>"; };
+		A6A36A5023A0C6C200F7F32A /* HMMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMMediator.h; sourceTree = "<group>"; };
+		A6A36A5323A0C7FD00F7F32A /* Book_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_Extension.swift; sourceTree = "<group>"; };
+		A6A36A5523A0C81600F7F32A /* Target_Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target_Book.swift; sourceTree = "<group>"; };
 		A6B02E8A22F19F930045A476 /* UserDynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDynamicViewController.swift; sourceTree = "<group>"; };
 		A6B08F8522E16AF4001BD2D5 /* DynamicListCommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListCommentsCell.swift; sourceTree = "<group>"; };
 		A6B08F8722E19407001BD2D5 /* DynamicListImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListImageStore.swift; sourceTree = "<group>"; };
@@ -432,6 +439,7 @@
 		A66C645722DC56FE006AE547 /* ThirdLib */ = {
 			isa = PBXGroup;
 			children = (
+				A6A36A4B23A09F2300F7F32A /* CTMediator */,
 				A6D86B9222F04F88005793B1 /* JXPhotoBrowser */,
 				A66C645822DC5931006AE547 /* YYImage */,
 			);
@@ -515,6 +523,7 @@
 		A67F192722B34D28007D20D4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A6A36A5223A0C7A700F7F32A /* Mediator */,
 				A6983CFE22C49E360042B591 /* DataSource */,
 				A62403F322C06DC800496D3A /* Login */,
 				A67F193122B34FBA007D20D4 /* Session */,
@@ -798,6 +807,24 @@
 				A69ABA7622C60D2D00EA844C /* SearchResultModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A6A36A4B23A09F2300F7F32A /* CTMediator */ = {
+			isa = PBXGroup;
+			children = (
+				A6A36A5023A0C6C200F7F32A /* HMMediator.h */,
+				A6A36A4F23A0C6C200F7F32A /* HMMediator.m */,
+			);
+			path = CTMediator;
+			sourceTree = "<group>";
+		};
+		A6A36A5223A0C7A700F7F32A /* Mediator */ = {
+			isa = PBXGroup;
+			children = (
+				A6A36A5323A0C7FD00F7F32A /* Book_Extension.swift */,
+				A6A36A5523A0C81600F7F32A /* Target_Book.swift */,
+			);
+			path = Mediator;
 			sourceTree = "<group>";
 		};
 		A6B02E8822F19E650045A476 /* UserPage */ = {
@@ -1091,27 +1118,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GMChat/Pods-GMChat-resources.sh",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCColor.plist",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GMChat/Pods-GMChat-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RongCloud.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Emoji.plist",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCColor.plist",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCConfig.plist",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GMChat/Pods-GMChat-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GMChat/Pods-GMChat-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GMChat/Pods-GMChat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		76B836A10042A3ACA3414E15 /* [CP] Embed Pods Frameworks */ = {
@@ -1119,39 +1135,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GMChat/Pods-GMChat-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftProgressHUD/SwiftProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework",
-				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GMChat/Pods-GMChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCategories.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GMChat/Pods-GMChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GMChat/Pods-GMChat-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GMChat/Pods-GMChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7D8C825B8C41510082B18496 /* [CP] Check Pods Manifest.lock */ = {
@@ -1196,6 +1189,7 @@
 				A68E9B6922B8EC470029F547 /* BookListHeaderView.swift in Sources */,
 				A61BA2CA22DDAA4700A37997 /* DynamicSectionModel.swift in Sources */,
 				A6B02E8B22F19F930045A476 /* UserDynamicViewController.swift in Sources */,
+				A6A36A5123A0C6C200F7F32A /* HMMediator.m in Sources */,
 				A6DEA8C722EEBE02009BBFAF /* UIDevice+Extensions.swift in Sources */,
 				A631784822C20CAC00EA8A73 /* PlaceHolderView.swift in Sources */,
 				A6D86BBE22F04FA6005793B1 /* JXPhotoBrowserProgressView.swift in Sources */,
@@ -1237,6 +1231,7 @@
 				A624040622C0CE2A00496D3A /* LoginProvider.swift in Sources */,
 				A6983D0122C49E8F0042B591 /* RCIMDataSource.swift in Sources */,
 				A6D86BD722F04FA6005793B1 /* JXKingfisherWebPLoader.swift in Sources */,
+				A6A36A5623A0C81600F7F32A /* Target_Book.swift in Sources */,
 				A61BA2D422DDC58C00A37997 /* DynamicListService.swift in Sources */,
 				A61BA2CC22DDB1FF00A37997 /* DynamicListContentBaseView.swift in Sources */,
 				A67F192D22B34DB5007D20D4 /* BaseNavigationViewController.swift in Sources */,
@@ -1282,6 +1277,7 @@
 				A6D86BBB22F04FA6005793B1 /* JXPhotoBrowserZoomTransitioning.swift in Sources */,
 				A6D86BCD22F04FA6005793B1 /* JXPhotoBrowserTransitioningDelegate.swift in Sources */,
 				A66C646B22DC5D83006AE547 /* AtFriendsListViewController.swift in Sources */,
+				A6A36A5423A0C7FD00F7F32A /* Book_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

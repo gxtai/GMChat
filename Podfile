@@ -11,7 +11,7 @@ target 'GMChat' do
     pod 'RongCloudIM/IMKit', '~> 2.9.18' # 融云
     pod 'YYCategories'
     pod 'YYText'
-    pod 'RealmSwift', '~> 3.10.0' # realm数据库
+    pod 'RealmSwift', '~> 3.20.0' # realm数据库
 #    pod 'YYImage'
 #    pod 'JXPhotoBrowser'          # 图片浏览
     use_frameworks!
