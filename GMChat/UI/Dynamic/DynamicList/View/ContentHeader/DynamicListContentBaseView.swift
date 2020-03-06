@@ -244,4 +244,5 @@ class DynamicListContentBaseView: UITableViewHeaderFooterView {
         self.bgView.addSubview(imagesView)
         return imagesView
     }()
+    
 }
