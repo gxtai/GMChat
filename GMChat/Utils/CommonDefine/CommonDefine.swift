@@ -14,21 +14,21 @@ let SCREEN_WIDTH = UIScreen.main.bounds.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.height
 
 
-/// 是否是iPhoneX、iPhoneXS
-let DT_IS_IPHONEX_XS : Bool = (SCREEN_HEIGHT == 812.0) ? true : false
-/// 是否是iPhoneXR、iPhoneX Max
-let DT_IS_IPHONEXR_XSMax : Bool = (SCREEN_HEIGHT == 896.0) ? true : false
 /// 是否是iPhoneX系列手机
-let IS_IPHONEX_SET : Bool = (DT_IS_IPHONEX_XS||DT_IS_IPHONEXR_XSMax) ? true : false
+public let IS_IPHONEX_SET : Bool = (SCREEN_HEIGHT == 812.0 || SCREEN_HEIGHT == 896.0 || SCREEN_HEIGHT == 844.0 || SCREEN_HEIGHT == 926.0) ? true : false
 
 /// 状态栏高度
-let kStatusBarHeight : CGFloat = ((UIApplication.shared.statusBarFrame.size.height > 0) ? UIApplication.shared.statusBarFrame.size.height : (IS_IPHONEX_SET ? 44.0 : 20.0))
+public let kStatusBarHeight : CGFloat = ((UIApplication.shared.statusBarFrame.size.height > 0) ? UIApplication.shared.statusBarFrame.size.height : (IS_IPHONEX_SET ? 44.0 : 20.0))
 /// navigationbar高度
-let kNavBarHeight : CGFloat = 44
+public let kNavBarHeight : CGFloat = 44
 /// tabbar高度
-let kTabBarHeight : CGFloat = kStatusBarHeight > 20 ? 83 : 49
+public let kTabBarHeight : CGFloat = kStatusBarHeight > 20 ? 83 : 49
 /// 导航栏高度
-let kTopHeight : CGFloat = kStatusBarHeight + kNavBarHeight
+public let kTopHeight : CGFloat = kStatusBarHeight + kNavBarHeight
+/// 底部safe area高度
+public let bottomSafeAreaHeight : CGFloat = kStatusBarHeight > 20 ? 34 : 0
+/// 顶部safe area高度
+public let topSafeAreaHeight : CGFloat =  kStatusBarHeight > 20 ? 22 : 0
 
 
 /// APP主色调 黄色
