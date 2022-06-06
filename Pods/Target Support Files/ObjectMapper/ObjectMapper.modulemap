@@ -1,4 +1,4 @@
-framework module ObjectMapper {
+module ObjectMapper {
   umbrella header "ObjectMapper-umbrella.h"
 
   export *

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1100"
+   LastUpgradeVersion = "1240"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1335C5421C41971D3891618500623F0D"
-               BuildableName = "Pods_GMChat.framework"
+               BuildableName = "libPods-GMChat.a"
                BlueprintName = "Pods-GMChat"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

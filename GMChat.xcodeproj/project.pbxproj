@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E93A7FF4507F3F8EDC9CEEA /* Pods_GMChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962B0483A47257E7397F840A /* Pods_GMChat.framework */; };
+		573C193329CBDD4D1205DD11 /* libPods-GMChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78F03FF239FB8B6CBC4632 /* libPods-GMChat.a */; };
 		A61BA2CA22DDAA4700A37997 /* DynamicSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BA2C922DDAA4700A37997 /* DynamicSectionModel.swift */; };
 		A61BA2CC22DDB1FF00A37997 /* DynamicListContentBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BA2CB22DDB1FF00A37997 /* DynamicListContentBaseView.swift */; };
 		A61BA2D022DDBD2200A37997 /* DynamicListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BA2CF22DDBD2200A37997 /* DynamicListModel.swift */; };
@@ -123,7 +123,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		962B0483A47257E7397F840A /* Pods_GMChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GMChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F78F03FF239FB8B6CBC4632 /* libPods-GMChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GMChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A61BA2C022DD9C2700A37997 /* DynamicList.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = DynamicList.geojson; sourceTree = "<group>"; };
 		A61BA2C922DDAA4700A37997 /* DynamicSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSectionModel.swift; sourceTree = "<group>"; };
 		A61BA2CB22DDB1FF00A37997 /* DynamicListContentBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListContentBaseView.swift; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E93A7FF4507F3F8EDC9CEEA /* Pods_GMChat.framework in Frameworks */,
+				573C193329CBDD4D1205DD11 /* libPods-GMChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +264,7 @@
 		31BEE347C1984B1833D1B903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				962B0483A47257E7397F840A /* Pods_GMChat.framework */,
+				1F78F03FF239FB8B6CBC4632 /* libPods-GMChat.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1050,7 +1050,6 @@
 				A67F190D22B34C3D007D20D4 /* Sources */,
 				A67F190E22B34C3D007D20D4 /* Frameworks */,
 				A67F190F22B34C3D007D20D4 /* Resources */,
-				76B836A10042A3ACA3414E15 /* [CP] Embed Pods Frameworks */,
 				021EFF80948115F5A4F0EB11 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1128,23 +1127,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GMChat/Pods-GMChat-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		76B836A10042A3ACA3414E15 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GMChat/Pods-GMChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GMChat/Pods-GMChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GMChat/Pods-GMChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7D8C825B8C41510082B18496 /* [CP] Check Pods Manifest.lock */ = {

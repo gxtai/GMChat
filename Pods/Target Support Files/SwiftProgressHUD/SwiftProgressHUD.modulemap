@@ -1,4 +1,4 @@
-framework module SwiftProgressHUD {
+module SwiftProgressHUD {
   umbrella header "SwiftProgressHUD-umbrella.h"
 
   export *

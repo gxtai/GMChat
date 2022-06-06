@@ -1,4 +1,4 @@
-framework module RealmSwift {
+module RealmSwift {
   umbrella header "RealmSwift-umbrella.h"
 
   export *

@@ -1,5 +1,7 @@
 platform :ios, '9.0'
 
+use_modular_headers!
+
 target 'GMChat' do
     pod 'SnapKit', '~> 4.0.0'    # 布局
     pod 'Moya', '~> 13.0'        # 网络加载
@@ -14,5 +16,4 @@ target 'GMChat' do
     pod 'RealmSwift', '~> 3.20.0' # realm数据库
 #    pod 'YYImage'
 #    pod 'JXPhotoBrowser'          # 图片浏览
-    use_frameworks!
 end
